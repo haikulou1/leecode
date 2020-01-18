@@ -2,11 +2,147 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19796b93-f493-4b8e-8fbb-cfa247bb3254" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/kmp/KMPAlgorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kmp/ViolenceMatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../leecode/src/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/Hashtab/Emp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/Hashtab/EmpLinkedList.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/Hashtab/HashTab.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/Hashtab/HashTabDemo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/kmp/KMPAlgorithm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/kmp/ViolenceMatch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/十种经典算法/二分查找.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/十种经典算法/分治算法.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/十种经典算法/动态规划.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/图/Graph.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/排序/冒泡排序.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/排序/基数排序.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/排序/堆排序.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/排序/希尔排序.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/排序/归并排序.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/排序/快速排序.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/排序/直接插入排序.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/排序/简单选择排序.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/数组/ArrayQueue.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/数组/数组模拟队列.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/数组/数组转循环队列$CircleArray.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/数组/数组转循环队列.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/数组/数组转稀疏数组1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/查找/插值查找.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/栈/ArrayStack2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/栈/Operation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/栈/中缀表达式转后缀表达式.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/栈/计算算数和.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/栈/逆波兰表达式.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/AVLTree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/ArrBinaryTree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/ArrBinaryTreeDemo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/BinarySortTree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/BinaryTree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/BinaryTreeDemo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/HeroNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/Node.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/Node2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/Node3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/Node4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/Nodes.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/ThreadedBinaryTree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/二叉排序树.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/哈夫曼树.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/哈夫曼编码.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/平衡二叉树.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/树/线索二叉树.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/递归/八皇后问题.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/递归/迷宫问题.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/链表/Boy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/链表/CircleSingleLinkedList.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/链表/DoubleLinkedList.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/链表/HeroNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/链表/HeroNode2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/链表/SingleLinkedList.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/链表/单向环形链表_约瑟夫问题.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/链表/单链表.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/acm/链表/双向链表.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/十种经典算法/普利姆算法.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Collection和泛型/01_集合框架介绍.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Collection和泛型/02_迭代器的实现原理.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Collection和泛型/03_泛型的概念.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Collection和泛型/04_斗地主案例的需求分析.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Collection和泛型/day02【Collection、泛型】.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Collection和泛型/day02【Collection、泛型】.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Collection和泛型/img/Collection集合体系图.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Collection和泛型/img/双向链表.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Collection和泛型/img/迭代器原理图.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Object类/01_StringBuilder的原理.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Object类/02_包装类的概念.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Object类/day01【Object类、常用API】.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Object类/day01【Object类、常用API】.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Object类/img/06-StringBuilder的原理.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Object类/img/44.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Object类/img/String拼接问题.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Object类/img/equals方法1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Object类/img/equals方法2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Object类/img/equals方法3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Object类/img/system两个方法.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Object类/img/toString方法的自动重写.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/Object类/img/日历.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day03【List、Set】-笔记.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day03【List、Set】.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day04 【Map】.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day05 【异常、线程】-笔记.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day05 【异常、线程】.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day06 【线程、同步】-笔记.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day07【等待与唤醒案例、线程池、Lambda表达式】-笔记.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day07【等待与唤醒案例、线程池、Lambda表达式】.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day08【File类、递归】-笔记.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day08【File类、递归】.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day09【字节流、字符流】(1).md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day09【字节流、字符流】-笔记.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day09【字节流、字符流】.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day10【缓冲流、转换流、序列化流、打印流】-笔记.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day10【缓冲流、转换流、序列化流、打印流】.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day11【网络编程】-笔记.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day11【网络编程】.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day12【函数式接口】-笔记.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/java基础/day13【Stream流、方法引用】笔记.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/mysql/01-mysql基础部分.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/mysql/02-mysql高级部分.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/mysql/03-性能优化篇-1.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/mysql/04_性能优化篇-2.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/mysql/E-R图.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/mysql/~$-性能优化篇-1.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java资料/mysql/笛卡尔积.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leecode/out/production/leecode/add_two_numbers_002/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leecode/out/production/leecode/add_two_numbers_002/Solution$ListNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leecode/out/production/leecode/add_two_numbers_002/Solution.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leecode/out/production/leecode/longest_substring_without_repeating_characters_003/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leecode/out/production/leecode/longest_substring_without_repeating_characters_003/Solution.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leecode/out/production/leecode/test.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leecode/out/production/leecode/two_sum_001/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leecode/out/production/leecode/two_sum_001/Solution.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leecode/src/longest_palindromic_substring/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leecode/src/longest_palindromic_substring/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leecode/src/median_of_two_sorted_arrays_004/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leecode/src/median_of_two_sorted_arrays_004/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/rmi (1) (cn.wy).iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/rmi/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/rmi/src/main/java/HelloClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/rmi/src/main/java/HelloServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/rmi/src/main/java/ISayHello.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/rmi/src/main/java/SayHelloImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/分布式.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kmp/KMPAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kmp/KMPAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kmp/ViolenceMatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kmp/ViolenceMatch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leecode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../leecode/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leecode/leecode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../leecode/leecode.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leecode/src/longest_substring_without_repeating_characters_003/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leecode/src/longest_substring_without_repeating_characters_003/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leecode/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leecode/src/test.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,11 +173,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kmp/KMPAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
+            <state relative-caret-position="722">
               <caret line="38" selection-start-line="38" selection-end-line="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/排序/直接插入排序.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/排序/希尔排序.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="627">
+              <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/排序/快速排序.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-66">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/十种经典算法/普利姆算法.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2223">
+              <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/排序/归并排序.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -104,7 +285,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/字符数组/UVA1584.java" />
         <option value="$PROJECT_DIR$/src/字符数组/UVA1583.java" />
         <option value="$PROJECT_DIR$/src/字符数组/Main2.java" />
         <option value="$PROJECT_DIR$/src/字符数组/Uva1994.java" />
@@ -155,6 +335,7 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/kmp/ViolenceMatch.java" />
         <option value="$PROJECT_DIR$/src/kmp/KMPAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/十种经典算法/普利姆算法.java" />
       </list>
     </option>
   </component>
@@ -169,15 +350,18 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
-    <option name="width" value="1939" />
-    <option name="height" value="1049" />
+    <option name="width" value="1940" />
+    <option name="height" value="1050" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -190,19 +374,30 @@
               <item name="datastruct" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="datastruct" type="b2602c69:ProjectViewProjectNode" />
+              <item name="datastruct" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="十种经典算法" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="datastruct" type="b2602c69:ProjectViewProjectNode" />
+              <item name="datastruct" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="排序" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577967093888" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../zdcc/compute" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579316701218" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -291,58 +486,6 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="acm" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="线索二叉树" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="树.线索二叉树" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="树.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="直接插入排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="排序.直接插入排序" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="排序.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="希尔排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="排序.希尔排序" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="排序.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="插值查找" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="查找.插值查找" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="查找.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -529,6 +672,58 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="线索二叉树" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="树.线索二叉树" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="树.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="直接插入排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="排序.直接插入排序" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="排序.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="希尔排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="排序.希尔排序" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="排序.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="插值查找" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="查找.插值查找" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="查找.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.KMPAlgorithm" />
@@ -684,16 +879,22 @@
       <workItem from="1577689540266" duration="231000" />
       <workItem from="1577712315614" duration="5213000" />
       <workItem from="1577964448654" duration="3180000" />
+      <workItem from="1578385086808" duration="733000" />
+      <workItem from="1578461368407" duration="894000" />
+      <workItem from="1578537669140" duration="2218000" />
+      <workItem from="1579245090677" duration="68000" />
+      <workItem from="1579246837585" duration="2017000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="393239000" />
+    <option name="totallyTimeSpent" value="399169000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09383378" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16085792" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -805,13 +1006,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/jar/JarVerifier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/jre/lib/rt.jar!/sun/misc/URLClassPath.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
@@ -981,13 +1175,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/排序/直接插入排序.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/排序/冒泡.java" />
     <entry file="file://$PROJECT_DIR$/src/树/ArrBinaryTreeDemo.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1017,13 +1204,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="224" column="4" selection-start-line="224" selection-start-column="4" selection-end-line="235" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/排序/归并排序.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="60" column="13" lean-forward="true" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1072,20 +1252,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="277" column="16" selection-start-line="277" selection-start-column="16" selection-end-line="277" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/排序/快速排序.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-196">
-          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/排序/希尔排序.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1191,8 +1357,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kmp/KMPAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="722">
           <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/排序/直接插入排序.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/排序/希尔排序.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1200,6 +1380,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/排序/归并排序.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/排序/快速排序.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/十种经典算法/普利姆算法.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2223">
+          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
         </state>
       </provider>
     </entry>
