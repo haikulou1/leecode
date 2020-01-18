@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19796b93-f493-4b8e-8fbb-cfa247bb3254" name="Default Changelist" comment="" />
+    <list default="true" id="19796b93-f493-4b8e-8fbb-cfa247bb3254" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/kmp/KMPAlgorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kmp/ViolenceMatch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leecode/src/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leecode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../leecode/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,62 +38,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/十种经典算法/动态规划.java">
+        <entry file="file://$PROJECT_DIR$/src/kmp/KMPAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-939">
-              <caret line="9" column="19" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="19" />
+            <state relative-caret-position="264">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/kmp/ViolenceMatch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-57">
-              <caret line="42" column="22" lean-forward="true" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/查找/插值查找.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/栈/中缀表达式转后缀表达式.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1306">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Hashtab/HashTabDemo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2117">
-              <caret line="117" column="6" selection-start-line="117" selection-start-column="6" selection-end-line="117" selection-end-column="6" />
-              <folding>
-                <element signature="e#1995#1996#0" expanded="true" />
-                <element signature="e#2018#2019#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.7.0_79/src.zip!/java/lang/String.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55480">
-              <caret line="3021" column="31" selection-start-line="3021" selection-start-column="25" selection-end-line="3021" selection-end-column="31" />
+            <state>
+              <caret column="8" selection-start-column="8" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -135,11 +98,12 @@
       <replace>Node</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Update.java" />
-        <option value="$PROJECT_DIR$/src/字符数组/UAV401.java" />
         <option value="$PROJECT_DIR$/src/字符数组/UVA1584.java" />
         <option value="$PROJECT_DIR$/src/字符数组/UVA1583.java" />
         <option value="$PROJECT_DIR$/src/字符数组/Main2.java" />
@@ -189,6 +153,8 @@
         <option value="$PROJECT_DIR$/src/十种经典算法/分治算法.java" />
         <option value="$PROJECT_DIR$/src/十种经典算法/动态规划.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/kmp/ViolenceMatch.java" />
+        <option value="$PROJECT_DIR$/src/kmp/KMPAlgorithm.java" />
       </list>
     </option>
   </component>
@@ -203,9 +169,10 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
-    <option name="width" value="1940" />
-    <option name="height" value="1050" />
+    <option name="width" value="1939" />
+    <option name="height" value="1049" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -215,40 +182,27 @@
         <subPane>
           <expand>
             <path>
-              <item name="acm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acm" type="462c0819:PsiDirectoryNode" />
+              <item name="datastruct" type="b2602c69:ProjectViewProjectNode" />
+              <item name="datastruct" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="acm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acm" type="462c0819:PsiDirectoryNode" />
+              <item name="datastruct" type="b2602c69:ProjectViewProjectNode" />
+              <item name="datastruct" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Hashtab" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Hashtab" type="462c0819:PsiDirectoryNode" />
-              <item name="HashTabDemo.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577105509691" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../视频/2019java源代码/09 微服务电商【黑马乐优商城】/day50/day01-springboot/代码/代码/springboot-demo" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577967093888" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../zdcc/compute" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -262,6 +216,7 @@
       <recent name="字符数组" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wy\code\algorithm\datastruct\src" />
       <recent name="C:\wy\code\acm\src\图" />
       <recent name="C:\wy\code\acm\src\树" />
       <recent name="C:\wy\code\acm\src\Hashtab" />
@@ -280,7 +235,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.KMPAlgorithm">
     <configuration name="分治算法" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="十种经典算法.分治算法" />
       <module name="acm" />
@@ -320,9 +275,74 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="KMPAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kmp.KMPAlgorithm" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kmp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="acm" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="线索二叉树" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="树.线索二叉树" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="树.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="直接插入排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="排序.直接插入排序" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="排序.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="希尔排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="排序.希尔排序" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="排序.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="插值查找" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="查找.插值查找" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="查找.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -509,60 +529,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="线索二叉树" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="树.线索二叉树" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="树.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="直接插入排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="排序.直接插入排序" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="排序.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="希尔排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="排序.希尔排序" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="排序.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="插值查找" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="查找.插值查找" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="查找.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.KMPAlgorithm" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.分治算法" />
         <item itemvalue="Application.Graph" />
@@ -711,16 +680,20 @@
       <workItem from="1575449471506" duration="10678000" />
       <workItem from="1577064979232" duration="2032000" />
       <workItem from="1577101334050" duration="4054000" />
+      <workItem from="1577364687292" duration="3954000" />
+      <workItem from="1577689540266" duration="231000" />
+      <workItem from="1577712315614" duration="5213000" />
+      <workItem from="1577964448654" duration="3180000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="380661000" />
+    <option name="totallyTimeSpent" value="393239000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26407507" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09383378" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -730,8 +703,8 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.06647807" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2036775" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32673267" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.21529745" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28895184" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -822,24 +795,16 @@
           <properties />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kmp/KMPAlgorithm.java</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/Iterable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="893">
-          <caret line="74" column="29" lean-forward="true" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/jar/JarFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="179" selection-start-line="179" selection-end-line="179" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/jar/JarVerifier.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
@@ -962,16 +927,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="41" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main2.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4047">
@@ -1193,20 +1149,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_79/src.zip!/java/lang/String.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/十种经典算法/动态规划.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55480">
-          <caret line="3021" column="31" selection-start-line="3021" selection-start-column="25" selection-end-line="3021" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="42" column="22" lean-forward="true" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="19">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1219,14 +1166,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/栈/中缀表达式转后缀表达式.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1306">
+        <state relative-caret-position="133">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Hashtab/HashTabDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2117">
+        <state relative-caret-position="2185">
           <caret line="117" column="6" selection-start-line="117" selection-start-column="6" selection-end-line="117" selection-end-column="6" />
           <folding>
             <element signature="e#1995#1996#0" expanded="true" />
@@ -1235,10 +1182,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/十种经典算法/动态规划.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_79/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-939">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="19" />
+        <state relative-caret-position="55480">
+          <caret line="3021" column="31" selection-start-line="3021" selection-start-column="25" selection-end-line="3021" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kmp/KMPAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kmp/ViolenceMatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>
