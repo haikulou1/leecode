@@ -19,7 +19,7 @@ public class DijkstraAlgorithm {
 		//创建 Graph对象
 		Graph graph = new Graph(vertex, matrix);
 		//测试, 看看图的邻接矩阵是否ok
-		graph.showGraph();
+		//graph.showGraph();
 		//测试迪杰斯特拉算法
 		graph.dsj(2);//C
 		graph.showDijkstra();
@@ -77,7 +77,7 @@ class Graph {
 			len = vv.getDis(index) + matrix[index][j];
 			// 如果j顶点没有被访问过，并且 len 小于出发顶点到j顶点的距离，就需要更新
 			if(!vv.in(j) && len < vv.getDis(j)) {
-				vv.updatePre(j, index); //更新j顶点的前驱为index顶点
+				//vv.updatePre(j, index); //更新j顶点的前驱为index顶点
 				vv.updateDis(j, len); //更新出发顶点到j顶点的距离
 			}
 		}
@@ -163,23 +163,23 @@ class VisitedVertex {
 	//显示最后的结果
 	//即将三个数组的情况输出
 	public void show() {
-
-		System.out.println("==========================");
-		//输出already_arr
-		for(int i : already_arr) {
-			System.out.print(i + " ");
-		}
-		System.out.println();
-		//输出pre_visited
-		for(int i : pre_visited) {
-			System.out.print(i + " ");
-		}
-		System.out.println();
-		//输出dis
-		for(int i : dis) {
-			System.out.print(i + " ");
-		}
-		System.out.println();
+//
+//		System.out.println("==========================");
+//		//输出already_arr
+//		for(int i : already_arr) {
+//			System.out.print(i + " ");
+//		}
+//		System.out.println();
+//		//输出pre_visited
+//		for(int i : pre_visited) {
+//			System.out.print(i + " ");
+//		}
+//		System.out.println();
+//		//输出dis
+//		for(int i : dis) {
+//			System.out.print(i + " ");
+//		}
+//		System.out.println();
 		//为了好看最后的最短距离，我们处理
 		char[] vertex = { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
 		int count = 0;

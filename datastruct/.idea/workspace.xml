@@ -2,42 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19796b93-f493-4b8e-8fbb-cfa247bb3254" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/十种经典算法/DijkstraAlgorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/api/src/main/java/cn/wy/DoOrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/api/src/main/java/cn/wy/DoOrderResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/provider/provider.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/java/cn/wy/ServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/resources/META-INF/spring/order-provider.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/resources/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/user/src/main/resources/order-consumer.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/十种经典算法/FloydAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../leecode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/add_two_numbers_002/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/add_two_numbers_002/Solution$ListNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/add_two_numbers_002/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/longest_palindromic_substring_05/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/longest_palindromic_substring_05/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/longest_substring_without_repeating_characters_003/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/longest_substring_without_repeating_characters_003/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/median_of_two_sorted_arrays_004/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/median_of_two_sorted_arrays_004/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/reverse_integer_07/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/reverse_integer_07/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/two_sum_001/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/two_sum_001/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/zigzag_conversion_06/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/out/production/leecode/zigzag_conversion_06/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leecode/src/l10_regular_expression_matching/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leecode/src/l10_regular_expression_matching/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../分布式/dubbo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/src/main/java/cn/wy/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/src/test/java/cn/wy/AppTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../分布式/dubbo/provider/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/java/cn/wy/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/java/cn/wy/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/src/test/java/cn/wy/AppTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../分布式/dubbo/user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/src/main/java/cn/wy/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../分布式/dubbo/user/src/main/java/cn/wy/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/src/test/java/cn/wy/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/acm/十种经典算法/EData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/acm/十种经典算法/EData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/acm/十种经典算法/克鲁斯卡尔算法.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/acm/十种经典算法/克鲁斯卡尔算法.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/十种经典算法/DijkstraAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/十种经典算法/DijkstraAlgorithm.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,31 +38,36 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kmp/KMPAlgorithm.java">
+        <entry file="file://$PROJECT_DIR$/src/十种经典算法/DijkstraAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
+            <state relative-caret-position="-800">
+              <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
+              <folding>
+                <element signature="e#971#972#0" expanded="true" />
+                <element signature="e#987#988#0" expanded="true" />
+                <element signature="e#2747#2748#0" expanded="true" />
+                <element signature="e#2770#2771#0" expanded="true" />
+                <element signature="e#2888#2889#0" expanded="true" />
+                <element signature="e#2919#2920#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/十种经典算法/DijkstraAlgorithm.java">
+        <entry file="file://$PROJECT_DIR$/src/十种经典算法/FloydAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="60" column="53" lean-forward="true" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
-              <folding>
-                <element signature="e#985#986#0" expanded="true" />
-                <element signature="e#1001#1002#0" expanded="true" />
-                <element signature="e#2612#2613#0" expanded="true" />
-                <element signature="e#2649#2650#0" expanded="true" />
-                <element signature="e#2763#2764#0" expanded="true" />
-                <element signature="e#2786#2787#0" expanded="true" />
-                <element signature="e#2904#2905#0" expanded="true" />
-                <element signature="e#2935#2936#0" expanded="true" />
-                <element signature="e#3019#3020#0" expanded="true" />
-                <element signature="e#3043#3044#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="374">
+              <caret line="65" column="33" lean-forward="true" selection-start-line="61" selection-start-column="12" selection-end-line="65" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.7.0_79/src.zip!/java/util/Arrays.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="1922" column="5" lean-forward="true" selection-start-line="1922" selection-start-column="5" selection-end-line="1922" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -137,7 +111,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/十种经典算法/克鲁斯卡尔算法.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-688">
+            <state relative-caret-position="456">
               <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
             </state>
           </provider>
@@ -210,7 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/字符数组/Uva1994.java" />
         <option value="$PROJECT_DIR$/src/字符数组/Uva232.java" />
         <option value="$PROJECT_DIR$/src/字符数组/Uva1585.java" />
         <option value="$PROJECT_DIR$/src/栈和队列/Stack.java" />
@@ -261,6 +234,7 @@
         <option value="$PROJECT_DIR$/src/十种经典算法/普利姆算法.java" />
         <option value="$PROJECT_DIR$/src/十种经典算法/克鲁斯卡尔算法.java" />
         <option value="$PROJECT_DIR$/src/十种经典算法/DijkstraAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/十种经典算法/FloydAlgorithm.java" />
       </list>
     </option>
   </component>
@@ -273,10 +247,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1940" />
-    <option name="height" value="1050" />
+    <option name="x" value="-8" />
+    <option name="width" value="1937" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -286,8 +259,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -319,16 +290,31 @@
               <item name="十种经典算法" type="462c0819:PsiDirectoryNode" />
               <item name="DijkstraAlgorithm.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
+            <path>
+              <item name="datastruct" type="b2602c69:ProjectViewProjectNode" />
+              <item name="datastruct" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="十种经典算法" type="462c0819:PsiDirectoryNode" />
+              <item name="FloydAlgorithm.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="datastruct" type="b2602c69:ProjectViewProjectNode" />
+              <item name="datastruct" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="图" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579668590526" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581930913254" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -362,7 +348,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Graph">
+  <component name="RunManager" selected="Application.FloydAlgorithm">
     <configuration name="分治算法" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="十种经典算法.分治算法" />
       <module name="acm" />
@@ -376,12 +362,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Graph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="图.Graph" />
+    <configuration name="DijkstraAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="十种经典算法.DijkstraAlgorithm" />
       <module name="acm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="图.*" />
+          <option name="PATTERN" value="十种经典算法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FloydAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="十种经典算法.FloydAlgorithm" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="十种经典算法.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -405,110 +404,6 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="acm" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="二分查找" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="十种经典算法.二分查找" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="十种经典算法.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="哈夫曼树" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="树.哈夫曼树" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="树.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="直接插入排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="排序.直接插入排序" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="排序.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="冒泡排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="排序.冒泡排序" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="排序.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="迷宫问题" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="递归.迷宫问题" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="递归.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="克鲁斯卡尔算法" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="十种经典算法.克鲁斯卡尔算法" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="十种经典算法.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="中缀表达式转后缀表达式" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="栈.中缀表达式转后缀表达式" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="栈.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="计算算数和" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="栈.计算算数和" />
-      <module name="acm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="栈.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -643,6 +538,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="二分查找" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="十种经典算法.二分查找" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="十种经典算法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="冒泡" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="排序.冒泡" />
       <module name="acm" />
@@ -656,12 +564,104 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="哈夫曼树" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="树.哈夫曼树" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="树.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="直接插入排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="排序.直接插入排序" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="排序.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="冒泡排序" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="排序.冒泡排序" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="排序.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="迷宫问题" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="递归.迷宫问题" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="递归.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="克鲁斯卡尔算法" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="十种经典算法.克鲁斯卡尔算法" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="十种经典算法.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="中缀表达式转后缀表达式" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="栈.中缀表达式转后缀表达式" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="栈.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="计算算数和" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="栈.计算算数和" />
+      <module name="acm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="栈.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FloydAlgorithm" />
+        <item itemvalue="Application.DijkstraAlgorithm" />
         <item itemvalue="Application.KMPAlgorithm" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.分治算法" />
-        <item itemvalue="Application.Graph" />
       </list>
     </recent_temporary>
   </component>
@@ -820,17 +820,18 @@
       <workItem from="1580730767546" duration="3665000" />
       <workItem from="1580871457046" duration="1243000" />
       <workItem from="1581316932791" duration="2008000" />
+      <workItem from="1581928384147" duration="2422000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="410518000" />
+    <option name="totallyTimeSpent" value="412940000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17895442" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1816354" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -840,8 +841,8 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.06647807" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.21529745" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.18271954" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.08640227" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32152975" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -944,32 +945,16 @@
           <properties />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/十种经典算法/DijkstraAlgorithm.java</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/Arrays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="3179" column="38" lean-forward="true" selection-start-line="3179" selection-start-column="33" selection-end-line="3179" selection-end-column="38" />
-          <folding>
-            <element signature="e#5027#5028#0" expanded="true" />
-            <element signature="e#5098#5099#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="462" selection-start-line="462" selection-end-line="462" />
-          <folding>
-            <element signature="e#6283#6284#0" expanded="true" />
-            <element signature="e#6351#6352#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9289">
@@ -1191,26 +1176,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/十种经典算法.java" />
-    <entry file="file://$PROJECT_DIR$/src/图/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="108" column="9" lean-forward="true" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3476#3477#0" expanded="true" />
-            <element signature="e#3507#3508#0" expanded="true" />
-            <element signature="e#3667#3668#0" expanded="true" />
-            <element signature="e#3691#3692#0" expanded="true" />
-            <element signature="e#3770#3771#0" expanded="true" />
-            <element signature="e#3801#3802#0" expanded="true" />
-            <element signature="e#3855#3856#0" expanded="true" />
-            <element signature="e#3882#3883#0" expanded="true" />
-            <element signature="e#3933#3934#0" expanded="true" />
-            <element signature="e#3962#3963#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/排序/基数排序.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="579">
@@ -1283,6 +1248,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/kmp/KMPAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/排序/直接插入排序.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -1311,6 +1283,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/十种经典算法/克鲁斯卡尔算法.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/排序/归并排序.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -1325,36 +1304,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/十种经典算法/克鲁斯卡尔算法.java">
+    <entry file="file://$PROJECT_DIR$/src/图/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-688">
-          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+        <state relative-caret-position="-468">
+          <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kmp/KMPAlgorithm.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_79/src.zip!/java/util/Arrays.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        <state relative-caret-position="283">
+          <caret line="1922" column="5" lean-forward="true" selection-start-line="1922" selection-start-column="5" selection-end-line="1922" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/十种经典算法/DijkstraAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="60" column="53" lean-forward="true" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
+        <state relative-caret-position="-800">
+          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
           <folding>
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1001#1002#0" expanded="true" />
-            <element signature="e#2612#2613#0" expanded="true" />
-            <element signature="e#2649#2650#0" expanded="true" />
-            <element signature="e#2763#2764#0" expanded="true" />
-            <element signature="e#2786#2787#0" expanded="true" />
-            <element signature="e#2904#2905#0" expanded="true" />
-            <element signature="e#2935#2936#0" expanded="true" />
-            <element signature="e#3019#3020#0" expanded="true" />
-            <element signature="e#3043#3044#0" expanded="true" />
+            <element signature="e#971#972#0" expanded="true" />
+            <element signature="e#987#988#0" expanded="true" />
+            <element signature="e#2747#2748#0" expanded="true" />
+            <element signature="e#2770#2771#0" expanded="true" />
+            <element signature="e#2888#2889#0" expanded="true" />
+            <element signature="e#2919#2920#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/十种经典算法/FloydAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="65" column="33" lean-forward="true" selection-start-line="61" selection-start-column="12" selection-end-line="65" selection-end-column="33" />
         </state>
       </provider>
     </entry>
