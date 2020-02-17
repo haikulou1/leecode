@@ -2,59 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0ab6434-3cad-4b4a-938e-c3ed92902b57" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/l04_median_of_two_sorted_arrays/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/l04_median_of_two_sorted_arrays/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/l07_reverse_interger/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/l07_reverse_interger/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/l08_string_2_integer/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/l08_string_2_integer/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/l09_palindrome_number/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/l09_palindrome_number/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/l10_regular_expression_matching/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/l10_regular_expression_matching/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/dubbo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/provider/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../datastruct/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../datastruct/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../datastruct/src/十种经典算法/克鲁斯卡尔算法.java" beforeDir="false" afterPath="$PROJECT_DIR$/../datastruct/src/十种经典算法/克鲁斯卡尔算法.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/api/src/main/java/cn/wy/DoOrderRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/api/src/main/java/cn/wy/DoOrderResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/provider/provider.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/java/cn/wy/ServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/resources/META-INF/spring/order-provider.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/resources/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../分布式/dubbo/user/src/main/resources/order-consumer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leecode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/leecode.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/leecode/longest_substring_without_repeating_characters_003/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/leecode/longest_substring_without_repeating_characters_003/Solution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/add_two_numbers_002/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/l02_add_two_numbers/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/add_two_numbers_002/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/l02_add_two_numbers/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/longest_palindromic_substring_05/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/l05_longest_palindromic_substring/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/longest_palindromic_substring_05/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/l05_longest_palindromic_substring/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/longest_substring_without_repeating_characters_003/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/l03_longest_substring_without_repeating_characters/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/longest_substring_without_repeating_characters_003/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/l03_longest_substring_without_repeating_characters/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/median_of_two_sorted_arrays_004/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/l01_two_sum/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/median_of_two_sorted_arrays_004/Solution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reverse_integer_07/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/l06_zigzag_conversion/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reverse_integer_07/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/l06_zigzag_conversion/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/two_sum_001/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/two_sum_001/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/l01_two_sum/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/zigzag_conversion_06/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/zigzag_conversion_06/Solution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/rmi (1) (cn.wy).iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/rmi/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/rmi/src/main/java/HelloClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/rmi/src/main/java/HelloServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/rmi/src/main/java/ISayHello.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/rmi/src/main/java/SayHelloImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../分布式/分布式.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/add_two_numbers_002/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/add_two_numbers_002/Solution$ListNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/add_two_numbers_002/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/longest_palindromic_substring_05/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/longest_palindromic_substring_05/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/longest_substring_without_repeating_characters_003/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/longest_substring_without_repeating_characters_003/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/median_of_two_sorted_arrays_004/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/median_of_two_sorted_arrays_004/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/reverse_integer_07/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/reverse_integer_07/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/two_sum_001/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/two_sum_001/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/zigzag_conversion_06/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/leecode/zigzag_conversion_06/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/l10_regular_expression_matching/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/l10_regular_expression_matching/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../分布式/dubbo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/src/main/java/cn/wy/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/src/test/java/cn/wy/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../分布式/dubbo/provider/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/java/cn/wy/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/java/cn/wy/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/src/test/java/cn/wy/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../分布式/dubbo/user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/src/main/java/cn/wy/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../分布式/dubbo/user/src/main/java/cn/wy/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/src/test/java/cn/wy/AppTest.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,8 +49,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/l10_regular_expression_matching/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+            <state relative-caret-position="390">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="e#156#157#0" expanded="true" />
+                <element signature="e#214#215#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,8 +110,8 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="736" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="735" />
     <option name="width" value="1185" />
     <option name="height" value="1040" />
   </component>
@@ -139,6 +124,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -167,7 +153,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -177,7 +162,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1580906557367" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1580978782457" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../zdcc/zdcc" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -207,7 +192,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Solution (2)">
+  <component name="RunManager" selected="Application.Solution (1)">
+    <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="l10_regular_expression_matching.Solution" />
+      <module name="leecode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="l10_regular_expression_matching.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="l03_longest_substring_without_repeating_characters.Solution" />
       <module name="leecode" />
@@ -282,7 +280,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Solution (2)" />
         <item itemvalue="Application.Solution (1)" />
         <item itemvalue="Application.Solution" />
         <item itemvalue="Application.test" />
@@ -309,18 +306,20 @@
       <workItem from="1579399045191" duration="6128000" />
       <workItem from="1580045701934" duration="783000" />
       <workItem from="1580432638475" duration="598000" />
-      <workItem from="1580885536972" duration="9100000" />
+      <workItem from="1580885536972" duration="9104000" />
+      <workItem from="1580975850077" duration="2932000" />
+      <workItem from="1581042757186" duration="102000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36411000" />
+    <option name="totallyTimeSpent" value="39449000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27815014" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09584451" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -330,8 +329,8 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2917847" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.34844193" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2917847" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.13314448" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -375,6 +374,12 @@
           <line>53</line>
           <properties />
           <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/l10_regular_expression_matching/Solution.java</url>
+          <line>19</line>
+          <properties />
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -545,8 +550,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/l10_regular_expression_matching/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        <state relative-caret-position="390">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#156#157#0" expanded="true" />
+            <element signature="e#213#214#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

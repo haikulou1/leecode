@@ -1,13 +1,11 @@
 package cn.wy;
-
+import com.alibaba.dubbo.container.Main;
 /**
- * Hello world!
- *
+ * Created by 胡歌的小迷弟 on 2020/2/6 10:11
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+public class App {
+
+    public static void main(String[] args) {
+        Main.main(args);
     }
 }
