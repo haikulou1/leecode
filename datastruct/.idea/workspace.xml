@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19796b93-f493-4b8e-8fbb-cfa247bb3254" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/十种经典算法/FloydAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/acm/十种经典算法/EData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/acm/十种经典算法/EData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/acm/十种经典算法/克鲁斯卡尔算法.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/acm/十种经典算法/克鲁斯卡尔算法.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/十种经典算法/DijkstraAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/十种经典算法/DijkstraAlgorithm.java" afterDir="false" />
-    </list>
+    <list default="true" id="19796b93-f493-4b8e-8fbb-cfa247bb3254" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/十种经典算法/FloydAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="65" column="33" lean-forward="true" selection-start-line="61" selection-start-column="12" selection-end-line="65" selection-end-column="33" />
+            <state relative-caret-position="321">
+              <caret line="82" column="44" lean-forward="true" selection-start-line="82" selection-start-column="44" selection-end-line="82" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -246,10 +240,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="width" value="1937" />
-    <option name="height" value="1057" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="735" />
+    <option name="width" value="1185" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -314,8 +308,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581930913254" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1582017938850" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -820,16 +814,15 @@
       <workItem from="1580730767546" duration="3665000" />
       <workItem from="1580871457046" duration="1243000" />
       <workItem from="1581316932791" duration="2008000" />
-      <workItem from="1581928384147" duration="2422000" />
+      <workItem from="1581928384147" duration="5401000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="412940000" />
+    <option name="totallyTimeSpent" value="415919000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1816354" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -841,7 +834,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.06647807" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.08640227" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4305949" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32152975" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1338,8 +1331,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/十种经典算法/FloydAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="65" column="33" lean-forward="true" selection-start-line="61" selection-start-column="12" selection-end-line="65" selection-end-column="33" />
+        <state relative-caret-position="321">
+          <caret line="82" column="44" lean-forward="true" selection-start-line="82" selection-start-column="44" selection-end-line="82" selection-end-column="44" />
         </state>
       </provider>
     </entry>
