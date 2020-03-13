@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="481ad485-6282-47d0-bc01-98d9699f0f69" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../designmodel/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../designmodel/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../designmodel/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../designmodel/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../designmodel/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../designmodel/designmodel.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../designmodel/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../designmodel/src/main/java/cn/wy/factory/FactroyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../designmodel/src/main/java/cn/wy/factory/Girl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../designmodel/src/main/java/cn/wy/factory/MyGirlFriend.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../designmodel/src/main/java/cn/wy/factory/simple/GirlFriendFacotory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_101tec_zkclient_0_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_dubbo_2_5_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_dubbo_2_6_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_caucho_hessian_4_0_38.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_20_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_10_5_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_10_6_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_22_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_24_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_3_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_client_2_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_client_4_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_framework_2_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_framework_4_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_recipes_2_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_recipes_4_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_yetus_audience_annotations_0_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_netty_netty_3_2_5_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_6_1_26.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_util_6_1_26.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_servlet_api_2_5_20081211.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_25.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_16_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_16_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_16_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_16_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_16_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataBaseDriver/DataBaseDriver.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataBaseDriver/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataBaseDriver/src/main/java/cn/wy/spi/DataBaseDirver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MysqlDriver/MysqlDriver.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MysqlDriver/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MysqlDriver/src/main/java/cn/wy/spi/MysqlDriver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MysqlDriver/src/main/resources/META-INF/services/cn.wy.spi.DataBaseDirver" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo/api/api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo/client/client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo/client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo/client/src/main/java/cn/wy/Myprotocal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo/client/src/main/resources/META-INF/dubbo/com.alibaba.dubbo.rpc.Protocol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo/client/src/main/resources/dubbo-client.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo/dubboDemo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo/provider/provider.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo/provider/src/main/java/cn/wy/BootStrapp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo/provider/src/main/java/cn/wy/DataBaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo/provider/src/main/resources/dubbo-server.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dubbo/user/user.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/client/ChatClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/client/handler/ChatClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/demo/MyClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/demo/NettyClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/demo/NettyServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/demo/TcpServerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/process/IMProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/protocol/IMDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/protocol/IMEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/protocol/IMMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/protocol/IMP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/server/handler/SocketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/server/handler/WebSocktHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcclienet/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcclienet/rpcclienet.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/common/RpcClinet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/RpcZooClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/handler/MyHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/loadbalance/AbstractLoadBanance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/loadbalance/LoadBanalce.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/loadbalance/RandomLoadBanalce.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/net/TCPTransport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/proxy/Myproxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/service/DiscoverService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/request/RpcRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/service/Myservice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcserver/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcserver/rpcserver.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/request/RpcRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/common/Rpcserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/RpcZooServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/Start.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/annotation/ServiceAnnotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/handler/ProcessorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/service/MyServiceImpl2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/service/Myservice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/service/Myserviceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/.idea/分布式.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/src/main/java/cn/wy/DoOrderRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/src/main/java/cn/wy/DoOrderResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/src/main/java/cn/wy/Service.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/target/classes/cn/wy/DoOrderRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/target/classes/cn/wy/DoOrderResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/target/classes/cn/wy/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/dubbo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/provider.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/java/cn/wy/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/java/cn/wy/ServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/resources/META-INF/spring/order-provider.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/resources/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/target/classes/META-INF/spring/order-provider.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/target/classes/cn/wy/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/target/classes/cn/wy/ServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/target/classes/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/src/main/java/cn/wy/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/src/main/resources/order-consumer.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/src/test/java/cn/wy/ServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/target/classes/cn/wy/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/target/classes/order-consumer.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/target/test-classes/cn/wy/ServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/http和https/http.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/http和https/https.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/tcpip/tcpip.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/zookeeper/zookeeper(一).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/序列化/序列化.md" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/zookeeper/api/target/" />
+    <ignored path="$PROJECT_DIR$/zookeeper/target/" />
+    <ignored path="$PROJECT_DIR$/nio/target/" />
+    <ignored path="$PROJECT_DIR$/zookeeper/rpcclienet/target/" />
+    <ignored path="$PROJECT_DIR$/zookeeper/rpcserver/target/" />
+    <ignored path="$PROJECT_DIR$/dubbo/api/target/" />
+    <ignored path="$PROJECT_DIR$/dubbo/target/" />
+    <ignored path="$PROJECT_DIR$/dubbo/user/target/" />
+    <ignored path="$PROJECT_DIR$/dubbo/provider/target/" />
+    <ignored path="$PROJECT_DIR$/dubbo/client/target/" />
+    <ignored path="$PROJECT_DIR$/DataBaseDriver/target/" />
+    <ignored path="$PROJECT_DIR$/MysqlDriver/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dubbo/client/src/main/java/cn/wy/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/../../../respo/com/alibaba/dubbo/2.5.6/dubbo-2.5.6-sources.jar!/com/alibaba/dubbo/common/extension/ExtensionLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1026">
+              <caret line="93" selection-start-line="93" selection-end-line="93" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/序列化/序列化.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tcpip/tcpip.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/../../../respo/com/alibaba/dubbo/2.5.6/dubbo-2.5.6-sources.jar!/com/alibaba/dubbo/common/extension/factory/AdaptiveExtensionFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dubbo/client/src/main/java/cn/wy/Myprotocal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#352#353#0" expanded="true" />
+                <element signature="e#379#380#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dubbo/client/src/main/resources/META-INF/dubbo/com.alibaba.dubbo.rpc.Protocol">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="10" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dubbo/provider/src/main/java/cn/wy/BootStrapp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dubbo/client/src/main/resources/dubbo-client.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dubbo/provider/src/main/java/cn/wy/ServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>咕泡学院</find>
+      <find>ChannelInitializer</find>
+      <find>getExt</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>小迷弟</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="haikulou1 &lt;920937242@qq.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/ProcessorHandler.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/loadbalance/AbstractLoadBanance.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/loadbalance/LoadBanalce.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/service/DiscoverService.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/proxy/Myproxy.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/handler/MyHandler.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/net/TCPTransport.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/request/RpcRequest.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/request/RpcRequest.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/Start.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/rpc/zk/loadbalance/RandomLoadBanalce.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/rpc/ServerDemo.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/rpc/RpcServer.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/rpc/LBServerDemo1.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/rpc/LBServerDemo.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/rpc/GpHelloImpl2.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/rpc/GpHelloImpl.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/rpc/zk/ServiceDiscoveryImpl.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/rpc/ClientDemo.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/rpc/zk/ZkConfig.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/rpc/RpcClientProxy.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/rpc/RemoteInvocationHandler.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/rpc/zk/ZkConfig.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/rpc/zk/ServiceDiscoveryImpl.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/RpcZooServer.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/handler/ProcessorHandler.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/service/Myservice.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/service/Myservice.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/service/Myserviceimpl.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/service/MyServiceImpl2.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/RpcZooClient.java" />
+        <option value="$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/common/RpcClinet.java" />
+        <option value="$PROJECT_DIR$/dubbo/client/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo/provider/src/main/resources/dubbo-client.xml" />
+        <option value="$PROJECT_DIR$/dubbo/provider/src/main/java/cn/wy/ServiceImpl.java" />
+        <option value="$PROJECT_DIR$/dubbo/api/src/main/java/cn/wy/Service.java" />
+        <option value="$PROJECT_DIR$/dubbo/provider/src/main/java/cn/wy/BootStrapp.java" />
+        <option value="$PROJECT_DIR$/dubbo/provider/src/main/resources/dubbo-server.xml" />
+        <option value="$PROJECT_DIR$/dubbo/client/src/main/resources/dubbo-client.xml" />
+        <option value="$PROJECT_DIR$/dubbo/api/src/main/java/cn/wy/spi/DatabaseDriver.java" />
+        <option value="$PROJECT_DIR$/DataBaseDriver/pom.xml" />
+        <option value="$PROJECT_DIR$/DataBaseDriver/src/main/java/cn/wy/spi/DataBaseDirver.java" />
+        <option value="$PROJECT_DIR$/MysqlDriver/pom.xml" />
+        <option value="$PROJECT_DIR$/MysqlDriver/src/main/java/cn/wy/spi/MysqlDriver.java" />
+        <option value="$PROJECT_DIR$/MysqlDriver/src/main/resources/META-INF/service/cn.wy.spi.MysqlDriver" />
+        <option value="$PROJECT_DIR$/dubbo/provider/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo/provider/src/main/java/cn/wy/DataBaseConnection.java" />
+        <option value="$PROJECT_DIR$/MysqlDriver/src/main/resources/META-INF/services/cn.wy.spi.DataBaseDriver" />
+        <option value="$PROJECT_DIR$/dubbo/client/src/main/java/cn/wy/Myprotocal.java" />
+        <option value="$PROJECT_DIR$/dubbo/client/src/main/resources/META-INF/dubbo/com.alibaba.dubbo.rpc.Protocol" />
+        <option value="$PROJECT_DIR$/dubbo/client/src/main/java/cn/wy/App.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\wy\respo" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../software/apache-maven-3.5.4-bin/apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="C:\wy\software\apache-maven-3.5.4-bin\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="475" />
+    <option name="width" value="1260" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="rpc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rpc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rpc" type="462c0819:PsiDirectoryNode" />
+              <item name="序列化" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583806686968" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../视频/课件源码（所有）/Tom老师上课的所有源码(内含详细说明)/Tom老师上课的所有源码(内含详细说明)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="cn.wy.client.zookeeper.handler" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.wy.client.zookeeper.net" />
+      <recent name="cn.wy.client.zookeeper.request" />
+      <recent name="cn.wy.server.zookeeper" />
+      <recent name="cn.wy.service" />
+      <recent name="cn.wy.client" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wy\code\algorithm\rpc\dubbo\client\src\main\resources" />
+      <recent name="C:\wy\code\algorithm\rpc\dubbo\provider\src\main\resources" />
+      <recent name="C:\wy\code\algorithm\rpc\zookeeper\rpcserver\src\main\java\cn\wy" />
+      <recent name="C:\wy\code\algorithm\rpc\zookeeper\rpcclienet\src\main\java\cn\wy\client" />
+      <recent name="C:\wy\code\algorithm\rpc\zookeeper\rpcclienet\src\main\java\cn\wy\client\zookeeper" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.wy.App" />
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.wy.dubbo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BootStrapp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.wy.BootStrapp" />
+      <module name="provider" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.wy.dubbo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataBaseConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.wy.DataBaseConnection" />
+      <module name="provider" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.wy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RpcZooClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.wy.client.zookeeper.RpcZooClient" />
+      <module name="rpcclienet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.wy.client.zookeeper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.wy.server.zookeeper.Start" />
+      <module name="rpcserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.wy.server.zookeeper.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+        <item itemvalue="Application.BootStrapp" />
+        <item itemvalue="Application.DataBaseConnection" />
+        <item itemvalue="Application.RpcZooClient" />
+        <item itemvalue="Application.Start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="481ad485-6282-47d0-bc01-98d9699f0f69" name="Default Changelist" comment="" />
+      <created>1582079126841</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582079126841</updated>
+      <workItem from="1582079128362" duration="8955000" />
+      <workItem from="1582160954146" duration="14817000" />
+      <workItem from="1582340785333" duration="19484000" />
+      <workItem from="1582962576510" duration="15507000" />
+      <workItem from="1583284354996" duration="5913000" />
+      <workItem from="1583480432060" duration="2245000" />
+      <workItem from="1583483812647" duration="27972000" />
+      <workItem from="1583809157082" duration="47000" />
+      <workItem from="1583810805053" duration="624000" />
+      <workItem from="1583890289408" duration="18000" />
+    </task>
+    <task id="LOCAL-00001" summary="2020-2-17">
+      <created>1582079295122</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582079295122</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="95582000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.02010724" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Learn" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.48300284" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.12181303" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28045326" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286119" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.17466667" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Spring" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.43670887" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Learn" order="7" />
+      <window_info anchor="bottom" id="Spring" order="0" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.34560907" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.43909347" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.17466667" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2020-2-17" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020-2-17" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zookeeper/src/main/java/cn/wy/distrilock/MyDistributeLock.java</url>
+          <line>60</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/nio/src/main/java/cn/wy/netty/server/handler/HttpHandler.java</url>
+          <line>20</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../../../respo/io/netty/netty-all/4.1.22.Final/netty-all-4.1.22.Final-sources.jar!/io/netty/channel/AbstractChannel.java</url>
+          <line>503</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/handler/ProcessorHandler.java</url>
+          <line>29</line>
+          <properties />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/dubbo/provider/src/main/java/cn/wy/DataBaseConnection.java</url>
+          <line>12</line>
+          <properties />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../../../respo/com/alibaba/dubbo/2.5.6/dubbo-2.5.6-sources.jar!/com/alibaba/dubbo/common/extension/ExtensionLoader.java</url>
+          <line>556</line>
+          <properties />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/rpc/RpcRequest.java" />
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/rpc/TCPTransport.java" />
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/rpc/zk/RegisterCenterImpl.java" />
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/rpc/zk/ZkConfig.java" />
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/rpc/RemoteInvocationHandler.java" />
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/rpc/zk/ServiceDiscoveryImpl.java" />
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/rpc/RpcServer.java" />
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/rpc/ClientDemo.java" />
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/rpc/ServerDemo.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/concurrent/Executor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/proxy/Myproxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#377#378#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/handler/MyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/net/TCPTransport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#382#383#0" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/handler/ProcessorHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/service/Myservice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/service/Myservice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/service/Myserviceimpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/service/MyServiceImpl2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/common/RpcClinet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/Start.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/RpcZooServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="52" column="53" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+            <element signature="e#764#765#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/RpcZooClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/service/DiscoverService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/provider/src/main/resources/META-INF/spring/order-provider.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/api/src/main/java/cn/wy/DoOrderRequest.java" />
+    <entry file="file://$PROJECT_DIR$/dubbo/api/src/main/java/cn/wy/DoOrderResponse.java" />
+    <entry file="file://$PROJECT_DIR$/dubbo/provider/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/provider/src/main/resources/dubbo-server.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/api/src/main/java/cn/wy/spi/DatabaseDriver.java" />
+    <entry file="file://$PROJECT_DIR$/dubbo/api/src/main/java/cn/wy/dubbo/Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBaseDriver/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MysqlDriver/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/provider/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MysqlDriver/src/main/java/cn/wy/spi/MysqlDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="e#173#174#0" expanded="true" />
+            <element signature="e#211#212#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MysqlDriver/src/main/resources/META-INF/services/cn.wy.spi.DataBaseDirver">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBaseDriver/src/main/java/cn/wy/spi/DataBaseDirver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../respo/org/springframework/spring-context/4.3.10.RELEASE/spring-context-4.3.10.RELEASE.jar!/org/springframework/context/support/AbstractApplicationContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="579" lean-forward="true" selection-start-line="579" selection-end-line="579" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../respo/com/alibaba/dubbo/2.5.6/dubbo-2.5.6.jar!/com/alibaba/dubbo/common/extension/ExtensionLoader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="67" column="41" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/provider/src/main/java/cn/wy/DataBaseConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/client/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1159">
+          <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/client/src/main/java/cn/wy/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../respo/com/alibaba/dubbo/2.5.6/dubbo-2.5.6-sources.jar!/com/alibaba/dubbo/common/extension/ExtensionLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tcpip/tcpip.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../respo/com/alibaba/dubbo/2.5.6/dubbo-2.5.6-sources.jar!/com/alibaba/dubbo/common/extension/factory/AdaptiveExtensionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/client/src/main/java/cn/wy/Myprotocal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#352#353#0" expanded="true" />
+            <element signature="e#379#380#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/client/src/main/resources/META-INF/dubbo/com.alibaba.dubbo.rpc.Protocol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/provider/src/main/java/cn/wy/BootStrapp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/client/src/main/resources/dubbo-client.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dubbo/provider/src/main/java/cn/wy/ServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/序列化/序列化.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

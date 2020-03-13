@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="51403a93-3fc9-43f7-889d-2066e0117175" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designmodel.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/wy/factory/FactroyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/wy/factory/Girl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/wy/factory/MyGirlFriend.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/wy/factory/simple/GirlFriendFacotory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__com_101tec_zkclient_0_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__com_alibaba_dubbo_2_5_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__com_alibaba_dubbo_2_6_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__com_caucho_hessian_4_0_38.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__com_google_guava_guava_20_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__io_netty_netty_3_10_5_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__io_netty_netty_3_10_6_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__io_netty_netty_all_4_1_22_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__io_netty_netty_all_4_1_24_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__javax_servlet_servlet_api_3_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_apache_curator_curator_client_2_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_apache_curator_curator_client_4_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_apache_curator_curator_framework_2_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_apache_curator_curator_framework_4_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_apache_curator_curator_recipes_2_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_apache_curator_curator_recipes_4_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_apache_yetus_audience_annotations_0_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_jboss_netty_netty_3_2_5_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_mortbay_jetty_jetty_6_1_26.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_mortbay_jetty_jetty_util_6_1_26.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_mortbay_jetty_servlet_api_2_5_20081211.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_25.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_springframework_spring_aop_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_springframework_spring_aop_4_3_16_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_springframework_spring_beans_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_springframework_spring_beans_4_3_16_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_springframework_spring_context_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_springframework_spring_context_4_3_16_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_springframework_spring_core_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_springframework_spring_core_4_3_16_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_springframework_spring_expression_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_springframework_spring_expression_4_3_16_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/.idea/libraries/Maven__org_springframework_spring_web_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/DataBaseDriver/DataBaseDriver.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/DataBaseDriver/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/DataBaseDriver/src/main/java/cn/wy/spi/DataBaseDirver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/MysqlDriver/MysqlDriver.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/MysqlDriver/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/MysqlDriver/src/main/java/cn/wy/spi/MysqlDriver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/MysqlDriver/src/main/resources/META-INF/services/cn.wy.spi.DataBaseDirver" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/dubbo/api/api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/dubbo/client/client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/dubbo/client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/dubbo/client/src/main/java/cn/wy/Myprotocal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/dubbo/client/src/main/resources/META-INF/dubbo/com.alibaba.dubbo.rpc.Protocol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/dubbo/client/src/main/resources/dubbo-client.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/dubbo/dubboDemo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/dubbo/provider/provider.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/dubbo/provider/src/main/java/cn/wy/BootStrapp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/dubbo/provider/src/main/java/cn/wy/DataBaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/dubbo/provider/src/main/resources/dubbo-server.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/dubbo/user/user.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/nio/src/main/java/cn/wy/netty/client/ChatClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/nio/src/main/java/cn/wy/netty/client/handler/ChatClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/nio/src/main/java/cn/wy/netty/demo/MyClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/nio/src/main/java/cn/wy/netty/demo/NettyClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/nio/src/main/java/cn/wy/netty/demo/NettyServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/nio/src/main/java/cn/wy/netty/demo/TcpServerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/nio/src/main/java/cn/wy/netty/process/IMProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/nio/src/main/java/cn/wy/netty/protocol/IMDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/nio/src/main/java/cn/wy/netty/protocol/IMEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/nio/src/main/java/cn/wy/netty/protocol/IMMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/nio/src/main/java/cn/wy/netty/protocol/IMP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/nio/src/main/java/cn/wy/netty/server/handler/SocketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/nio/src/main/java/cn/wy/netty/server/handler/WebSocktHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcclienet/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcclienet/rpcclienet.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcclienet/src/main/java/cn/wy/client/common/RpcClinet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/RpcZooClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/handler/MyHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/loadbalance/AbstractLoadBanance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/loadbalance/LoadBanalce.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/loadbalance/RandomLoadBanalce.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/net/TCPTransport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/proxy/Myproxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcclienet/src/main/java/cn/wy/client/zookeeper/service/DiscoverService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcclienet/src/main/java/cn/wy/request/RpcRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcclienet/src/main/java/cn/wy/service/Myservice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcserver/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcserver/rpcserver.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcserver/src/main/java/cn/wy/request/RpcRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcserver/src/main/java/cn/wy/server/common/Rpcserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/RpcZooServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/Start.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/annotation/ServiceAnnotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcserver/src/main/java/cn/wy/server/zookeeper/handler/ProcessorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcserver/src/main/java/cn/wy/service/MyServiceImpl2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcserver/src/main/java/cn/wy/service/Myservice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpc/zookeeper/rpcserver/src/main/java/cn/wy/service/Myserviceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/.idea/分布式.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/src/main/java/cn/wy/DoOrderRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/src/main/java/cn/wy/DoOrderResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/src/main/java/cn/wy/Service.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/target/classes/cn/wy/DoOrderRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/target/classes/cn/wy/DoOrderResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/api/target/classes/cn/wy/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/dubbo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/provider.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/java/cn/wy/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/java/cn/wy/ServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/resources/META-INF/spring/order-provider.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/src/main/resources/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/target/classes/META-INF/spring/order-provider.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/target/classes/cn/wy/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/target/classes/cn/wy/ServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/provider/target/classes/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/src/main/java/cn/wy/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/src/main/resources/order-consumer.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/src/test/java/cn/wy/ServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/target/classes/cn/wy/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/target/classes/order-consumer.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/dubbo/user/target/test-classes/cn/wy/ServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/http和https/http.md" beforeDir="false" afterPath="$PROJECT_DIR$/../分布式/http和https/http.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/http和https/https.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/tcpip/tcpip.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/zookeeper/zookeeper(一).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../分布式/序列化/序列化.md" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/Student.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/Monitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/proxy/Girl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/proxy/GirlImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+              <folding>
+                <element signature="e#163#164#0" expanded="true" />
+                <element signature="e#190#191#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/proxy/GirlProxy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#262#263#0" expanded="true" />
+                <element signature="e#281#282#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/proxy/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/MyClassLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/MyInvocationHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/MyProxy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/factory/simple/GirlFriendFacotory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/factory/MyGirlFriend.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/factory/abstracts/Myfactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/factory/abstracts/base/Factory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/single/LazySingle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/single/HungrySingle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/factory/FactroyTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/prototype/Person.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/prototype/CloneTarget.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/prototype/Myprototype.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/strategy/PayState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/strategy/Pay.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/strategy/AliPay.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/strategy/weiPay.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/strategy/PayEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/strategy/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/template/dao/MemberDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/template/JdbcTemplate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/template/RowMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/template/MemberDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/delegate/controllers/OrderAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/delegate/controllers/MemberAction.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/delegate/ServletDispatcher.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/adapter/register.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/adapter/Oldregister.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/adapter/Newregister.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/adapter/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/decorator/test/DecotratorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/decorator/passport/upgrede/SigninForThirdService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/decorator/passport/upgrede/ISigninForThirdService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/decorator/passport/SigginTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/observer/Oberver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/observer/mouse/Event.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/observer/EventCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/observer/CallBack.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/observer/Observer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/observer/core/Event.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/observer/mouse/Mouse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/observer/mouse/MouseEventCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/observer/mouse/MouseTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/observer/Listener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/observer/Event.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/observer/Subscribe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/cn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/jdk/MyProxy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/Student.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/jdk/proxy/Girl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/jdk/proxy/GirlImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/jdk/proxy/GirlProxy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wy/jdk/proxy/Test.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\wy\respo" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../software/apache-maven-3.5.4-bin/apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="C:\wy\software\apache-maven-3.5.4-bin\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="287" />
+    <option name="y" value="70" />
+    <option name="width" value="1260" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="designmodel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="designmodel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="designmodel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="designmodel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="designmodel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="designmodel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="designmodel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="designmodel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="designmodel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="designmodel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="wy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="designmodel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="designmodel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="wy" type="462c0819:PsiDirectoryNode" />
+              <item name="jdk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="designmodel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="designmodel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="wy" type="462c0819:PsiDirectoryNode" />
+              <item name="jdk" type="462c0819:PsiDirectoryNode" />
+              <item name="proxy" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584090717778" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../zdcc/preprocess" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="cn.wy.strategy" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wy\code\algorithm\designmodel\src\main\java\cn\wy" />
+      <recent name="C:\wy\code\algorithm\designmodel\src\main\java\cn\wy\observer" />
+      <recent name="C:\wy\code\algorithm\designmodel\src\main\java\cn\wy\observer\mouse" />
+      <recent name="C:\wy\code\algorithm\designmodel\src\main\java\cn\wy\delegate" />
+      <recent name="C:\wy\code\algorithm\designmodel\src\main\java\cn\wy\template" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Test (2)">
+    <configuration name="MouseTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.wy.observer.mouse.MouseTest" />
+      <module name="designmodel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.wy.observer.mouse.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Subscribe" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.wy.observer.Subscribe" />
+      <module name="designmodel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.wy.observer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.wy.adapter.Test" />
+      <module name="designmodel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.wy.adapter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.wy.jdk.proxy.Test" />
+      <module name="designmodel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.wy.jdk.proxy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.wy.strategy.Test" />
+      <module name="designmodel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.wy.strategy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test (2)" />
+        <item itemvalue="Application.Subscribe" />
+        <item itemvalue="Application.MouseTest" />
+        <item itemvalue="Application.Test (1)" />
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="51403a93-3fc9-43f7-889d-2066e0117175" name="Default Changelist" comment="" />
+      <created>1583654790415</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583654790415</updated>
+      <workItem from="1583654796766" duration="4145000" />
+      <workItem from="1583807609430" duration="2218000" />
+      <workItem from="1583809917737" duration="1658000" />
+      <workItem from="1583890309416" duration="13840000" />
+      <workItem from="1584060588275" duration="75000" />
+      <workItem from="1584066392173" duration="1174000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="Myprototype - 2020.03.10 at 11h 13m 21s.xml">
+      <configuration name="Myprototype" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="Myprototype_testDeepClone - 2020.03.10 at 11h 24m 43s.xml">
+      <configuration name="Myprototype.testDeepClone" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="Myprototype_testDeepClone - 2020.03.10 at 11h 27m 38s.xml">
+      <configuration name="Myprototype.testDeepClone" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="Myprototype_testDeepClone - 2020.03.10 at 11h 28m 42s.xml">
+      <configuration name="Myprototype.testDeepClone" configurationId="TestNG" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="23110000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24262735" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Learn" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32152975" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.23087819" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.40934843" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/wy/observer/mouse/MouseTest.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/template/entity/Member.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/delegate/controllers/MemberAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/delegate/controllers/OrderAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/delegate/controllers/SystemAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/delegate/ServletDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/template/JdbcTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/template/MemberDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/template/RowMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/template/dao/MemberDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#480#932#0" expanded="true" />
+            <element signature="e#931#932#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/adapter.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/strategy/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/adapter/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/adapter/Oldregister.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding>
+            <element signature="e#160#161#0" expanded="true" />
+            <element signature="e#187#188#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/adapter/Newregister.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/adapter/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/decorator/test/DecotratorTest.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/decorator/passport/upgrede/SigninForThirdService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/decorator/passport/upgrede/ISigninForThirdService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/decorator/passport/SigginTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-418">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/mouse/Event.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/EventCallback.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/Oberver.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/mouse/EventLisenter.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/CallBack.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="483" column="18" selection-start-line="483" selection-start-column="18" selection-end-line="483" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/mouse/Mouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/mouse/MouseEventCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="13" column="29" lean-forward="true" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/mouse/MouseEventType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/mouse/MouseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="40" column="22" lean-forward="true" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/core/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="76" column="10" selection-start-line="76" selection-start-column="10" selection-end-line="76" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/core/EventLisenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="36" column="41" lean-forward="true" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+          <folding>
+            <element signature="e#132#133#0" expanded="true" />
+            <element signature="e#173#174#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/Subscribe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/strategy/Pay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/strategy/AliPay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/observer/Listener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/strategy/PayEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="e#175#176#0" expanded="true" />
+            <element signature="e#201#202#0" expanded="true" />
+            <element signature="e#236#237#0" expanded="true" />
+            <element signature="e#266#267#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/cn.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/Xiaoming.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/MyProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/MyInvocationHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/MyClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/DefineProxy/Monitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/proxy/Girl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/proxy/GirlImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding>
+            <element signature="e#163#164#0" expanded="true" />
+            <element signature="e#190#191#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/proxy/GirlProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wy/jdk/proxy/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

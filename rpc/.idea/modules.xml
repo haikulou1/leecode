@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DataBaseDriver/DataBaseDriver.iml" filepath="$PROJECT_DIR$/DataBaseDriver/DataBaseDriver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MysqlDriver/MysqlDriver.iml" filepath="$PROJECT_DIR$/MysqlDriver/MysqlDriver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo/api/api.iml" filepath="$PROJECT_DIR$/dubbo/api/api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo/client/client.iml" filepath="$PROJECT_DIR$/dubbo/client/client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo/dubboDemo.iml" filepath="$PROJECT_DIR$/dubbo/dubboDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nio/nio.iml" filepath="$PROJECT_DIR$/nio/nio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo/provider/provider.iml" filepath="$PROJECT_DIR$/dubbo/provider/provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zookeeper/rpcclienet/rpcclienet.iml" filepath="$PROJECT_DIR$/zookeeper/rpcclienet/rpcclienet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zookeeper/rpcserver/rpcserver.iml" filepath="$PROJECT_DIR$/zookeeper/rpcserver/rpcserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo/user/user.iml" filepath="$PROJECT_DIR$/dubbo/user/user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zookeeper/zookeeper.iml" filepath="$PROJECT_DIR$/zookeeper/zookeeper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/分布式.iml" filepath="$PROJECT_DIR$/.idea/分布式.iml" />
+    </modules>
+  </component>
+</project>

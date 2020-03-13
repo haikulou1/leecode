@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api" />
+        <module name="client" />
+        <module name="DataBaseDriver" />
+        <module name="MysqlDriver" />
+        <module name="nio" />
+        <module name="provider" />
+        <module name="rpcclienet" />
+        <module name="rpcserver" />
+        <module name="user" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api" target="1.7" />
+      <module name="client" target="1.7" />
+      <module name="DataBaseDriver" target="1.7" />
+      <module name="dubboDemo" target="1.7" />
+      <module name="MysqlDriver" target="1.7" />
+      <module name="nio" target="1.7" />
+      <module name="provider" target="1.7" />
+      <module name="rpcclienet" target="1.7" />
+      <module name="rpcserver" target="1.7" />
+      <module name="user" target="1.7" />
+      <module name="vip-0805" target="1.5" />
+      <module name="zookeeper" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
