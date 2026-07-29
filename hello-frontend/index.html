@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World - 前端</title>
+    <style>
+        body {
+            font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f5f7fa;
+        }
+        .card {
+            background: #fff;
+            padding: 48px 64px;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin: 0 0 16px;
+        }
+        #greeting {
+            font-size: 28px;
+            color: #27ae60;
+            font-weight: 600;
+        }
+        .meta {
+            margin-top: 12px;
+            color: #95a5a6;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Hello World</h1>
+        <div id="greeting">加载中...</div>
+        <div class="meta">前端 leecode / 后端 haikulou1.github.io</div>
+    </div>
+
+    <script>
+        // 跨仓契约常量：必须与后端 HelloWorld.getGreeting() 返回值字面相等
+        const GREETING = "Hello, World!";
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // 后端为静态站仓库，无独立 HTTP 服务；此处直接对齐后端契约常量进行渲染。
+            // 当后端提供 HTTP 接口时，可将下方替换为 fetch 调用：
+            //   const resp = await fetch("/api/hello");
+            //   const data = await resp.json();
+            //   document.getElementById("greeting").textContent = data.greeting;
+            document.getElementById("greeting").textContent = GREETING;
+        });
+    </script>
+</body>
+</html>
