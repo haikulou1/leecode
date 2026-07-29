@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-card">
+        <h1 class="login-title">登录</h1>
+        <form id="loginForm" class="login-form" novalidate>
+            <div class="form-item">
+                <label for="username" class="form-label">用户名</label>
+                <input id="username" name="username" type="text" class="form-input"
+                       placeholder="请输入用户名" autocomplete="username" required>
+            </div>
+            <div class="form-item">
+                <label for="password" class="form-label">密码</label>
+                <input id="password" name="password" type="password" class="form-input"
+                       placeholder="请输入密码" autocomplete="current-password" required>
+            </div>
+            <button id="loginBtn" type="submit" class="login-btn">登录</button>
+            <p id="message" class="login-message" role="alert"></p>
+        </form>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
