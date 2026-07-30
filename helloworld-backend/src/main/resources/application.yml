@@ -1,0 +1,59 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: helloworld-backend
+  datasource:
+    url: jdbc:mysql://localhost:3306/helloworld?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.demo.helloworld.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# HelloWorld 应用自定义配置
+helloworld:
+  # 关于页面配置
+  about:
+    title: 关于 HelloWorld
+    content: 这是一个前后端分离的 HelloWorld 示例应用，用于验证跨仓库协同开发链路。
+    author: DTCoder
+  # 联系页面配置
+  contact:
+    email: contact@helloworld.demo
+    phone: 123-4567-8900
+    address: 杭州市
+  # 应用配置
+  config:
+    app-name: HelloWorld
+    theme: light
+    language: zh_CN
+  # 版本信息
+  version:
+    version: 1.0.0
+    build-time: 2026-07-30T10:00:00
+
+logging:
+  level:
+    com.demo.helloworld: INFO
+    org.mybatis: WARN

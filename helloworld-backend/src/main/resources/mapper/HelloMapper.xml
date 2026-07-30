@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.helloworld.mapper.HelloMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="helloMessageMap" type="com.demo.helloworld.entity.HelloMessage">
+        <id column="id" property="id"/>
+        <result column="message" property="message"/>
+        <result column="language" property="language"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+    </resultMap>
+
+    <!-- 按语言查询未删除的欢迎语记录 -->
+    <select id="selectByLanguage" resultMap="helloMessageMap">
+        SELECT id, message, language, is_deleted, gmt_create, gmt_modified
+        FROM hello_message
+        WHERE language = #{language}
+          AND is_deleted = #{isDeleted}
+        LIMIT 1
+    </select>
+
+</mapper>
