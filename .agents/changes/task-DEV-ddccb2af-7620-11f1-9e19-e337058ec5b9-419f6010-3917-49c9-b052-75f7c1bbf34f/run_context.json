@@ -1,0 +1,34 @@
+{
+  "task_id": "DEV-ddccb2af-7620-11f1-9e19-e337058ec5b9-419f6010-3917-49c9-b052-75f7c1bbf34f",
+  "stage": "review",
+  "blocker_count": 1,
+  "review_summary": {
+    "total_p0": 1,
+    "total_p1": 2,
+    "total_p2": 4,
+    "verdict": "conditional_fail",
+    "p0_blockers": [
+      {
+        "id": "P0-1",
+        "file": "datastruct/src/service/ExportService.java",
+        "lines": "95-107",
+        "title": "extractField 无法解析 JSON 数组值，bubble.csv 导出数据截断",
+        "description": "extractField 以逗号作为值结束符，但 JSON 数组 [5,3,8,1] 内含逗号导致值在第一个逗号处截断，bubble CSV 导出结果与页面展示不一致"
+      }
+    ],
+    "p1_majors": [
+      {
+        "id": "P1-1",
+        "file": "datastruct/src/server/RouterHandler.java",
+        "lines": "70-73",
+        "title": "input 长度超限错误消息错误"
+      },
+      {
+        "id": "P1-2",
+        "file": "datastruct/src/server/RouterHandler.java",
+        "lines": "148-174",
+        "title": "自定义 urlDecode 不支持多字节 UTF-8"
+      }
+    ]
+  }
+}
