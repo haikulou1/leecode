@@ -19,7 +19,9 @@ import java.util.Map;
  * HttpServer 启动入口 + 路由注册 + CORS + query 解析 + JSON 工具。
  * 使用 JDK 内置 com.sun.net.httpserver.HttpServer，零外部依赖。
  *
- * 启动：javac -d out server/**/*.java && java -cp out server.ApiServer
+ * 启动（在 leecode/src 目录下执行）：
+ *   javac -d ../out server/*.java server/handlers/*.java server/model/*.java
+ *   java -cp ../out server.ApiServer
  * 端口：-Dport=9090 覆盖，默认 8080，监听 0.0.0.0
  */
 public class ApiServer {
