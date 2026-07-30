@@ -1,9 +1,6 @@
 package algoapi.controller;
 
 import algoapi.model.ApiResult;
-import algoapi.service.BubbleSortService;
-import algoapi.service.ExportService;
-import algoapi.service.HashService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -27,15 +24,6 @@ class AlgoControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private HashService hashService;
-
-    @Autowired
-    private BubbleSortService bubbleSortService;
-
-    @Autowired
-    private ExportService exportService;
-
     /**
      * /api/hello → 200 + {code:0, message:"ok", data:{result:"HelloWorld"}}
      */
@@ -51,7 +39,7 @@ class AlgoControllerTest {
     }
 
     /**
-     * /api/hash?input=hello → 200 + data.algorithm="SHA-256" + data.input 含转义
+     * /api/hash?input=hello → 200 + data.algorithm="SHA-256" + data.input 回显原始输入
      */
     @Test
     void hash_withInput_returnsHashResult() throws Exception {
@@ -64,14 +52,16 @@ class AlgoControllerTest {
     }
 
     /**
-     * B1 验证：XSS 输入被 HTML 转义
+     * B1 验证：后端回显原始 input（不做 HTML 转义，H1 有意偏离）。
+     * XSS 防护由前端 textContent 渲染层负责，后端保持 data.input 为用户原始输入，
+     * 与 clarify.md §4.3 契约（data.input 回显原文）及导出接口 input 处理一致。
      */
     @Test
-    void hash_withXssInput_inputIsEscaped() throws Exception {
+    void hash_withXssInput_inputIsRawEchoed() throws Exception {
         String xssPayload = "<img src=x onerror=alert(1)>";
         mockMvc.perform(get("/api/hash").param("input", xssPayload))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data.input").value("&lt;img src=x onerror=alert(1)&gt;"));
+                .andExpect(jsonPath("$.data.input").value("<img src=x onerror=alert(1)>"));
     }
 
     /**
