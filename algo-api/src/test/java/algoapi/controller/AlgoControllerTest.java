@@ -75,6 +75,16 @@ class AlgoControllerTest {
     }
 
     /**
+     * N6 验证：显式空串 ?input= 回退默认值 "hello"（defaultValue 不触发显式空串）
+     */
+    @Test
+    void hash_emptyInput_fallsBackToHello() throws Exception {
+        mockMvc.perform(get("/api/hash").param("input", ""))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.input").value("hello"));
+    }
+
+    /**
      * /api/bubble?nums=3,1,2 → 200 + data.sorted=[1,2,3]
      */
     @Test

@@ -54,6 +54,10 @@ public class AlgoController {
      */
     @GetMapping("/hash")
     public ApiResult hash(@RequestParam(defaultValue = "hello") String input) {
+        // N6: 显式空 input 兜底（?input= 时 defaultValue 不触发），与 ExportService.exportCsv 空值处理对齐
+        if (input == null || input.isEmpty()) {
+            input = "hello";
+        }
         String[] result = hashService.hash(input);
         Map<String, Object> data = new HashMap<>();
         data.put("input", input);
