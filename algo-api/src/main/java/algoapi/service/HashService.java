@@ -8,6 +8,9 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * 哈希算法服务（SHA-256），NoSuchAlgorithmException 兜底回退 MD5
+ *
+ * CR 修复（2026-07-30）：
+ * - I6: 极端兜底不再返回 input.length() 伪哈希，改为抛 IllegalStateException
  */
 @Service
 public class HashService {
@@ -28,8 +31,8 @@ public class HashService {
                 byte[] digest = md.digest(input.getBytes(StandardCharsets.UTF_8));
                 return new String[]{"MD5(fallback)", toHex(digest)};
             } catch (NoSuchAlgorithmException ex) {
-                // 极端兜底：返回原始字符串长度作为伪哈希
-                return new String[]{"fallback", String.valueOf(input.length())};
+                // I6: 极端兜底抛异常，让全局处理器兜底 500，不返回伪哈希值
+                throw new IllegalStateException("哈希算法不可用（SHA-256 和 MD5 均无法初始化）", ex);
             }
         }
     }

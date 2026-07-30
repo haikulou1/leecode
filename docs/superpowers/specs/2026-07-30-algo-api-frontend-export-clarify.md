@@ -120,10 +120,14 @@ haikulou1.github.io 是 Hexo **静态站**，无前端工程化。
                          v
                [leecode/algo-api (Spring Boot :8080)]
                     ├── GET /api/hello
-                    ├── POST /api/hash
-                    ├── POST /api/bubble
+                    ├── GET /api/hash
+                    ├── GET /api/bubble
                     └── GET /api/export?type=...
 ```
+
+> **N1 契约修订（2026-07-30 CR修复）**：hash/bubble 接口由原设计的 `POST + body` 改为 `GET + query`。
+> 实现金时评估：只读幂等的查询用 GET + query 比 POST body 更合理（可缓存、可书签、语义正确）。
+> 实现优于设计，此处同步契约文档以匹配实现，标注为有意偏离。
 
 ### 4.2 组件与职责（单元化）
 | 单元 | 仓库 | 职责 | 依赖 |
@@ -138,9 +142,9 @@ haikulou1.github.io 是 Hexo **静态站**，无前端工程化。
 ```json
 { "code": 0, "message": "ok", "data": { ... } }
 ```
-- `GET /api/hello` → `data: { message: "Hello, World!", timestamp: "ISO-8601" }`
-- `POST /api/hash` body `{ "text": "abc", "algos": ["MD5","SHA-256","SHA-512"] }` → `data: { MD5: "...", "SHA-256": "...", "SHA-512": "..." }`
-- `POST /api/bubble` body `{ "array": [3,1,2] }` → `data: { sorted: [1,2,3], steps: [[3,1,2],[1,3,2],[1,2,3]] }`
+- `GET /api/hello` → `data: { result: "HelloWorld" }`
+- `GET /api/hash?input=...` → `data: { input: "...", algorithm: "SHA-256", hash: "..." }`
+- `GET /api/bubble?nums=...` → `data: { input: [...], sorted: [...], warning?: "..." }`
 - `GET /api/export?type=hello|hash|bubble` → `Content-Type: text/csv; Content-Disposition: attachment`
 
 ### 4.4 数据流
