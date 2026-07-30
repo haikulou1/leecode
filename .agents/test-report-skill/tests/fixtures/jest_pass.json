@@ -1,0 +1,18 @@
+{
+  "numTotalTests": 2,
+  "numPassedTests": 2,
+  "numFailedTests": 0,
+  "numPendingTests": 0,
+  "testResults": [
+    {
+      "name": "/path/to/example.test.ts",
+      "status": "passed",
+      "startTime": 1700000000000,
+      "endTime": 1700000000500,
+      "assertionResults": [
+        {"fullName": "adds 1 + 1", "status": "passed", "duration": 50, "failureMessages": []},
+        {"fullName": "multiplies 2 * 3", "status": "passed", "duration": 30, "failureMessages": []}
+      ]
+    }
+  ]
+}

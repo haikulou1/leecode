@@ -1,0 +1,18 @@
+{
+  "numTotalTests": 2,
+  "numPassedTests": 2,
+  "numFailedTests": 0,
+  "numPendingTests": 0,
+  "testResults": [
+    {
+      "name": "/path/to/vitest.test.ts",
+      "status": "passed",
+      "startTime": 1700000000000,
+      "endTime": 1700000001000,
+      "assertionResults": [
+        {"fullName": "vitest case one", "status": "passed", "failureMessages": []},
+        {"fullName": "vitest case two", "status": "passed", "failureMessages": []}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "total": {
+    "lines": {"total": 200, "covered": 184, "skipped": 0, "pct": 92.0},
+    "branches": {"total": 80, "covered": 64, "skipped": 0, "pct": 80.0},
+    "functions": {"total": 50, "covered": 45, "skipped": 0, "pct": 90.0},
+    "statements": {"total": 220, "covered": 209, "skipped": 0, "pct": 95.0}
+  },
+  "src/good_file.py": {
+    "lines": {"total": 100, "covered": 95, "skipped": 0, "pct": 95.0},
+    "branches": {"total": 40, "covered": 35, "skipped": 0, "pct": 87.5},
+    "functions": {"total": 25, "covered": 24, "skipped": 0, "pct": 96.0},
+    "statements": {"total": 110, "covered": 105, "skipped": 0, "pct": 95.45}
+  },
+  "src/risky_module.py": {
+    "lines": {"total": 50, "covered": 30, "skipped": 0, "pct": 60.0},
+    "branches": {"total": 20, "covered": 10, "skipped": 0, "pct": 50.0},
+    "functions": {"total": 10, "covered": 6, "skipped": 0, "pct": 60.0},
+    "statements": {"total": 55, "covered": 33, "skipped": 0, "pct": 60.0}
+  },
+  "src/another_low.py": {
+    "lines": {"total": 30, "covered": 20, "skipped": 0, "pct": 66.67},
+    "branches": {"total": 10, "covered": 5, "skipped": 0, "pct": 50.0},
+    "functions": {"total": 5, "covered": 3, "skipped": 0, "pct": 60.0},
+    "statements": {"total": 35, "covered": 25, "skipped": 0, "pct": 71.43}
+  }
+}
