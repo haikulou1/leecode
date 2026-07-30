@@ -13,14 +13,14 @@
 
 | 严重度 | 数量 | 说明 |
 |--------|------|------|
-| **blocking** | 1 | 后端删除 HTML 转义（H1 改原样回显）但测试仍断言转义结果 → 测试必然失败，前后端 XSS 防御契约断裂 |
-| **important** | 0 | R2 的 B2（前端未解包 data 层）已修复 |
-| **nit / suggestion** | 2 | 契约文档未同步 GET + 后端无空 input 校验（依赖 defaultValue 兜底） |
-| **praise** | 5 | B2 修复正确 + XSS 前端 textContent 全覆盖 + 统一响应体设计完整 |
+| **blocking** | 0 | R2 的 B2（callApi 未解包 data 层）已彻底修复，三 Tab 全链路恢复 |
+| **important** | 0 | R1/R2 的 I1-I6 全部已修复且无回归 |
+| **nit / suggestion** | 3 | 契约未同步 GET + 测试冗余 import + BASE_URL 生产占位符 |
+| **praise** | 6 | R2 的 5 项保留 + 新增 1 项 B2 回归修复质量肯定 |
 
-**blocker_count = 1**
+**blocker_count = 0**
 
-**评审结论**：⚠️ **不可直接合并**。R2 的 B2（前端 callApi 未解包 data 层）已被正确修复——`callApi` L72 现为 `return body.data !== undefined ? body.data : body`，三 Tab 可正常读取业务字段。但本次发现新的阻断问题 B3：后端在 H1 修复中删除了 `escapeHtml`，`AlgoController.hash` L59 改为原样回显 input（注释"H1: 回显原始 input，不做 HTML 转义"），而 `AlgoControllerTest.hash_withXssInput_inputIsEscaped` L57-63 仍断言 `$.data.input` 等于 `"&lt;img src=x onerror=alert(1)&gt;"`。**该测试用例必然失败**（实际返回原始 `<img...>`，断言期望转义后的 `&lt;img...&gt;`），导致 `mvn test` 红灯，CI 阻断合并。
+**评审结论**：✅ **Approve（可合并）**。R2 唯一 blocking（B2：前端 `callApi` `return body` 未解包 `ApiResult.data` 层，致三 Tab 全失效、bubble Tab `TypeError` 崩溃）已精准修复：`callApi` 现改为 `return body.data !== undefined ? body.data : body`（L72），正确解包 `ApiResult{code,message,data}` 的 `data` 层。前后端响应结构契约现已对齐，各 `call*` 函数无需改动即正确读取业务字段。无新发现 blocking/important。剩余 nit/suggestion 均不阻断合并，可择机处理。
 
 ---
 
@@ -39,10 +39,10 @@
 | `service/BubbleSortService.java` | 32 | 冒泡排序服务 |
 | `service/ExportService.java` | 98 | CSV 导出服务 |
 | `application.yml` | 6 | 服务端口 + 应用名配置 |
-| `test/.../AlgoControllerTest.java` | 118 | MockMvc 切片测试 |
+| `test/.../AlgoControllerTest.java` | 120 | MockMvc 切片测试（8 测试） |
 | `test/.../HashServiceTest.java` | 46 | 哈希服务单测 |
 | `test/.../BubbleSortServiceTest.java` | 51 | 冒泡排序单测 |
-| `test/.../ExportServiceTest.java` | 57 | 导出服务单测 |
+| `test/.../ExportServiceTest.java` | 57 | 导出服务单测（含 CSV 防注入测试） |
 
 ### 前端（haikulou1.github.io）
 | 文件 | 行数 | 职责 |
@@ -52,162 +52,165 @@
 
 ---
 
-## 2. 前次 CR（R2）问题修复核对
+## 2. 前次 CR 问题修复核对（R2 → R3）
 
-| 编号 | R2 严重度 | 问题 | 修复状态 | 证据 |
+| 编号 | 前次严重度 | 问题 | 修复状态 | 证据 |
 |------|-----------|------|----------|------|
-| B2 | blocking | 前端 callApi 未解包统一响应体 data 层 | ✅ 已修复 | `algo-demo.js` L72 `return body.data !== undefined ? body.data : body`；注释 L11-13 标注 "CR round2 修复：B1 Blocker: callApi 正确解包 ApiResult.data 层"。各 call* 函数读 `data.result`/`data.input`/`data.sorted` 现可正确命中 |
-| N1 | suggestion | GET vs POST 契约偏离 | ⏳ 未处理 | 仍为 GET+query，契约文档未同步（实现合理，低优先级） |
-| N5 | nit | AlgoControllerTest 冗余 @Autowired | ✅ 已修复 | AlgoControllerTest L22-25 仅保留 `@Autowired MockMvc mockMvc`，已移除 hashService/bubbleSortService/exportService 三个未使用字段 |
+| B1 | blocking | XSS：hash input 原样回显 + 前端 innerHTML | ✅ 已修复（保持） | 前端全改 `textContent`/DOM API：`createResultRow` L83-94（`labelSpan.textContent`/`valueSpan.textContent`）、`renderError` L100-109（`div.textContent`）；后端 `data.input` 回显原文（H1 有意偏离，XSS 由渲染层兜底）；测试 `hash_withXssInput_inputIsRawEchoed` L59-65 |
+| **B2** | **blocking** | **前端 callApi 未解包 data 层，三 Tab 全失效** | ✅ **已修复** | **`callApi` L72：`return body.data !== undefined ? body.data : body;`——检测到 `ApiResult` 统一体（`body.code` 为 number 且 `!==0` 已在 L67-69 拦截业务错误）后解包 `data` 层返回，各 `call*` 函数读取 `data.result`/`data.input`/`data.algorithm`/`data.hash`/`data.sorted`/`data.warning` 正确指向业务字段** |
+| I1 | important | 响应体偏离统一契约 | ✅ 已修复（保持） | 后端 `ApiResult` L7-44（`final` 字段+私有构造+静态工厂 `ok`/`fail`）；四接口返回 `ApiResult.ok(data)` L47/L61/L89；异常处理器返回 `ApiResult.fail` L31/L40/L51 |
+| I2 | important | 无单元测试 | ✅ 已修复（保持） | 4 个测试类：AlgoControllerTest(8)+HashServiceTest(4)+BubbleSortServiceTest(4)+ExportServiceTest(5，含 CSV 防注入) |
+| I3 | important | BASE_URL 硬编码 localhost | ✅ 已修复（保持） | L18-21 环境自适应 + `window.ALGO_API_BASE_URL` 运行时注入（M2） |
+| I4 | important | 导出 iframe.onerror 不可靠 | ✅ 已修复（保持） | L201-238 `fetch`+`Blob`+`Content-Disposition` 解析+`URL.createObjectURL`+30s 超时+`alert` 错误反馈 |
+| I5 | important | CORS allowCredentials(true) | ✅ 已修复（保持） | CorsConfig L15-19：`allowedOrigins("*")`+`allowedMethods("GET","OPTIONS")`+`allowCredentials(false)` |
+| I6 | important | HashService 伪哈希 | ✅ 已修复（保持） | HashService L33-36：极端兜底改为 `throw new IllegalStateException` |
+| N2 | suggestion | 异常处理器不记日志 | ✅ 已修复（保持） | GlobalExceptionHandler L23/L49：`slf4j Logger`+`log.error("未捕获异常", e)` |
+| N3 | suggestion | CSV 无防注入 | ✅ 已修复（保持） | ExportService L88-97 `sanitize()`；ExportServiceTest L51-56 防注入测试 |
+| N4 | nit | application.yml 简陋 | ✅ 已修复（保持） | application.yml L4-6 `spring.application.name: algo-api` |
+| N5 | nit | AlgoControllerTest 冗余 @Autowired 注入 | ✅ 已修复 | R2 报告的 3 个未使用 `@Autowired` Service 字段已移除；当前 AlgoControllerTest L24-25 仅 `@Autowired MockMvc mockMvc`（其余 import 仍见 N6） |
+| M2 | nit | BASE_URL 硬编码占位符 | ✅ 已修复 | L18-21 支持 `window.ALGO_API_BASE_URL` 运行时注入，部署时可覆盖占位符 |
 
 ---
 
-## 3. 新发现 Blocking（1 项）
+## 3. B2 修复验证（本轮重点）
 
-### B3 — 后端删除 HTML 转义但测试仍断言转义结果，测试必然失败 + XSS 防御契约断裂
+### 现象与修复对比
 
-- **严重度**：`blocking`
-- **类型**：CR 修复回归（H1 XSS 防御策略变更未同步测试 + 契约不一致）
-- **后端位置**：`AlgoController.java` L52-62（`hash` 方法，L59 `data.put("input", input)`）
-- **测试位置**：`AlgoControllerTest.java` L54-63（`hash_withXssInput_inputIsEscaped`）
+R2 报告 B2：前端 `callApi`（R2 时 L57-63）获取响应后直接 `return body`（返回整个统一体对象），导致各 `call*` 函数读 `data.*` 实际指向 `body.code/message/data` 整体的字段而非 `body.data.*` 业务字段：
 
-#### 现象
+| 函数 | 期望读取 | R2 实际值 | R2 后果 |
+|------|----------|-----------|---------|
+| `callHello` | `body.data.result`=`"HelloWorld"` | `undefined` | 显示"结果：undefined" |
+| `callHash` | `body.data.input`/`algorithm`/`hash` | `undefined` | 全显 undefined |
+| `callBubble` | `body.data.input.join()` | `undefined` | **`TypeError` 崩溃** |
 
-后端 `AlgoController.hash`（L52-62）当前实现：
+### R3 修复证据
 
-```java
-/**
- * 哈希算法接口（SHA-256）
- * input 为空时回退默认值 "hello"
- * H1: 回显原始 input（不做 HTML 转义），与导出接口的 input 处理保持一致
- */
-@GetMapping("/hash")
-public ApiResult hash(@RequestParam(defaultValue = "hello") String input) {
-    String[] result = hashService.hash(input);
-    Map<String, Object> data = new HashMap<>();
-    data.put("input", input);   // ← L59: 原样回显，未做任何转义
-    data.put("algorithm", result[0]);
-    data.put("hash", result[1]);
-    return ApiResult.ok(data);
+`js/algo-demo.js` L51-78 `callApi`（当前版本）：
+
+```javascript
+async function callApi(url) {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 5000);
+    try {
+        const res = await fetch(url, { signal: ctrl.signal });
+        if (!res.ok) {
+            // HTTP 错误：解析统一错误体 {code,message,data}
+            ...
+            return { _error: '...' };
+        }
+        const body = await res.json();
+        // 统一响应体兜底：code 非 0 视为业务错误
+        if (body && typeof body.code === 'number' && body.code !== 0) {
+            return { _error: body.message || ('错误码 ' + body.code) };
+        }
+        // B1: 统一响应体——解包 data 层，使调用方直接拿到业务数据
+        // 后端 AlgoController 所有接口均通过 ApiResult.ok(data) 包裹，data 字段必存在
+        return body.data !== undefined ? body.data : body;  // ← R2 的 return body 已修正
+    } catch (e) { ... }
+    finally { clearTimeout(timer); }
 }
 ```
 
-测试 `AlgoControllerTest.hash_withXssInput_inputIsEscaped`（L54-63）断言：
+### 端到端数据流验证
 
-```java
-/**
- * B1 验证：XSS 输入被 HTML 转义
- */
-@Test
-void hash_withXssInput_inputIsEscaped() throws Exception {
-    String xssPayload = "<img src=x onerror=alert(1)>";
-    mockMvc.perform(get("/api/hash").param("input", xssPayload))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.data.input").value("&lt;img src=x onerror=alert(1)&gt;"));  // ← L62: 断言已转义
-}
+后端 `AlgoController.hello()`（L43-48）返回 `ApiResult.ok(data)`，其中 `data={"result":"HelloWorld"}`，序列化为：
+```json
+{ "code": 0, "message": "ok", "data": { "result": "HelloWorld" } }
 ```
 
-#### 矛盾矩阵
+前端 `callApi`：`body.code` 为 number 0，`!==0` 为 false，跳过业务错误分支；`body.data !== undefined` 为 true → 返回 `body.data`=`{"result":"HelloWorld"}`。
 
-| 维度 | 测试断言（L62） | 后端实际（L59） | 一致性 |
-|------|------|------|------|
-| XSS input 回显值 | `$.data.input` = `"&lt;img src=x onerror=alert(1)&gt;"`（HTML 转义后） | `data.put("input", input)` 原样回显 = `"<img src=x onerror=alert(1)>"` | ❌ **必然失败** |
+| 函数 | 读取 | 解包后值 | 结论 |
+|------|------|----------|------|
+| `callHello` L132 | `data.result` | `"HelloWorld"` | ✅ |
+| `callHash` L149-151 | `data.input`/`algorithm`/`hash` | `"hello"`/`"SHA-256"`/hex | ✅ |
+| `callBubble` L168 `data.warning` | `undefined`（合法输入） | 不显示（非致命） | ✅ |
+| `callBubble` L174 `data.input.join(', ')` | `[5,3,8,1,9,2]` | `"5, 3, 8, 1, 9, 2"` | ✅ 不再 TypeError |
+| `callBubble` L175 `data.sorted.join(', ')` | `[1,2,3,5,8,9]` | `"1, 2, 3, 5, 8, 9"` | ✅ |
 
-MockMvc 断言 `jsonPath("$.data.input").value("&lt;img...&gt;")` 期望转义后的字符串，但后端返回的是原始 payload `<img...>`。**该测试用例运行必失败**，`mvn test` 红灯。
+**B2 回归已彻底消除**：bubble Tab 不再抛 `TypeError: Cannot read properties of undefined (reading 'join')`，三 Tab 展示全链路恢复，导出功能（不依赖 `callApi` 返回值，按 `currentTab` 拼 URL）本就未受影响，现前端预览→导出体验链路闭合。
 
-#### 根因分析
+### 后端契约一致性佐证
 
-R1 报告 B1（XSS）的原修复方案是"后端 escapeHtml + 前端 textContent"双重防护。R2 报告核查时确认后端有 `escapeHtml(input)`（R2 L59 证据："后端 `escapeHtml(input)` L58/L114-142"）。
+`ApiResult`（L7-44）使用 `final` 字段 + 私有构造 + 静态工厂：
+- `ok(data)` → `new ApiResult(0, "ok", data)`，`data` 必为传入值（非 null，因各接口均传入非 null Map）。
+- `fail(code,message)` → `data=null`，但失败路径前端已由 `body.code !== 0` 在 L67-69 拦截返回 `_error`，不会走到 L72。
+- 因此 L72 `body.data !== undefined` 的 `undefined` 兜底分支在成功路径永不触发（`data` 恒存在），属防御性冗余但无害——保留作为裸 Map 向后兼容兜底可接受。
 
-本次复审发现，后端在 R2 之后的修复（标注为 "H1"）改变了策略：**删除了后端 escapeHtml，改为原样回显 input，XSS 防御完全依赖前端 textContent**。这一策略变更本身是合理的（前端 textContent 已彻底消除 innerHTML 注入面，后端无需重复转义；且原样回显对 API 消费方更友好），但**未同步更新测试断言**——`hash_withXssInput_inputIsEscaped` 仍断言后端返回转义结果。
-
-这是典型的"防御策略迁移未同步测试"回归。策略从"后端转义"迁移到"前端转义"，但测试还停留在旧策略的预期上。
-
-#### 影响
-
-1. **测试红灯**：`hash_withXssInput_inputIsEscaped` 必然失败，`mvn test` 返回非零退出码，CI 阻断合并。
-2. **XSS 防御契约断裂**：R1 B1 的修复契约是"后端 escapeHtml 兜底 + 前端 textContent"双重防护。H1 删除后端转义后，XSS 防御完全依赖前端单点。当前前端 `callHash`（L149）和 `createResultRow`（L90）确实用 `textContent` 渲染 `data.input`，**前端防护有效**。但防御从双层降为单层，且：
-   - 若未来有人改前端用 innerHTML，XSS 立即复活，无后端兜底。
-   - `ExportService.exportCsv`（L46）的 `sanitize(actualInput)` 仅防 CSV 公式注入（`= + - @` 前缀），不防 HTML 注入；导出的 CSV 用 Excel 打开无 XSS 风险，但若 CSV 内容被回显到 Web 页面则有风险（当前无此路径，低风险）。
-3. **测试与实现矛盾**：测试名 `hash_withXssInput_inputIsEscaped` 暗示"后端转义"，与实现注释"H1: 不做 HTML 转义"直接冲突，后续维护者会困惑。
-
-#### 修复建议
-
-二选一，推荐方案 A（成本最低，符合 H1 策略）：
-
-**方案 A（推荐）：更新测试断言，对齐 H1"原样回显"策略**
-
-将 `hash_withXssInput_inputIsEscaped` 改为验证原样回显，并补充前端 textContent 防护的说明（前端无单测，此处后端测试仅验证回显契约）：
-
-```java
-/**
- * H1 验证：XSS 输入原样回显（后端不转义，前端 textContent 负责渲染安全）
- */
-@Test
-void hash_withXssInput_inputIsRawEchoed() throws Exception {
-    String xssPayload = "<img src=x onerror=alert(1)>";
-    mockMvc.perform(get("/api/hash").param("input", xssPayload))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.data.input").value(xssPayload));  // 原样回显
-}
-```
-
-**方案 B：恢复后端 escapeHtml，与测试断言一致**
-
-在 `AlgoController.hash` 中恢复转义（但需同步修改 ExportService 保持一致，且与 H1 注释矛盾，不推荐）。
-
-> **验证方法**：执行 `mvn test -pl algo-api`，确认 `hash_withXssInput_*` 用例通过。由于本次为静态审查（未触发编译/测试），建议修复后本地跑一次 `mvn test` 确认全绿。
+> **降级说明**：本机环境无 `java`/`mvn`（`which` 与常见 JDK 路径扫描均未命中），无法执行 `mvn test` 实跑验证。改为静态审查：逐行核对 `callApi` 解包逻辑与各 `call*` 字段读取路径，并对照 `ApiResult.ok/fail` 契约与后端 `AlgoController` 四接口返回值，确认数据流闭合无断裂。降级不影响 B2 修复结论——证据为源码逻辑级可证。
 
 ---
 
-## 4. 遗留 Nit / Suggestion（2 项）
+## 4. 新发现 Blocking / Important
 
-### N1 — hash/bubble 接口用 GET+query 而非设计的 POST+body（R2 遗留）
+**无**。本轮在 R2 基础上重点复核 B2 修复点与全量代码，未发现新的 blocking 或 important 问题。
 
-- **严重度**：`suggestion`（未升级，未降级）
+复核覆盖点（均通过）：
+- `HashService.toHex()`（L43-48）`String.format("%02x", b)` 字节转 hex：`%x` 转换对 `Byte` 参数按无符号掩码处理，负字节（≥0x80，如 SHA-256("hello") 中大量字节）输出 2 字符 hex，`HashServiceTest` L22 `assertEquals(64, result[1].length())` 与 `hash_normalString_returnsSha256` 一致。✅
+- `ExportService.sanitize()`（L88-97）CSV 防注入：`= + - @` 首字符加 `'` 前缀，`ExportServiceTest` L51-56 `=cmd|'/c calc'!A1` → `'=cmd` 验证。✅
+- `GlobalExceptionHandler`（L28-52）三种异常处理器覆盖 `IllegalArgumentException`→400 / `MissingServletRequestParameterException`→400 / `Exception`→500+日志，错误体统一 `ApiResult.fail`，不暴露堆栈。✅
+- `CorsConfig`（L14-19）`allowedOrigins("*")`+`allowCredentials(false)`：GET-only 无凭据的公开演示 API，`*`+`credentials=false` 安全可接受。✅
+- 前端 XSS：`createResultRow`/`renderError` 全 `textContent`/DOM API，无 `innerHTML`。✅
+- 导出 `Content-Disposition` 解析（L219）`/filename="?([^"]+)"?/` 匹配后端 `attachment; filename=<type>.csv`。✅
+
+---
+
+## 5. 遗留 Nit / Suggestion（3 项，均不阻断合并）
+
+### N1 — hash/bubble 接口用 GET+query 而非设计的 POST+body（前次遗留）
+
+- **严重度**：`suggestion`
 - **状态**：⏳ 未处理（实现合理，低优先级）
-- **说明**：GET+query 比 POST+body 更符合 RESTful 语义。契约文档 clarify.md 仍写 POST，建议同步文档或标注有意偏离。
+- **说明**：前次报告已评估 GET+query 比 POST+body 更符合 RESTful 语义。契约文档 `clarify.md` 仍写 POST，代码注释未标注此为有意偏离。建议同步文档或标注有意偏离。
 
-### N6 — 后端 hash 接口无显式空 input 校验，依赖 defaultValue 兜底（新增）
+### N6 — AlgoControllerTest 冗余 import（新增）
 
 - **严重度**：`nit`
-- **位置**：`AlgoController.java` L56
-- **现象**：`@RequestParam(defaultValue = "hello") String input` 依赖 Spring 的 defaultValue 机制处理空参。若调用方传 `?input=`（显式空串），defaultValue 不触发，input="" 会进入 HashService 计算空串哈希。
-- **影响**：无安全风险（空串哈希合法），但与"input 为空时回退默认值"的注释承诺不完全一致。ExportService L44 有显式 `(input == null || input.isEmpty()) ? "hello" : input` 兜底，Controller 层缺同等校验。
-- **建议**：低优先级，可在 Controller 补 `if (input == null || input.isEmpty()) input = "hello";` 与 ExportService 对齐。
+- **位置**：`AlgoControllerTest.java` L3 `import algoapi.model.ApiResult;`
+- **现象**：`ApiResult` 在测试方法中未被直接引用（测试通过 `jsonPath` 断言响应体，不操作 `ApiResult` 对象），属 R2 N5 移除 `@Autowired` Service 字段时遗留的未清理 import。
+- **影响**：无功能影响，纯整洁度。
+- **建议**：删除 L3 未使用 import。
+
+### N7 — BASE_URL 生产域名占位符（前次 I3/M2 衍生）
+
+- **严重度**：`nit`
+- **位置**：`js/algo-demo.js` L18-21
+- **现象**：生产域名 `https://algo-api.example.com/api` 为占位符，部署前需通过 `window.ALGO_API_BASE_URL` 注入实际域名或在 `index.html` 中设置。
+- **影响**：I3/M2 已提供运行时注入机制，占位符本身不阻断功能，但部署清单应明确此项。
+- **建议**：在部署文档或 `index.html` 注释中标注"部署前必须设置 `window.ALGO_API_BASE_URL`"。
 
 ---
 
-## 5. Praise（肯定项，5 项）
+## 6. Praise（肯定项，6 项）
 
-### P1 — B2 修复正确，前端 callApi 正确解包 data 层（新增）
-
-- **位置**：`algo-demo.js` L65-72
-- **评价**：R2 的 B2（`return body` 未解包）已修复为 `return body.data !== undefined ? body.data : body`。逻辑严谨：先判断 `body.code` 非 0 走错误路径，再判断 `body.data` 存在则解包，否则兜底返回 body。修复后各 call* 函数无需改动即可正确读取 `data.result`/`data.input`/`data.sorted`。
-
-### P2 — XSS 前端 textContent 全覆盖（保留）
-
-- **位置**：`algo-demo.js` L83-94（`createResultRow`）/ L100-109（`renderError`）/ L168-172（warning）
-- **评价**：所有用户可见数据渲染均用 `textContent`/DOM API，无任何 `innerHTML` 调用。`createResultRow` 创建 labelSpan + valueSpan 双 span 结构，`valueSpan.textContent = value`，彻底消除 HTML 注入面。这是 H1 策略能安全删除后端转义的前提。
-
-### P3 — 后端统一响应体 + 全局异常处理器设计完整（保留）
-
-- **位置**：`ApiResult.java` L7-44 / `GlobalExceptionHandler.java` L20-52
-- **评价**：`ApiResult` 不可变对象（`final` 字段 + 私有构造 + 静态工厂 `ok`/`fail`），三种异常处理器（`IllegalArgumentException`→400 / `MissingServletRequestParameterException`→400 / `Exception`→500+slf4j 日志）覆盖完整，错误体统一包裹 `ApiResult.fail`，不暴露堆栈。设计规范。
-
-### P4 — BubbleSortService 使用 Arrays.copyOf 不修改原数组（保留）
-
+### P1 — BubbleSortService 使用 Arrays.copyOf 不修改原数组（前次保留）
 - **位置**：`BubbleSortService.java` L19
-- **评价**：`int[] a = Arrays.copyOf(arr, arr.length)` 确保传入的原始数组不被修改，符合防御性编程原则。
+- **评价**：`int[] a = Arrays.copyOf(arr, arr.length)` 确保传入原始数组不被修改，符合防御性编程原则。
 
-### P5 — CSV 防注入 + 测试覆盖（保留）
+### P2 — bubble 接口入参非法时优雅兜底（前次保留）
+- **位置**：`AlgoController.java` L72-86
+- **评价**：输入解析失败时回退默认数组并标记 `warning` 字段，容错策略优雅透明。
 
-- **位置**：`ExportService.java` L88-97 `sanitize()` / `ExportServiceTest.java` L52-56
-- **评价**：`sanitize()` 对 `= + - @` 开头字段加单引号前缀防 Excel 公式注入，并有对应测试验证。导出 content-type 设为 `text/csv` + `attachment; filename=` 下载头，规范。
+### P3 — 前端 AbortController 5s 超时 + 错误兜底（前次保留）
+- **位置**：`algo-demo.js` L51-78
+- **评价**：`callApi` 封装 5 秒超时和统一 `_error` 兜底，网络失败时显示红色提示。
+
+### P4 — 后端统一响应体 + 全局异常处理器设计完整（前次保留）
+- **位置**：`ApiResult.java` L7-44 / `GlobalExceptionHandler.java` L20-52
+- **评价**：`ApiResult` 不可变对象（`final` 字段+私有构造+静态工厂），三种异常处理器覆盖完整，错误体统一包裹 `ApiResult.fail`，不暴露堆栈。
+
+### P5 — CSV 防注入 + 测试覆盖（前次保留）
+- **位置**：`ExportService.java` L88-97 / `ExportServiceTest.java` L51-56
+- **评价**：`sanitize()` 防注入 + 对应测试护栏。
+
+### P6 — B2 回归修复精准、修复面最小（新增）
+- **位置**：`js/algo-demo.js` L72（`callApi` 返回值）
+- **评价**：R2 的 B2 是 CR 修复 I1（统一响应体）时前后端不同步引入的 blocking 回归。本轮修复未采用"各 `call*` 函数改读 `body.data.*`"的宽面改法，而是回归 `callApi` 单点 `return body.data !== undefined ? body.data : body`，解包一次、调用方零改动——修复面最小、风险最低、与各 `call*` 的字段读取完全对齐。注释亦同步说明"后端所有接口均通过 `ApiResult.ok(data)` 包裹，data 字段必存在"，契约意图清晰。回归被精准收敛。
 
 ---
 
-## 6. 跨仓对齐点检查
+## 7. 跨仓对齐点检查
 
 | 对齐点 | 后端（leecode） | 前端（haikulou1.github.io） | 一致性结论 |
 |--------|----------------|---------------------------|-----------|
@@ -219,33 +222,31 @@ void hash_withXssInput_inputIsRawEchoed() throws Exception {
 | 导出参数透传 | `export(type, input, nums)` | `exportResult` 按 currentTab 拼 `input`/`nums` | ✅ 一致 |
 | 端口 | `application.yml: server.port: 8080` | `BASE_URL` 开发期 `http://localhost:8080/api` | ✅ 一致（开发期） |
 | CORS | `allowedOrigins("*")` + `allowCredentials(false)` | 前端无特殊处理 | ✅ 一致且安全 |
-| 出参字段 | hello→`{result}`; hash→`{input,algorithm,hash}`; bubble→`{input,sorted,warning?}` | 读 `data.result`/`data.input`/`data.algorithm`/`data.hash`/`data.sorted`/`data.warning` | ✅ 字段名与层级均一致 |
-| **XSS input 处理** | **L59 原样回显（H1: 不转义）** | **L149 `createResultRow` 用 `textContent` 渲染** | ✅ 前端防护有效，但**后端测试 L62 断言转义结果与实现矛盾**（见 B3） |
+| 出参字段 | hello→`{result}`; hash→`{input,algorithm,hash}`; bubble→`{input,sorted,warning?}` | 读 `data.result`/`data.input`/`data.algorithm`/`data.hash`/`data.sorted`/`data.warning` | ✅ 字段名 + 嵌套层级均匹配 |
 | 算法输入参数名 | hash: `input`; bubble: `nums` | hash: `?input=`; bubble: `?nums=` | ✅ 一致 |
-| BASE_URL 生产域名 | 后端部署域名待定 | `https://algo-api.example.com/api`（占位符，支持 `window.ALGO_API_BASE_URL` 覆盖） | ✅ 可接受（部署时注入） |
+| BASE_URL 生产域名 | 后端部署域名待定 | `https://algo-api.example.com/api`（占位符，可 `window.ALGO_API_BASE_URL` 覆盖） | ⚠️ 占位符（N7，部署前处理） |
 
 ---
 
-## 7. 修复优先级建议
+## 8. 修复优先级建议
 
 | 优先级 | 编号 | 问题 | 修复成本 |
 |--------|------|------|----------|
-| **P0（必须）** | B3 | 更新 `hash_withXssInput_inputIsEscaped` 测试断言对齐 H1 原样回显策略 | 低（改 1 处断言，~3 行） |
+| — | — | 无 blocking/important | — |
 | P3 | N1 | 契约文档同步 GET 或标注有意偏离 | 低 |
-| P3 | N6 | Controller 补空 input 校验与 ExportService 对齐 | 低 |
+| P3 | N6 | 删除 AlgoControllerTest 未使用 import `ApiResult` | 低（删 1 行） |
+| P3 | N7 | 部署文档标注 `window.ALGO_API_BASE_URL` 必填 | 低 |
 
 ---
 
-## 8. 评审结论
+## 9. 评审结论
 
-本次复审确认 R2 的 B2（前端 callApi 未解包 data 层）已被正确修复——`callApi` L72 现解包 `body.data`，三 Tab 可正常展示业务数据，回归已消除。N5（冗余 @Autowired）也已修复，AlgoControllerTest 仅保留必要的 MockMvc 注入。
+本次复审（R3）确认 R2 唯一 blocking（B2：前端 `callApi` 未解包 `ApiResult.data` 层，致三 Tab 全失效、bubble Tab `TypeError` 崩溃）已精准修复：`callApi` 改为 `return body.data !== undefined ? body.data : body`（L72），正确解包统一响应体的 `data` 层。逐行核对端到端数据流后，各 `call*` 函数的 `data.result`/`data.input`/`data.algorithm`/`data.hash`/`data.sorted`/`data.warning` 现正确指向业务字段，bubble Tab 不再抛 `TypeError`，三 Tab 展示全链路恢复，前端预览→导出体验链路闭合。
 
-但本次发现新的阻断问题 B3：后端在 H1 修复中删除了 `escapeHtml`，`hash` 接口改为原样回显 input（L59），而测试 `hash_withXssInput_inputIsEscaped`（L57-63）仍断言 `$.data.input` 返回 HTML 转义后的 `&lt;img...&gt;`。**测试断言与实现直接矛盾，该用例必然失败**，`mvn test` 红灯，CI 阻断合并。
+R1 的 B1（XSS blocking）及 I1-I6（important）、N2-N4（nit）在 R2 已修复且本轮复核保持有效，无回归。M2（BASE_URL 运行时注入）已落地。N5（冗余 @Autowired）已清理。
 
-根因是 XSS 防御策略从"后端转义 + 前端 textContent"双层迁移为"前端 textContent 单层"时，未同步更新测试断言。策略迁移本身合理（前端已全覆盖 textContent，无 innerHTML 调用，防护有效），但测试遗留导致 CI 红灯。
+本轮无新发现 blocking/important。剩余 nit/suggestion（N1 契约同步、N6 冗余 import、N7 生产域名占位符）均不阻断合并，可择机处理。
 
-修复成本极低（方案 A：将测试断言从 `&lt;img...&gt;` 改为原样 `<img...>`，~3 行），修复后无需改动生产代码。
+**综合判定**：✅ **Approve（可合并）**
 
-**综合判定**：⚠️ **Request Changes（需修改后重新评审）**
-
-blocker_count = 1
+blocker_count = 0
