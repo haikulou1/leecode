@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.helloworld.mapper.ContactMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="contactRecordMap" type="com.demo.helloworld.entity.ContactRecord">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+        <result column="message" property="message"/>
+        <result column="status" property="status"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+    </resultMap>
+
+    <!-- 插入联系记录 -->
+    <insert id="insert" parameterType="com.demo.helloworld.entity.ContactRecord"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO contact_record (name, email, message, status, is_deleted, gmt_create, gmt_modified)
+        VALUES (#{name}, #{email}, #{message}, #{status}, #{isDeleted}, NOW(), NOW())
+    </insert>
+
+    <!-- 数据库连通性探测 -->
+    <select id="checkConnection" resultType="int">
+        SELECT #{testValue}
+    </select>
+
+</mapper>
