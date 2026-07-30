@@ -107,38 +107,4 @@ public class AlgoController {
                 .contentType(MediaType.parseMediaType("text/csv"))
                 .body(csv);
     }
-
-    /**
-     * HTML 字符转义（纵深防御，配合前端 textContent）
-     * B1: 对 hash 接口回显的 input 做基本 HTML 字符转义
-     */
-    private String escapeHtml(String text) {
-        if (text == null) {
-            return "";
-        }
-        StringBuilder sb = new StringBuilder(text.length());
-        for (int i = 0; i < text.length(); i++) {
-            char c = text.charAt(i);
-            switch (c) {
-                case '<':
-                    sb.append("&lt;");
-                    break;
-                case '>':
-                    sb.append("&gt;");
-                    break;
-                case '&':
-                    sb.append("&amp;");
-                    break;
-                case '"':
-                    sb.append("&quot;");
-                    break;
-                case '\'':
-                    sb.append("&#39;");
-                    break;
-                default:
-                    sb.append(c);
-            }
-        }
-        return sb.toString();
-    }
 }
