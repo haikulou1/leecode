@@ -1,5 +1,6 @@
 package com.demo.helloworld.service.impl;
 
+import com.demo.helloworld.common.BizException;
 import com.demo.helloworld.common.ResultCode;
 import com.demo.helloworld.entity.HelloMessage;
 import com.demo.helloworld.enums.IsDeletedEnum;
@@ -41,7 +42,7 @@ public class HelloServiceImpl implements HelloService {
 
         // R02: language 参数校验
         if (!LanguageEnum.isValid(lang)) {
-            throw new com.demo.helloworld.common.BizException(ResultCode.HELLO_002);
+            throw new BizException(ResultCode.HELLO_002);
         }
 
         HelloVO vo;

@@ -1,5 +1,6 @@
 package com.demo.helloworld.service.impl;
 
+import com.demo.helloworld.common.BizException;
 import com.demo.helloworld.common.ResultCode;
 import com.demo.helloworld.dto.ContactSubmitReq;
 import com.demo.helloworld.entity.ContactRecord;
@@ -12,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
 
 /**
  * 联系 Service 实现
@@ -37,7 +40,7 @@ public class ContactServiceImpl implements ContactService {
     @Value("${helloworld.contact.address:杭州市}")
     private String address;
 
-    @javax.annotation.Resource
+    @Resource
     private ContactMapper contactMapper;
 
     @Override
@@ -75,7 +78,7 @@ public class ContactServiceImpl implements ContactService {
      */
     private void validateName(String name) {
         if (name == null || name.trim().isEmpty() || name.length() > 64) {
-            throw new com.demo.helloworld.common.BizException(ResultCode.CONTACT_002);
+            throw new BizException(ResultCode.CONTACT_002);
         }
     }
 
@@ -85,11 +88,11 @@ public class ContactServiceImpl implements ContactService {
      */
     private void validateEmail(String email) {
         if (email == null || email.trim().isEmpty()) {
-            throw new com.demo.helloworld.common.BizException(ResultCode.CONTACT_003);
+            throw new BizException(ResultCode.CONTACT_003);
         }
         String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
         if (!email.matches(emailRegex)) {
-            throw new com.demo.helloworld.common.BizException(ResultCode.CONTACT_003);
+            throw new BizException(ResultCode.CONTACT_003);
         }
     }
 
@@ -99,7 +102,7 @@ public class ContactServiceImpl implements ContactService {
      */
     private void validateMessage(String message) {
         if (message == null || message.trim().isEmpty() || message.length() > 512) {
-            throw new com.demo.helloworld.common.BizException(ResultCode.CONTACT_004);
+            throw new BizException(ResultCode.CONTACT_004);
         }
     }
 }

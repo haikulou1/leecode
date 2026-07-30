@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -40,7 +41,7 @@ public class HealthServiceImpl implements HealthService {
             log.error("健康检查失败，数据库连接异常", e);
             status = HealthStatusEnum.DOWN.getCode();
         }
-        String timestamp = LocalDateTime.now().format(FORMATTER);
+        String timestamp = LocalDateTime.now(ZoneId.of("Asia/Shanghai")).format(FORMATTER);
         return new HealthVO(status, timestamp);
     }
 }
