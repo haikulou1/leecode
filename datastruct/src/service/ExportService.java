@@ -90,7 +90,10 @@ public class ExportService {
     }
 
     /**
-     * 从 JSON 字符串中提取指定字段的值（简单实现，适用于本服务产出的扁平 JSON）。
+     * 从 JSON 字符串中提取指定字段的值。
+     * 支持值内含逗号的 JSON 数组（如 [5,3,8,1]）：
+     * 当值以 '[' 开头时，配对扫描到匹配的 ']' 结束；
+     * 否则沿用逗号/花括号作为值结束符。
      */
     private static String extractField(String json, String field) {
         String key = "\"" + field + "\":";
@@ -99,6 +102,29 @@ public class ExportService {
             return "";
         }
         int start = idx + key.length();
+        if (start >= json.length()) {
+            return "";
+        }
+        // 数组值：配对扫描方括号，正确处理值内逗号
+        if (json.charAt(start) == '[') {
+            int depth = 0;
+            int end = start;
+            while (end < json.length()) {
+                char c = json.charAt(end);
+                if (c == '[') {
+                    depth++;
+                } else if (c == ']') {
+                    depth--;
+                    if (depth == 0) {
+                        end++;
+                        break;
+                    }
+                }
+                end++;
+            }
+            return json.substring(start, end);
+        }
+        // 普通值：逗号或花括号结束
         int end = start;
         while (end < json.length() && json.charAt(end) != ',' && json.charAt(end) != '}') {
             end++;

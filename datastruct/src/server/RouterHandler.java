@@ -3,6 +3,7 @@ package server;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
+import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,6 +39,7 @@ public class RouterHandler implements HttpHandler {
             // 统一 CORS 头
             exchange.getResponseHeaders().set("Access-Control-Allow-Origin", CORS_ORIGIN);
             exchange.getResponseHeaders().set("Access-Control-Allow-Methods", CORS_METHODS);
+            exchange.getResponseHeaders().set("Access-Control-Allow-Headers", "Content-Type");
 
             String method = exchange.getRequestMethod();
             URI uri = exchange.getRequestURI();
@@ -68,7 +70,7 @@ public class RouterHandler implements HttpHandler {
                     return;
                 }
                 if (input.length() > 1024) {
-                    sendError(exchange, 400, "input is required");
+                    sendError(exchange, 400, "input too long (max 1024)");
                     return;
                 }
                 sendJson(exchange, 200, hashService.hash(input));
@@ -143,34 +145,18 @@ public class RouterHandler implements HttpHandler {
     }
 
     /**
-     * 简易 URL 解码（处理 %xx 与 +）。
+     * URL 解码：使用标准 URLDecoder 正确处理多字节 UTF-8（如中文 %E4%B8%AD → 中）。
+     * 解码失败（非法 % 序列）时回退为原字符串，保持健壮性。
      */
     private String urlDecode(String s) {
         if (s == null) {
             return "";
         }
-        StringBuilder sb = new StringBuilder(s.length());
-        int i = 0;
-        while (i < s.length()) {
-            char c = s.charAt(i);
-            if (c == '+') {
-                sb.append(' ');
-                i++;
-            } else if (c == '%' && i + 2 < s.length()) {
-                try {
-                    int hex = Integer.parseInt(s.substring(i + 1, i + 3), 16);
-                    sb.append((char) hex);
-                    i += 3;
-                } catch (NumberFormatException e) {
-                    sb.append(c);
-                    i++;
-                }
-            } else {
-                sb.append(c);
-                i++;
-            }
+        try {
+            return URLDecoder.decode(s, "UTF-8");
+        } catch (Exception e) {
+            return s;
         }
-        return sb.toString();
     }
 
     /**
