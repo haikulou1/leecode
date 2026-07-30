@@ -1,0 +1,30 @@
+{
+  "created": 1234567890.0,
+  "duration": 0.123,
+  "tests": [
+    {
+      "nodeid": "tests/test_foo.py::test_pass",
+      "outcome": "passed",
+      "duration": 0.01
+    },
+    {
+      "nodeid": "tests/test_foo.py::test_fail",
+      "outcome": "failed",
+      "duration": 0.02,
+      "call": {
+        "longrepr": "AssertionError: assert 1 == 2\nassert 1 == 2\n\ntests/test_foo.py:15: AssertionError"
+      }
+    },
+    {
+      "nodeid": "tests/test_foo.py::test_skip",
+      "outcome": "skipped",
+      "duration": 0.0
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "passed": 1,
+    "failed": 1,
+    "skipped": 0
+  }
+}

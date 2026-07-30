@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Broken" tests="1" failures="0" errors="0" skipped="0" time="0.01">
+  <testcase classname="x" name="y" time="0.01">
+    <failure message="oops">stack
+</testcase>
+</testsuite>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="SuiteOne" tests="2" failures="0" errors="0" skipped="0" time="0.100">
+    <testcase classname="com.example.TestOne" name="testOneA" time="0.04"/>
+    <testcase classname="com.example.TestOne" name="testOneB" time="0.06"/>
+  </testsuite>
+  <testsuite name="SuiteTwo" tests="2" failures="1" errors="0" skipped="0" time="0.200">
+    <testcase classname="com.example.TestTwo" name="testTwoA" time="0.08"/>
+    <testcase classname="com.example.TestTwo" name="testTwoB" time="0.12">
+      <failure message="ValueError" type="ValueError">invalid value
+    at com.example.TestTwo.testTwoB(TestTwo.java:25)</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

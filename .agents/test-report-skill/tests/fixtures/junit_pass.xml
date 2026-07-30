@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PassingSuite" tests="3" failures="0" errors="0" skipped="0" time="0.150">
+  <testcase classname="com.example.TestCalc" name="testAdd" time="0.05"/>
+  <testcase classname="com.example.TestCalc" name="testSub" time="0.04"/>
+  <testcase classname="com.example.TestCalc" name="testMul" time="0.06"/>
+</testsuite>

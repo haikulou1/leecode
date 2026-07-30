@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="MixedSuite" tests="4" failures="1" errors="0" skipped="1" time="0.123">
+    <testcase classname="com.foo.BarTest" name="testPass1" time="0.01"/>
+    <testcase classname="com.foo.BarTest" name="testPass2" time="0.02"/>
+    <testcase classname="com.foo.BarTest" name="testFail" time="0.03">
+      <failure message="AssertionError" type="AssertionError">expected True but got False
+    at com.foo.BarTest.testFail(BarTest.java:42)
+    at com.foo.BarTest.run(BarTest.java:18)
+Caused by: java.lang.AssertionError</failure>
+    </testcase>
+    <testcase classname="com.foo.BarTest" name="testSkip" time="0.00">
+      <skipped/>
+    </testcase>
+  </testsuite>
+</testsuites>

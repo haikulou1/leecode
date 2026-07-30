@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pytest" tests="4" failures="1" errors="0" skipped="1" time="0.456">
+  <testcase classname="tests.test_foo" name="test_pass_1" time="0.01"/>
+  <testcase classname="tests.test_foo" name="test_pass_2" time="0.02"/>
+  <testcase classname="tests.test_foo" name="test_fail" time="0.03">
+    <failure message="AssertionError: assert 1 == 2">def test_fail():
+    assert 1 == 2
+    ^
+E   assert 1 == 2
+
+tests/test_foo.py:15: AssertionError</failure>
+  </testcase>
+  <testcase classname="tests.test_foo" name="test_skip" time="0.00">
+    <skipped message="need a feature"/>
+  </testcase>
+</testsuite>
