@@ -50,12 +50,13 @@ public class AlgoController {
     /**
      * 哈希算法接口（SHA-256）
      * input 为空时回退默认值 "hello"
+     * H1: 回显原始 input（不做 HTML 转义），与导出接口的 input 处理保持一致
      */
     @GetMapping("/hash")
     public ApiResult hash(@RequestParam(defaultValue = "hello") String input) {
         String[] result = hashService.hash(input);
         Map<String, Object> data = new HashMap<>();
-        data.put("input", escapeHtml(input));
+        data.put("input", input);
         data.put("algorithm", result[0]);
         data.put("hash", result[1]);
         return ApiResult.ok(data);

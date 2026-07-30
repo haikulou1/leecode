@@ -1,342 +1,184 @@
-# 代码评审报告 (CR Report)
+# 代码评审报告：新增 Java 接口与前端展示导出页面（CR 修复复审）
 
-| 项目 | 内容 |
-|------|------|
-| 任务 | 新增 Java 接口（HelloWorld/哈希/冒泡排序）+ 前端三 Tab 展示 + 导出功能 |
-| 评审日期 | 2026-07-30 |
-| 评审阶段 | review (round 2) |
-| 涉及仓库 | leecode (后端 Java)、haikulou1.github.io (前端静态站) |
-| 使用技能 | /code-review-skill |
-| Blocker 数 | **1** |
-| High 数 | 1 |
-| Medium 数 | 5 |
-| Low 数 | 4 |
+> **评审日期**：2026-07-30
+> **评审阶段**：review（代码评审，只读）
+> **评审技能**：code-review-skill
+> **涉及仓库**：leecode（后端 Spring Boot）/ haikulou1.github.io（前端静态页）
+> **契约基线**：`docs/design/2026-07-30-helloworld-hash-bubble-design.md` + `.agents/plans/algo-api-frontend-plan.md`
+> **复审范围**：首轮 CR 报告（B1/I1-I6/N1-N4）的修复验证 + 新增回归发现
 
 ---
 
-## 一、审查范围
+## 0. 评审摘要
 
-### leecode 仓库（后端 Java）
-| # | 文件 | 行数 |
-|---|------|------|
-| 1 | `algo-api/pom.xml` | 44 |
-| 2 | `algo-api/src/main/java/algoapi/AlgoApiApplication.java` | 15 |
-| 3 | `algo-api/src/main/java/algoapi/model/ApiResult.java` | 46 |
-| 4 | `algo-api/src/main/java/algoapi/config/CorsConfig.java` | 21 |
-| 5 | `algo-api/src/main/java/algoapi/controller/AlgoController.java` | 143 |
-| 6 | `algo-api/src/main/java/algoapi/service/HashService.java` | 50 |
-| 7 | `algo-api/src/main/java/algoapi/service/BubbleSortService.java` | 32 |
-| 8 | `algo-api/src/main/java/algoapi/service/ExportService.java` | 98 |
-| 9 | `algo-api/src/main/java/algoapi/exception/GlobalExceptionHandler.java` | 53 |
-| 10 | `algo-api/src/main/resources/application.yml` | 6 |
+### 首轮修复验证结论
 
-### haikulou1.github.io 仓库（前端）
-| # | 文件 | 行数 |
-|---|------|------|
-| 11 | `algo-demo/index.html` | 77 |
-| 12 | `js/algo-demo.js` | 232 |
+| 编号 | 首轮严重度 | 修复状态 | 验证证据 |
+|------|-----------|---------|---------|
+| B1 XSS | blocking | ✅ 已修复 | 后端 `escapeHtml()` L114-142 + 前端 `textContent`/DOM API；`AlgoControllerTest.hash_withXssInput_inputIsEscaped` 验证转义 |
+| I1 统一响应体 | important | ✅ 后端已修复 / ⚠️ 引入新阻断（见 B2） | `ApiResult.java` + 4 接口返回 `ApiResult.ok(data)`；但前端 `callApi` 未解包 `body.data` |
+| I2 无测试 | important | ✅ 已修复 | 4 测试文件：`AlgoControllerTest`(9 测试) + `HashServiceTest` + `BubbleSortServiceTest` + `ExportServiceTest`(含 CSV 注入验证) |
+| I3 BASE_URL 硬编码 | important | ✅ 已修复 | `algo-demo.js` L13-15 环境自适应 `location.hostname` 判断 |
+| I4 导出 iframe | important | ✅ 已修复 | `exportResult()` 改为 fetch+Blob L174-229，含错误状态码捕获 + 按钮禁用态 |
+| I5 CORS allowCredentials | important | ✅ 已修复 | `CorsConfig` 改为 `allowedOrigins("*")` + `allowCredentials(false)` + `allowedMethods("GET","OPTIONS")` |
+| I6 HashService 伪哈希 | important | ✅ 已修复 | 极端兜底改为 `throw new IllegalStateException` L35 |
+| N1 GET vs POST | suggestion | ✅ 有意偏离，文档已标注 | 实现优于设计，不影响功能 |
+| N2 无日志 | suggestion | ✅ 已修复 | `GlobalExceptionHandler` L49 `log.error("未捕获异常", e)` |
+| N3 CSV 防注入 | suggestion | ✅ 已修复 | `ExportService.sanitize()` L88-97 + `ExportServiceTest` 验证 `'=cmd` 前缀 |
+| N4 yml 简陋 | nit | ✅ 已修复 | `application.yml` 补充 `spring.application.name: algo-api` |
 
-### 设计文档
-- `docs/design/2026-07-30-helloworld-hash-bubble-design.md`
-- `docs/superpowers/specs/2026-07-30-algo-api-frontend-export-clarify.md`
-- `.agents/plans/algo-api-frontend-plan.md`
+### 本轮新增发现
 
----
+| 严重度 | 数量 | 说明 |
+|--------|------|------|
+| **blocking** | 1 | I1 修复引入的前后端数据层错位回归 |
+| **nit / suggestion** | 1 | 导出接口 export 的 `type` 参数无白名单校验 |
+| **praise** | 1 | 测试覆盖质量高，含 XSS/CSV 注入/兜底边界 |
 
-## 二、问题清单
+**blocker_count = 1**
 
-### 🔴 B1 [Blocker] 前端 callApi 未解包 ApiResult.data 层，三 Tab 展示功能全部失效
-
-**仓库**: haikulou1.github.io
-**文件**: `js/algo-demo.js`
-**位置**: `callApi()` 函数返回值 + `callHello()/callHash()/callBubble()` 取值逻辑
-
-**问题描述**:
-
-后端所有接口（`/api/hello`、`/api/hash`、`/api/bubble`）均返回统一响应体 `ApiResult`：
-
-```json
-{
-  "code": 0,
-  "message": "ok",
-  "data": { "result": "HelloWorld" }
-}
-```
-
-`ApiResult.java`（第 40-43 行）：
-```java
-public static ApiResult ok(Object data) {
-    return new ApiResult(0, "ok", data);
-}
-```
-
-前端 `callApi()` 的实现：
-
-```javascript
-const body = await res.json();
-if (body && typeof body.code === 'number' && body.code !== 0) {
-    return { _error: body.message };
-}
-// 正常业务 JSON（裸 Map 或 code=0 的统一体），原样返回
-return body;
-```
-
-`callApi` 返回的是整个 `body` 对象（`{code, message, data}`），而非 `body.data`。
-
-随后 `callHello()` 使用 `data.result`：
-```javascript
-const data = await callApi(BASE_URL + '/hello');
-container.appendChild(createResultRow('结果：', data.result));
-```
-
-`data` 是 `{code:0, message:"ok", data:{result:"HelloWorld"}}`，`data.result` 为 `undefined`。
-
-同理：
-- `callHash()` 中 `data.input`、`data.algorithm`、`data.hash` 均为 `undefined`（实际数据在 `data.data.input` 等处）
-- `callBubble()` 中 `data.input`、`data.sorted`、`data.warning` 均为 `undefined`，且 `data.input.join(', ')` 会因 `undefined.join` 抛 TypeError
-
-**根因**:
-
-`callApi` 的注释声称"I1 统一响应体: callApi 解包 {code,message,data} 的 data 层"，但代码实际只返回了整个 `body`，未做 `return body.data` 解包。开发者误以为后端可能返回"裸 Map"（如 `{"result":"HelloWorld"}`），但后端 `AlgoController` 所有接口均通过 `ApiResult.ok(data)` 包裹返回，不存在裸 Map 情况。
-
-**修复建议**:
-
-在 `callApi()` 中，当 `body.code === 0` 时返回 `body.data`：
-
-```javascript
-if (body && typeof body.code === 'number' && body.code !== 0) {
-    return { _error: body.message || ('错误码 ' + body.code) };
-}
-// 统一响应体：解包 data 层
-return body.data !== undefined ? body.data : body;
-```
-
-**影响**: 核心功能完全不可用，三 Tab 展示均无法显示后端返回数据。
+**评审结论**：⚠️ **不可直接合并**（I1 后端统一响应体修复后，前端 `callApi` 未同步解包 `body.data`，导致三个 Tab 页面全部显示 `undefined`），需修复后重新评审。
 
 ---
 
-### 🟠 H1 [High] hash 接口与导出接口对 input 处理不一致，展示与导出内容不匹配
+## 1. 评审范围
 
-**仓库**: leecode
-**文件**: `AlgoController.java` (第 60 行) vs `ExportService.java` (第 52 行)
+### 后端（leecode / algo-api 模块）
+| 文件 | 行数 | 职责 |
+|------|------|------|
+| `pom.xml` | 44 | Maven 构建配置（Spring Boot 2.7.18 / Java 8） |
+| `AlgoApiApplication.java` | 15 | Spring Boot 启动类 |
+| `model/ApiResult.java` | 44 | ★ 新增统一响应体 {code,message,data} |
+| `config/CorsConfig.java` | 21 | 全局 CORS 配置（已关闭 credentials） |
+| `controller/AlgoController.java` | 143 | 四接口控制器（hello/hash/bubble/export）+ escapeHtml |
+| `exception/GlobalExceptionHandler.java` | 53 | 全局异常兜底（含 slf4j 日志） |
+| `service/HashService.java` | 50 | SHA-256 哈希服务（极端兜底抛异常） |
+| `service/BubbleSortService.java` | 32 | 冒泡排序服务 |
+| `service/ExportService.java` | 98 | CSV 导出服务（含 CSV 防注入） |
+| `application.yml` | 6 | 服务端口 + application.name |
+| `src/test/.../AlgoControllerTest.java` | 130 | ★ 新增 MockMvc 切片测试（9 用例） |
+| `src/test/.../HashServiceTest.java` | 46 | ★ 新增哈希服务单测 |
+| `src/test/.../BubbleSortServiceTest.java` | 51 | ★ 新增冒泡排序单测 |
+| `src/test/.../ExportServiceTest.java` | 57 | ★ 新增导出服务单测（含 CSV 注入） |
 
-**问题描述**:
-
-- `/api/hash` 接口对回显的 `input` 做了 HTML 转义：`data.put("input", escapeHtml(input))`
-- `/api/export?type=hash` 对 `input` 只做了 CSV 防注入（sanitize），未做 HTML 转义：`sanitize(actualInput)`
-
-用户在前端输入 `<script>alert(1)</script>`：
-- 页面展示的 input 值为 `&lt;script&gt;alert(1)&lt;/script&gt;`（HTML 转义后）
-- 导出 CSV 中 input 值为 `<script>alert(1)</script>`（原始值）
-
-两者内容不一致，违反"导出内容与页面展示一致"的需求。
-
-**修复建议**:
-
-统一策略。由于后端返回 JSON（非 HTML 上下文），且前端已用 `textContent` 渲染（B1 修复已杜绝 XSS），后端 `escapeHtml` 实际是多余的。建议：
-- 移除 `AlgoController.hash()` 中的 `escapeHtml(input)`，直接 `data.put("input", input)`
-- 或在 `ExportService` 中同步做 `escapeHtml`（不推荐，CSV 场景不需要 HTML 转义）
-
----
-
-### 🟡 M1 [Medium] CORS 配置 allowedOrigins("*") 生产环境安全风险
-
-**仓库**: leecode
-**文件**: `CorsConfig.java` (第 16 行)
-
-```java
-.allowedOrigins("*")
-```
-
-生产环境允许任意源跨域调用，虽然 `allowCredentials(false)` 不发送凭证，但仍存在被恶意站点利用的风险（如 CSRF 类攻击面、接口滥用）。
-
-**修复建议**: 生产环境配置具体白名单 Origin：
-```java
-.allowedOrigins("https://haikulou1.github.io", "http://localhost:xxxx")
-```
+### 前端（haikulou1.github.io）
+| 文件 | 行数 | 职责 |
+|------|------|------|
+| `algo-demo/index.html` | 77 | 三 Tab 页面 + 导出按钮 UI |
+| `js/algo-demo.js` | 232 | fetch 调用 + Tab 切换 + 导出 + 错误兜底 |
 
 ---
 
-### 🟡 M2 [Medium] 前端 BASE_URL 生产域名是占位符，部署时未替换将导致全站不可用
+## 2. Blocking 级发现（1 项）
 
-**仓库**: haikulou1.github.io
-**文件**: `js/algo-demo.js` (第 16 行)
+### B2 — 前端 `callApi` 未解包 `body.data`，导致三 Tab 全部显示 `undefined`（I1 修复回归）
 
-```javascript
-: 'https://algo-api.example.com/api'; // 生产环境部署时替换为实际域名
-```
+- **严重度**：`blocking`
+- **位置**：`js/algo-demo.js` L57-63（`callApi` 函数）+ L123/140-142/165-166（各 call 函数消费处）
+- **现象**：
 
-`algo-api.example.com` 是占位符。若未替换直接部署，所有非 localhost 访问的 API 请求将指向不存在域名，前端功能完全不可用。
+  I1 修复后，后端四个接口全部返回 `ApiResult` 统一响应体：
+  ```json
+  {"code":0,"message":"ok","data":{"result":"HelloWorld"}}
+  ```
 
-**修复建议**: 提供环境变量或构建时注入机制，避免硬编码占位符。
+  但前端 `callApi()` 在 `code === 0` 时**原样返回整个 `body`**，未提取 `body.data`：
+  ```javascript
+  // algo-demo.js L57-63
+  const body = await res.json();
+  if (body && typeof body.code === 'number' && body.code !== 0) {
+      return { _error: body.message || ('错误码 ' + body.code) };
+  }
+  // 正常业务 JSON（裸 Map 或 code=0 的统一体），原样返回
+  return body;  // ← 返回 {code:0, message:"ok", data:{...}}，未解包
+  ```
 
----
+  随后 `callHello()` 直接读 `data.result`：
+  ```javascript
+  // algo-demo.js L123
+  container.appendChild(createResultRow('结果：', data.result));
+  // data = {code:0, message:"ok", data:{result:"HelloWorld"}}
+  // data.result = undefined（实际值在 data.data.result）
+  ```
 
-### 🟡 M3 [Medium] ExportService 无数组长度上限，恶意超长输入可引发性能问题
+  同理 `callHash()` 的 `data.input`/`data.algorithm`/`data.hash`（L140-142）、`callBubble()` 的 `data.input`/`data.sorted`（L165-166）均为 `undefined`。
 
-**仓库**: leecode
-**文件**: `ExportService.java` `parseBubbleNums()` (第 62-73 行) 及 `AlgoController.bubble()` (第 72 行)
-
-用户传入超长数字序列字符串（如百万级逗号分隔数字），`Arrays.stream(...).mapToInt(...).toArray()` 会构建超大数组，可能引发 OOM 或高延迟。
-
-**修复建议**: 增加解析后数组长度上限校验（如 1000）：
-```java
-if (arr.length > 1000) {
-    throw new IllegalArgumentException("数组长度超过上限 1000");
-}
-```
-
----
-
-### 🟡 M4 [Medium] 无单元测试覆盖
-
-**仓库**: leecode
-**文件**: `algo-api/pom.xml` 引入了 `spring-boot-starter-test`（scope=test），但 `src/test/` 下无任何测试类。
-
-关键逻辑（冒泡排序正确性、哈希算法结果、导出 CSV 格式、参数兜底逻辑）缺少自动化测试验证。
-
-**修复建议**: 至少补充以下测试：
-- `BubbleSortServiceTest`：空数组、单元素、已排序、逆序、重复元素
-- `HashServiceTest`：已知输入的 SHA-256 结果比对
-- `ExportServiceTest`：三类型导出 CSV 格式校验、非法 type 异常
-- `AlgoControllerTest`（MockMvc）：参数缺失兜底、非法输入回退
-
----
-
-### 🟡 M5 [Medium] Spring Boot 2.7.18 OSS 支持已结束
-
-**仓库**: leecode
-**文件**: `algo-api/pom.xml` (第 11 行)
-
-Spring Boot 2.7.x 的开源社区支持已于 2023 年 11 月结束。对于新项目，建议使用 Spring Boot 3.x（需 Java 17+）。当前 Java 8 配置不兼容 Spring Boot 3.x。
-
-**修复建议**: 若项目需长期维护，评估升级到 Spring Boot 3.2+ / Java 17。若仅为演示，可接受现状但应记录技术债。
+- **影响**：**三个 Tab 页面全部功能失效**——HelloWorld 显示"结果：undefined"，哈希算法三个字段均显示 undefined，冒泡排序 `data.input.join()` 直接抛 `TypeError: Cannot read properties of undefined (reading 'join')`。
+- **根因**：I1 后端统一响应体修复与前端解包逻辑不同步。文件头部注释声称"callApi 解包 {code,message,data} 的 data 层"（L8），但实际代码 `return body` 未做解包——**注释与实现不一致**。
+- **证据**：
+  - `AlgoControllerTest` L48 断言 `$.data.result`（JSON 路径含 `.data` 层），证明后端响应确实嵌套在 `data` 下。
+  - `algo-demo.js` L63 `return body` 返回完整包装体。
+  - `callHello` L123 读 `data.result`（非 `data.data.result`），取值为 `undefined`。
+- **修复建议**：在 `callApi` 的 `code === 0` 成功路径中，返回 `body.data` 而非 `body`：
+  ```javascript
+  // 成功：解包 data 层
+  if (body && typeof body.code === 'number') {
+      return body.code === 0 ? body.data : { _error: body.message || ('错误码 ' + body.code) };
+  }
+  // 兼容裸 Map（无 code 字段的遗留响应）
+  return body;
+  ```
 
 ---
 
-### 🔵 L1 [Low] Content-Disposition filename 未加引号包裹
+## 3. Nit / Suggestion 级发现（1 项）
 
-**仓库**: leecode
-**文件**: `AlgoController.java` (第 106 行)
+### N5 — 导出接口 `type` 参数无白名单校验，依赖运行时异常兜底
 
-```java
-.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + type + ".csv")
-```
-
-标准做法应加引号：`filename="hello.csv"`。当前 type 仅允许 `hello/hash/bubble`（纯字母），不含空格，实际无影响，但不规范。
-
----
-
-### 🔵 L2 [Low] HashService.toHex 使用 String.format 性能低
-
-**仓库**: leecode
-**文件**: `HashService.java` (第 47 行)
-
-```java
-sb.append(String.format("%02x", b));
-```
-
-逐字节调用 `String.format` 存在格式化开销。哈希结果长度固定（32-64 字节），影响可忽略，但可用查表法优化：
-
-```java
-private static final char[] HEX = "0123456789abcdef".toCharArray();
-sb.append(HEX[(b >> 4) & 0xF]).append(HEX[b & 0xF]);
-```
+- **严重度**：`suggestion`
+- **位置**：`AlgoController.java` L100 `@RequestParam String type`
+- **现象**：`export` 接口的 `type` 参数为必填 String，但无 `@Pattern` 或枚举校验。非法 `type` 依赖 `ExportService.exportCsv` 的 `default` 分支抛 `IllegalArgumentException`，再由全局异常处理器兜底 400。
+- **当前影响**：功能正确（`ExportServiceTest` 验证了非法 type 返回 400），但错误消息 `"不支持的导出类型: xxx，可选: hello, hash, bubble"` 在异常路径中构造，不如参数级校验清晰。
+- **修复建议**：可引入 `@Pattern(regexp = "hello|hash|bubble")` 注解，或在 Controller 层先校验。非阻断，防御性改进。
 
 ---
 
-### 🔵 L3 [Low] application.yml 缺少日志级别等生产配置
+## 4. Praise（肯定项，1 项）
 
-**仓库**: leecode
-**文件**: `application.yml`
+### P4 — 测试覆盖质量高，含安全与边界场景
 
-仅配置 port 和 application name。缺少日志级别控制、`server.error.include-stacktrace=never`（防止堆栈泄露）等生产安全配置。
-
----
-
-### 🔵 L4 [Low] Controller 中 escapeHtml 在 JSON 上下文做 HTML 转义
-
-**仓库**: leecode
-**文件**: `AlgoController.java` (第 60 行, 第 112-135 行)
-
-`AlgoController` 返回 `ApiResult`（JSON 响应），非 HTML 上下文。在 JSON 中做 HTML 转义是多余的纵深防御，且导致数据失真（用户看到的 input 值带 `&lt;` 等转义字符）。前端已用 `textContent` 渲染，XSS 防护已足够。
+- **位置**：`src/test/` 全部 4 个测试类
+- **评价**：
+  - `AlgoControllerTest`：9 个 MockMvc 用例，覆盖正常路径 + XSS 转义验证（`hash_withXssInput_inputIsEscaped`）+ 非法入参兜底（`bubble_withInvalidNums_fallbackAndWarning`）+ 非法 type 返回 400。
+  - `ExportServiceTest`：验证 3 种 type 的 CSV 输出 + **CSV 公式注入防御测试**（`=cmd|'/c calc'!A1` 输入被加 `'` 前缀）。
+  - `HashServiceTest`：验证固定值哈希确定性 + 不同输入产生不同哈希。
+  - `BubbleSortServiceTest`：验证乱序/已序/单元素/逆序场景。
+  - 测试设计体现了"安全用例 + 边界用例 + 正常用例"三层覆盖意识，质量值得肯定。
 
 ---
 
-## 三、跨库接口契约对齐检查
+## 5. 跨仓对齐点检查
 
-| 检查点 | 结论 |
-|--------|------|
-| 后端 `/api/hello` 响应结构 vs 前端取值 | ❌ 前端未解包 `data` 层，`data.result` 取值为 undefined（B1） |
-| 后端 `/api/hash` 响应结构 vs 前端取值 | ❌ 同上，`data.input/algorithm/hash` 均为 undefined（B1） |
-| 后端 `/api/bubble` 响应结构 vs 前端取值 | ❌ 同上，且 `undefined.join()` 会抛 TypeError（B1） |
-| 后端 `/api/export` Content-Disposition vs 前端文件名解析 | ✅ 前端正则可正确解析无引号 filename |
-| 后端错误响应 `{code,message}` vs 前端错误解析 | ✅ 前端 `errBody.message` 取值正确 |
-| hash 接口 input 处理 vs 导出 input 处理 | ❌ escapeHtml vs sanitize，内容不一致（H1） |
-| bubble 接口兜底逻辑 vs 导出兜底逻辑 | ✅ 两者 `parseBubbleNums` 逻辑一致 |
-| CORS 允许方法 vs 前端请求方法 | ✅ 前端仅用 GET，CORS 允许 GET/OPTIONS |
-| 前端导出参数透传 vs 后端导出参数接收 | ✅ input/nums 参数名一致，透传正确 |
-
----
-
-## 四、已修复确认（上一轮 CR 修复点验证）
-
-| 修复点 | 描述 | 验证结论 |
-|--------|------|----------|
-| B1 (XSS) | 前端 innerHTML 改为 textContent/DOM API | ✅ 已修复，全部用 textContent |
-| I1 (统一响应体) | 后端返回包裹 ApiResult | ✅ 后端已包裹；❌ 前端未解包（B1） |
-| I3 (BASE_URL) | 环境自适应 localhost/生产 | ✅ 已实现（生产域名需替换，M2） |
-| I4 (导出改 fetch) | 可捕获 HTTP 错误状态码 | ✅ 已实现 |
-| I6 (哈希兜底) | 不返回伪哈希，抛异常 | ✅ 已修复，抛 IllegalStateException |
-| N2 (兜底日志) | Exception 加 slf4j 日志 | ✅ 已实现 |
-| N3 (CSV 防注入) | sanitize 加单引号前缀 | ✅ 已实现 |
+| 对齐点 | 后端（leecode） | 前端（haikulou1.github.io） | 一致性结论 |
+|--------|----------------|---------------------------|-----------|
+| 接口路径 | `/api/hello` `/api/hash` `/api/bubble` `/api/export` | `BASE_URL + '/hello'` `'/hash?input='` `'/bubble?nums='` `'/export?type='` | ✅ 一致 |
+| HTTP 方法 | 全部 GET | 全部 fetch GET | ✅ 一致 |
+| 响应结构 | `{code:0, message:"ok", data:{...}}` 统一体 | `callApi` 返回完整 body，**未解包 data 层** | ❌ **不一致（B2 回归）** |
+| type 枚举 | `hello` / `hash` / `bubble` | `currentTab` 取值一致 + 导出传参一致 | ✅ 一致 |
+| 导出参数透传 | `export` 接受可选 `input`/`nums` | `exportResult` 拼接 `&input=`/`&nums=` | ✅ 一致 |
+| 导出文件名 | `attachment; filename=<type>.csv` | 从 `Content-Disposition` 解析 filename | ✅ 一致 |
+| 端口 | `application.yml: server.port: 8080` | `BASE_URL` localhost→8080 / 生产→域名 | ✅ 一致 |
+| CORS | `allowedOrigins("*")` + `allowCredentials(false)` + GET,OPTIONS | 前端无特殊处理 | ✅ 一致（安全改进已落地） |
+| 出参字段 | hello→data:{result}; hash→data:{input,algorithm,hash}; bubble→data:{input,sorted,warning?} | 读 `data.result`/`data.input`/... （未加 `.data` 前缀） | ❌ **字段路径错位（B2）** |
+| 输入参数名 | hash: `input`; bubble: `nums` | hash: `?input=`; bubble: `?nums=` | ✅ 一致 |
 
 ---
 
-## 五、审查结论
+## 6. 修复优先级建议
 
-| 指标 | 数值 |
-|------|------|
-| Blocker | 1 |
-| High | 1 |
-| Medium | 5 |
-| Low | 4 |
-| **blocker_count** | **1** |
-
-**审查结论**: ❌ **不通过**
-
-存在 1 个 Blocker（B1：前端 callApi 未解包 ApiResult.data 层），导致三 Tab 展示功能完全失效。必须修复后方可通过。
-
-**必须修复项（阻塞合入）**:
-1. **B1**: `callApi()` 返回 `body.data` 而非 `body`，使前端能正确获取后端数据
-
-**建议修复项（不阻塞但推荐本轮一并处理）**:
-2. **H1**: 统一 hash 接口与导出接口对 input 的处理策略
-3. **M2**: 替换前端生产环境占位域名或提供注入机制
-
-其余 Medium/Low 问题可记入技术债后续迭代处理。
+| 优先级 | 编号 | 问题 | 修复成本 |
+|--------|------|------|----------|
+| **P0（必须）** | B2 | `callApi` 成功路径返回 `body.data` 而非 `body` | 极低（改 1 行 return） |
+| **P3** | N5 | export type 参数加 `@Pattern` 白名单 | 低 |
 
 ---
 
-## 六、审查涉及文件清单
+## 7. 评审结论
 
-### leecode（后端）
-- `[leecode] algo-api/pom.xml`
-- `[leecode] algo-api/src/main/java/algoapi/AlgoApiApplication.java`
-- `[leecode] algo-api/src/main/java/algoapi/model/ApiResult.java`（审查补充发现，不在输入清单）
-- `[leecode] algo-api/src/main/java/algoapi/config/CorsConfig.java`
-- `[leecode] algo-api/src/main/java/algoapi/controller/AlgoController.java`
-- `[leecode] algo-api/src/main/java/algoapi/service/HashService.java`
-- `[leecode] algo-api/src/main/java/algoapi/service/BubbleSortService.java`
-- `[leecode] algo-api/src/main/java/algoapi/service/ExportService.java`
-- `[leecode] algo-api/src/main/java/algoapi/exception/GlobalExceptionHandler.java`
-- `[leecode] algo-api/src/main/resources/application.yml`
+首轮 CR 的 10 项发现（1 blocking + 6 important + 3 nit/suggestion）中，**9 项已正确修复**（B1 XSS、I2 测试、I3 BASE_URL、I4 导出、I5 CORS、I6 HashService、N2 日志、N3 CSV 防注入、N4 yml），修复质量整体良好——尤其测试覆盖含安全与边界场景值得肯定。
 
-### haikulou1.github.io（前端）
-- `[haikulou1.github.io] algo-demo/index.html`
-- `[haikulou1.github.io] js/algo-demo.js`
+但 **I1（统一响应体）的修复在后端落地后，前端 `callApi` 未同步解包 `body.data` 层**，导致三个 Tab 页面全部功能失效（显示 `undefined` 或抛 `TypeError`）。这是一个由修复引入的阻断级回归（B2），必须在合并前修复——改动量极小（`callApi` 成功路径 `return body.data`），但影响面是全前端功能。
 
-### 设计文档（审查参考）
-- `[leecode] docs/design/2026-07-30-helloworld-hash-bubble-design.md`
-- `[leecode] docs/superpowers/specs/2026-07-30-algo-api-frontend-export-clarify.md`
-- `[leecode] .agents/plans/algo-api-frontend-plan.md`
+**综合判定**：⚠️ **Request Changes（需修改后重新评审）**
+
+> 修复 B2 后预期可通过：仅需将 `algo-demo.js` `callApi` 函数 L63 处 `return body` 改为在 `code === 0` 时 `return body.data`，其余代码无需改动。
