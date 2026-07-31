@@ -1,0 +1,18 @@
+{
+  "task_id": "task-DEV-ddccb2af-7620-11f1-9e19-e337058ec5b9-37c7a163-84c2-4d5b-ad22-5394182a870e",
+  "stage": "review",
+  "blocker_count": 0,
+  "review_summary": {
+    "verdict": "通过（有条件）",
+    "blocker": 0,
+    "major": 4,
+    "minor": 8,
+    "note": "无阻塞性问题；跨仓接口契约完整对齐。Major 集中在 CORS 全开放、导出固定示例化、前端 API_BASE 硬编码、异常未统一处理，演示场景可豁免，生产化前处理。"
+  },
+  "artifacts": [
+    {
+      "path": ".agents/20260731-实现Java三接口及前端多tab导出页面/cr_report.md",
+      "repo": "leecode"
+    }
+  ]
+}
