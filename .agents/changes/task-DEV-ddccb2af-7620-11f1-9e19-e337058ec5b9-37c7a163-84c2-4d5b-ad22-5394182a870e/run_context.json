@@ -3,11 +3,11 @@
   "stage": "review",
   "blocker_count": 0,
   "review_summary": {
-    "verdict": "通过（有条件）",
+    "verdict": "通过",
     "blocker": 0,
-    "major": 4,
-    "minor": 8,
-    "note": "无阻塞性问题；跨仓接口契约完整对齐。Major 集中在 CORS 全开放、导出固定示例化、前端 API_BASE 硬编码、异常未统一处理，演示场景可豁免，生产化前处理。"
+    "major": 0,
+    "minor": 5,
+    "note": "第二轮复审（CR 修复后）：第一轮 4 个 Major 全部修复且跨仓契约向后兼容（CORS 白名单、导出新增 POST 实时契约、前端 API_BASE 配置化、GlobalExceptionHandler 统一异常）。无阻塞性问题；残留 5 个 Minor 均为演示可接受项，生产化前可选处理。"
   },
   "artifacts": [
     {
