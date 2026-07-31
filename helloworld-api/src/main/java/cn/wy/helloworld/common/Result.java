@@ -3,7 +3,7 @@ package cn.wy.helloworld.common;
 import java.io.Serializable;
 
 /**
- * 统一响应体。
+ * 统一响应体（不可变）。
  *
  * @param <T> data 的类型
  * @author dtcoder
@@ -16,12 +16,9 @@ public class Result<T> implements Serializable {
     public static final int CODE_BAD_REQUEST = 400;
     public static final String MESSAGE_SUCCESS = "success";
 
-    private int code;
-    private String message;
-    private T data;
-
-    public Result() {
-    }
+    private final int code;
+    private final String message;
+    private final T data;
 
     public Result(int code, String message, T data) {
         this.code = code;
@@ -41,23 +38,11 @@ public class Result<T> implements Serializable {
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
     public T getData() {
         return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
     }
 }

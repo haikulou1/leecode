@@ -1,5 +1,9 @@
 package cn.wy.helloworld.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -15,6 +19,8 @@ import java.util.Set;
  * @author dtcoder
  */
 public final class HashUtil {
+
+    private static final Logger log = LoggerFactory.getLogger(HashUtil.class);
 
     private HashUtil() {
     }
@@ -32,7 +38,7 @@ public final class HashUtil {
         Set<String> algos = new LinkedHashSet<String>(
                 Arrays.asList("MD5", "SHA-1", "SHA-256", "SHA-512"));
         SUPPORTED_ALGORITHMS = Collections.unmodifiableSet(algos);
-        HEX_CHARS = "0123456789abcdef".getBytes();
+        HEX_CHARS = "0123456789abcdef".getBytes(StandardCharsets.US_ASCII);
     }
 
     /**
@@ -80,10 +86,11 @@ public final class HashUtil {
         }
         try {
             MessageDigest digest = MessageDigest.getInstance(normalized);
-            byte[] raw = digest.digest(input.getBytes());
+            byte[] raw = digest.digest(input.getBytes(StandardCharsets.UTF_8));
             return toHex(raw);
         } catch (NoSuchAlgorithmException e) {
-            // 理论上不会发生：normalized 已在支持集合内
+            // normalized 已校验，此处为防御性兜底
+            log.warn("MessageDigest unavailable: {}", normalized, e);
             throw new IllegalStateException("algorithm unavailable: " + normalized, e);
         }
     }
