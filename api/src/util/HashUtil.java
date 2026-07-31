@@ -24,7 +24,10 @@ public class HashUtil {
             byte[] raw = md.digest(input.getBytes(StandardCharsets.UTF_8));
             return toHex(raw);
         } catch (NoSuchAlgorithmException e) {
-            throw new IllegalArgumentException("Unsupported algorithm: " + algorithm);
+            System.err.println("[ERROR] [HashUtil] digest failed: algorithm=" + algorithm
+                    + ", inputLen=" + input.length()
+                    + ", error=" + e.getMessage());
+            throw new IllegalArgumentException("Unsupported algorithm: " + algorithm, e);
         }
     }
 

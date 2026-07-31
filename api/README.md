@@ -13,6 +13,11 @@ javac -d out src/*.java src/handler/*.java src/util/*.java
 java -cp out Main
 # 自定义端口
 java -cp out Main 9090
+
+# 运行单元测试（需含 test/ 目录一并编译）
+javac -d out src/util/*.java test/*.java
+java -ea -cp out HashUtilTest
+java -ea -cp out SortUtilTest
 ```
 
 ## 接口列表

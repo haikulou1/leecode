@@ -16,6 +16,12 @@ import java.util.Map;
  */
 public class SortHandler implements HttpHandler {
 
+    /** input 参数长度上限（防 DoS/OOM）。 */
+    private static final int MAX_INPUT_LENGTH = 1024;
+
+    /** input 解析后元素数量上限（防超大数组 OOM）。 */
+    private static final int MAX_ELEMENT_COUNT = 1000;
+
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         if (!"GET".equalsIgnoreCase(exchange.getRequestMethod())) {
@@ -35,6 +41,10 @@ public class SortHandler implements HttpHandler {
             write(exchange, 400, "Missing required parameter: input");
             return;
         }
+        if (input.length() > MAX_INPUT_LENGTH) {
+            write(exchange, 400, "Input too long: max " + MAX_INPUT_LENGTH + " chars");
+            return;
+        }
         if (!SortUtil.isSupported(algorithm)) {
             write(exchange, 400, "Unsupported algorithm: " + algorithm
                     + " (supported: bubble, quicksort, selection)");
@@ -45,7 +55,14 @@ public class SortHandler implements HttpHandler {
         try {
             arr = parseInput(input);
         } catch (NumberFormatException e) {
+            System.err.println("[WARN] [SortHandler] parse failed: inputLen=" + input.length()
+                    + ", error=" + e.getMessage());
             write(exchange, 400, "Invalid input: expect comma-separated integers, e.g. 3,1,2");
+            return;
+        } catch (IllegalArgumentException e) {
+            System.err.println("[WARN] [SortHandler] parse rejected: inputLen=" + input.length()
+                    + ", error=" + e.getMessage());
+            write(exchange, 400, e.getMessage());
             return;
         }
 
@@ -59,6 +76,10 @@ public class SortHandler implements HttpHandler {
             return new int[0];
         }
         String[] parts = input.split(",");
+        if (parts.length > MAX_ELEMENT_COUNT) {
+            throw new IllegalArgumentException(
+                    "Too many elements: max " + MAX_ELEMENT_COUNT + ", got " + parts.length);
+        }
         int[] arr = new int[parts.length];
         for (int i = 0; i < parts.length; i++) {
             arr[i] = Integer.parseInt(parts[i].trim());

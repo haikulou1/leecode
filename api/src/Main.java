@@ -20,17 +20,26 @@ public class Main {
             try {
                 port = Integer.parseInt(args[0]);
             } catch (NumberFormatException e) {
-                System.err.println("Invalid port: " + args[0] + ", use default 8080");
+                System.err.println("[WARN] [Main] Invalid port arg: args[0]=" + args[0]
+                        + ", exception=" + e.getClass().getSimpleName()
+                        + ", fallback=8080");
             }
         }
 
-        HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
+        final HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         server.createContext("/helloworld", new HelloWorldHandler());
         server.createContext("/hash", new HashHandler());
         server.createContext("/sort", new SortHandler());
         // 未知路径兜底：404
         server.createContext("/", new NotFoundHandler());
         server.setExecutor(null); // 默认线程池
+
+        // 生产建议：JVM 退出时优雅关闭 HttpServer，避免端口/资源残留
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.err.println("[INFO] [Main] Shutdown hook: stopping HttpServer");
+            server.stop(0);
+        }));
+
         server.start();
 
         System.out.println("API server started on port " + port);

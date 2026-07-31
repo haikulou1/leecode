@@ -15,6 +15,9 @@ import java.util.Map;
  */
 public class HashHandler implements HttpHandler {
 
+    /** input 参数长度上限（防 DoS/OOM）。 */
+    private static final int MAX_INPUT_LENGTH = 1024;
+
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         if (!"GET".equalsIgnoreCase(exchange.getRequestMethod())) {
@@ -34,6 +37,10 @@ public class HashHandler implements HttpHandler {
             write(exchange, 400, "Missing required parameter: input");
             return;
         }
+        if (input.length() > MAX_INPUT_LENGTH) {
+            write(exchange, 400, "Input too long: max " + MAX_INPUT_LENGTH + " chars");
+            return;
+        }
         if (!HashUtil.isSupported(algorithm)) {
             write(exchange, 400, "Unsupported algorithm: " + algorithm
                     + " (supported: md5, sha1, sha256, sha512)");
@@ -43,6 +50,9 @@ public class HashHandler implements HttpHandler {
             String digest = HashUtil.digest(algorithm, input);
             write(exchange, 200, digest);
         } catch (IllegalArgumentException e) {
+            System.err.println("[WARN] [HashHandler] digest failed: algorithm=" + algorithm
+                    + ", inputLen=" + input.length()
+                    + ", error=" + e.getMessage());
             write(exchange, 400, e.getMessage());
         }
     }
