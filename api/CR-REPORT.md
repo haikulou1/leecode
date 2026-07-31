@@ -1,22 +1,8 @@
 # Code Review Report
 
-> **Change** `Java 接口 Demo（helloworld / hash / sort）` · **分支** `AI/task-DEV-ddccb2af-7620-11f1-9e19-e337058ec5b9-568a531a-4035-4b3b-` · **日期** `2026-07-31` · **审查者** AI（DTCoder · /dtazziboot-java-code-review）
+> **Change** `Java接口Demo loop-1 round2` · **分支/Commit** `AI/task-DEV-ddccb2af` / `fe98acf` · **日期** `2026-07-31` · **审查者** AI
 >
-> **AI**：等级 **P0 / P1 / P2**；G/S 以 checklist 行内定义为准；Bug 模式以 `bug-pattern-checklist.md` 表头为准（Blocker→P0、Major→P1、Info→P2）。已先运行 `scan-all-rules.sh` 并将要点并入 §5，再写 LLM 结论。问题含 `path:line` 或清单 ID。
-
----
-
-## 0. 执行说明与降级
-
-| 项 | 值 |
-|----|-----|
-| 阶段 | loop-1 · 代码审查 |
-| 采用技能 | /dtazziboot-java-code-review |
-| 预扫脚本 | `references/script/scan-all-rules.sh api/src`（52/222 条可程序化规则） |
-| 预扫原始命中 | `G16.2 CatchWithoutLogging` ×4（脚本标 P0） |
-| **LLM 误报复核** | 清单原文 `reliability-checklist.md:246` 中 **G16.2 等级 = P1**；脚本报告的 P0 对应 G16.4（空 catch / 仅 printStackTrace / 捕获后仍执行无记录）。复核 4 处 catch 均非空、非 printStackTrace、捕获后直接 `return`/`throw`（有补救），**不命中 G16.4**，故 4 处降级为 **P1**。 |
-| 构建验证 | **[降级说明]** 环境无 JDK（`javac: not found` / `java: not found` / 无 `JAVA_HOME` / 无 `/usr/lib/jvm`），编译不可用。按防超时协议切为静态代码审查，基于完整源码 + 预扫 + 清单完成全维度核销。 |
-| Git | 只读（未做任何写操作） |
+> **AI**：等级 **P0 / P1 / P2**；G/S 以 checklist 行内定义为准；Bug 模式以 `bug-pattern-checklist.md` 表头为准（Blocker→P0、Major→P1、Info→P2）。**已**运行 `scan-all-rules.sh` 并将要点并入 §4，**再**写 LLM 结论。问题含 `path:line` 或清单 ID。本报告 §7.1 附 `.java` 问题片段。
 
 ---
 
@@ -24,19 +10,21 @@
 
 | 项 | 值 |
 |----|-----|
-| `.java` 文件数 | 6 |
-| 变更行数 | 全新增（+约 480 / -0） |
+| `.java` 文件数 | `8` |
+| 变更行数 | `+382 / -3`（7 文件，含 1 个 .md） |
 
 | 类/接口 | 路径 | 角色 |
 |---------|------|------|
-| `Main` | `api/src/Main.java` | 启动入口，注册路由 + `NotFoundHandler` 兜底 |
-| `HelloWorldHandler` | `api/src/handler/HelloWorldHandler.java` | GET /helloworld |
-| `HashHandler` | `api/src/handler/HashHandler.java` | GET /hash?algorithm=&input= |
-| `SortHandler` | `api/src/handler/SortHandler.java` | GET /sort?algorithm=&input= |
-| `HashUtil` | `api/src/util/HashUtil.java` | MessageDigest 封装 |
-| `SortUtil` | `api/src/util/SortUtil.java` | 冒泡/快排/选择排序封装 |
+| `Main` | `api/src/Main.java` | HttpServer 启动入口，注册路由，关闭钩子 |
+| `HelloWorldHandler` | `api/src/handler/HelloWorldHandler.java` | GET /helloworld 处理器 |
+| `HashHandler` | `api/src/handler/HashHandler.java` | GET /hash 处理器 |
+| `SortHandler` | `api/src/handler/SortHandler.java` | GET /sort 处理器 |
+| `HashUtil` | `api/src/util/HashUtil.java` | 哈希算法工具（MessageDigest 封装） |
+| `SortUtil` | `api/src/util/SortUtil.java` | 排序算法工具（冒泡/快排/选择） |
+| `HashUtilTest` | `api/test/HashUtilTest.java` | HashUtil 单元测试 |
+| `SortUtilTest` | `api/test/SortUtilTest.java` | SortUtil 单元测试 |
 
-> 关联设计：`api/DESIGN.md`（需求澄清产物）；说明：`api/README.md`。
+> 设计文档：`api/DESIGN.md`；接口说明：`api/README.md`。
 
 ---
 
@@ -44,138 +32,138 @@
 
 | P0 | P1 | P2 |
 |----|----|-----|
-| 0 | 4 | 3 |
+| 0 | 0 | 3 |
 
-> 4 个 P1 均为 `G16.2`（异常路径无日志/无可追溯上下文），对学习 Demo 非功能阻断，但影响线上可观测性；建议修复后合并。
+> `scan-all-rules.sh` 预扫报 26 条 G16.2（CatchWithoutLogging），经 LLM 逐文件复核均为**误报**（详见 §4.1 与 §7.1）。
 
 ---
 
 ## 3. Step 2 — 功能（REQ）
 
-> REQ 来自 `api/DESIGN.md` §5.2 接口定义表。
+> 需求来源：`api/DESIGN.md` §5.2 接口定义表 + `requirement_section`。
 
-### REQ-1: HelloWorld 接口
-
-| Scenario | 结果 | Spec证据 | 代码证据 | 说明 |
-|----------|------|----------|----------|------|
-| GET /helloworld → `Hello, World!` | ✅ | DESIGN.md §5.2 行101：`GET /helloworld → Hello, World!` | `api/src/handler/HelloWorldHandler.java:19` | 文本一致；非 GET 返 405（`:15`） |
-| 路由注册 | ✅ | DESIGN.md §5.1 模块结构 | `api/src/Main.java:28` | `/helloworld` 已注册 |
-
-### REQ-2: 哈希算法接口
+### REQ-1: `HelloWorld 接口`
 
 | Scenario | 结果 | Spec证据 | 代码证据 | 说明 |
 |----------|------|----------|----------|------|
-| GET /hash?algorithm=sha256&input=abc → 十六进制摘要 | ✅ | DESIGN.md §5.2 行102 + §8 行152 期望值 `ba7816bf...015ad` | `api/src/handler/HashHandler.java:42-44` + `api/src/util/HashUtil.java:20-29` | `MessageDigest` 标准实现，输出小写 hex（`HashUtil.toHex :73-80`） |
-| 支持 md5/sha1/sha256/sha512 | ✅ | DESIGN.md §5.2 行102 + §5.4 行111 | `api/src/util/HashUtil.java:55-69`（normalize 白名单） | 含 `sha-1`/`sha-256` 别名兼容 |
-| 未知算法 → 400 | ✅ | DESIGN.md §5.3 行106 `Unsupported algorithm: xxx` | `api/src/handler/HashHandler.java:37-41` | 先 `isSupported` 白名单校验 |
-| 参数缺失 → 400 | ✅ | DESIGN.md §5.3 行107 | `api/src/handler/HashHandler.java:29-36` | `algorithm`/`input` 分别校验 |
+| GET /helloworld → "Hello, World!" | ✅ | DESIGN.md §5.2 行101 | `HelloWorldHandler.java:19` | 返回 `Hello, World!`，非 GET 返回 405 |
+| 非 GET 请求 → 405 | ✅ | DESIGN.md §5.3 行108 | `HelloWorldHandler.java:15-17` | Method Not Allowed |
 
-### REQ-3: 排序算法接口（候选 A）
+### REQ-2: `哈希算法接口`
 
 | Scenario | 结果 | Spec证据 | 代码证据 | 说明 |
 |----------|------|----------|----------|------|
-| GET /sort?algorithm=quicksort&input=3,1,2 → `1,2,3` | ✅ | DESIGN.md §5.2 行103 + §8 行153 期望 `1,2,3` | `api/src/handler/SortHandler.java:52-53` + `api/src/util/SortUtil.java:23-24` | Hoare 分区快排，升序 |
-| 支持 bubble/quicksort/selection | ✅ | DESIGN.md §5.2 行103 | `api/src/util/SortUtil.java:19-31`（switch 三分支 + default） | |
-| 非法 input → 400 | ✅ | README.md §错误码 行52 | `api/src/handler/SortHandler.java:47-50` | 捕获 `NumberFormatException` 提示格式 |
+| GET /hash?algorithm=sha256&input=abc → 十六进制摘要 | ✅ | DESIGN.md §5.2 行102 | `HashHandler.java:49-51` + `HashUtil.java:20-31` | 摘要值与已知值一致（测试验证） |
+| 支持 md5/sha1/sha256/sha512 | ✅ | DESIGN.md §5.4 行111 | `HashUtil.java:58-69` normalize() | 算法名归一化+白名单校验 |
+| 算法不支持 → 400 | ✅ | DESIGN.md §5.3 行106 | `HashHandler.java:44-47` | isSupported 预校验 |
+| 参数缺失 → 400 | ✅ | DESIGN.md §5.3 行107 | `HashHandler.java:32-38` | algorithm/input 空值校验 |
+| input 长度上限防 DoS | ✅ | 本轮新增（G11.3 防御） | `HashHandler.java:40-42` | MAX_INPUT_LENGTH=1024 |
 
-### 错误处理契约
+### REQ-3: `排序算法接口（候选A）`
 
 | Scenario | 结果 | Spec证据 | 代码证据 | 说明 |
 |----------|------|----------|----------|------|
-| 未知路径 → 404 | ✅ | DESIGN.md §5.3 行108 | `api/src/Main.java:32,43-53` | `/` 兜底 `NotFoundHandler` |
-| 非 GET → 405 | ✅ | README.md §错误码 行54 | 三个 Handler 均有 `:20-23` 守卫 | |
+| GET /sort?algorithm=quicksort&input=3,1,2 → 1,2,3 | ✅ | DESIGN.md §5.2 行103 | `SortHandler.java:69-70` + `SortUtil.java:16-33` | 三种算法结果一致（测试验证） |
+| 支持 bubble/quicksort/selection | ✅ | DESIGN.md §5.4 | `SortUtil.java:19-31` | switch 分发 |
+| 元素数量上限防 OOM | ✅ | 本轮新增（G11.3 防御） | `SortHandler.java:79-82` | MAX_ELEMENT_COUNT=1000 |
+| 输入格式错误 → 400 | ✅ | DESIGN.md §5.3 | `SortHandler.java:57-61` | NumberFormatException 捕获 |
 
 ---
 
 ## 4. Step 3 — 可读性检查
 
-> 对照 `references/readability-checklist.md` A1–A7。
+> 对照 `references/readability-checklist.md` A1–A7 逐节核销。
 
-| ID | 检查项 | 状态 | 备注 |
+| ID | 检查项 | 结果 | 备注 |
 |----|--------|------|------|
-| A1.1 | 文件名=顶层类名 | ✅ | 6 文件均符合 |
-| A1.2 | 编码 UTF-8 | ✅ | 无 BOM 证据，中文字面量正常 |
-| A1.3 | 空白仅 ASCII 空格，禁 Tab | ✅ | 全部 4 空格缩进 |
-| A2.1 | 文件顺序 package→import→顶层类 | ⚠️ | **所有文件无 package 声明**（default package）。与 DESIGN.md §5.1 一致（原生 Demo 无包），学习场景可接受；生产应补 package |
-| A2.2 | 禁止 import * | ✅ | 无通配符引入 |
-| A2.3/A2.4 | import 分组 + 字典序 | ✅ | 仅非静态一组；`com.sun` < `java` 字典序正确 |
-| A3.1 | K&R 大括号 | ✅ | `} else {` 同行等均符合 |
-| A3.3 | 缩进 4 空格 | ✅ | |
-| A3.4 | 行宽 ≤120 | ✅ | 最长行（HashHandler:38-39 拼接）续行处理得当 |
-| A3.6 | 类成员间空行 | ✅ | |
-| A4.2/A4.3 | 类名 UpperCamel / 方法 lowerCamel | ✅ | |
-| A5.1 | 重写加 @Override | ✅ | 4 个 `handle` + 1 个 `NotFoundHandler.handle` 均有 `@Override` |
-| A6.1 | 数组方括号属于类型 | ✅ | `String[] parts`（SortHandler:61）、`int[] arr`、`byte[] raw` |
-| A6.2 | switch 须有 default | ✅ | `HashUtil.isSupported:44`、`HashUtil.normalize:67`、`SortUtil.sort:29` 均有 default |
-| A7.1 | public 类/成员须 Javadoc | ✅ | `HashUtil.digest/isSupported`、`SortUtil.sort/isSupported`、`Main.main` 均有；`handle` 为 @Override 可省（A7.3） |
-
-**可读性结论**：✅ 通过（仅 1 处 default package 属设计决策，非违规）。
+| A1 | 源文件格式 | ✅ | 文件名=类名.java，UTF-8，4 空格缩进无 Tab |
+| A2 | 源文件结构/import 顺序 | ⚠️ | 无 `package` 声明（default package）；import 无通配符，组内字典序 ✅。无 package 系设计决策（DESIGN.md §5.1 原生 Java 模块），Demo 可接受，生产建议补 |
+| A3 | 代码样式 | ✅ | K&R 大括号，行宽 ≤120，类成员间空行 |
+| A4 | 命名规范 | ✅ | 类 UpperCamelCase，方法 lowerCamelCase，常量 UPPER_SNAKE_CASE（MAX_INPUT_LENGTH 等） |
+| A5 | 编码实践 | ✅ | `@Override` 齐全，catch 非空，静态方法类名调用 |
+| A6 | 特定元素样式 | ✅ | `String[] args` 类型式方括号；switch 有 default；long 无小写 l |
+| A7 | Javadoc 规范 | ✅ | public 类/方法均有 Javadoc；`@Override` 方法省略合规；private 方法按需补充 |
 
 ---
 
 ## 5. Step 4 — 可靠性检查
 
-### 5.1 预扫结果（scan-all-rules.sh）
+### 5.1 预扫结果（`scan-all-rules.sh`）
 
 ```
-[P0] G16.2 — CatchWithoutLogging: api/src/Main.java:22
-[P0] G16.2 — CatchWithoutLogging: api/src/handler/HashHandler.java:45
-[P0] G16.2 — CatchWithoutLogging: api/src/handler/SortHandler.java:47
-[P0] G16.2 — CatchWithoutLogging: api/src/util/HashUtil.java:26
-Summary: 4 findings (P0=4, P1=0, P2=0) | 52/222 rules scanned
+=== Step 4 Rule Scan (B/M/I + A/S/G) ===
+Targets: src/ test/
+Engine:  ripgrep
+
+[P0] G16.2 — CatchWithoutLogging: src/Main.java:22
+[P0] G16.2 — CatchWithoutLogging: src/handler/HashHandler.java:52
+[P0] G16.2 — CatchWithoutLogging: src/handler/SortHandler.java:57
+[P0] G16.2 — CatchWithoutLogging: src/handler/SortHandler.java:62
+[P0] G16.2 — CatchWithoutLogging: src/util/HashUtil.java:26
+[P0] G16.2 — CatchWithoutLogging: test/HashUtilTest.java:33,45,56,66,80,90,92,102
+[P0] G16.2 — CatchWithoutLogging: test/SortUtilTest.java:36,45,54,67,76,85,94,103,112,121,134,143,145
+
+=== Summary: 26 findings (P0=26, P1=0, P2=0) | 52/222 rules scanned ===
 ```
 
-### 5.2 LLM 误报复核
+### 5.2 LLM 复核：G16.2 误报分析
 
-脚本将 `CatchWithoutLogging` 统一标 G16.2/P0，但清单原文（`reliability-checklist.md:246`）：
-- **G16.2** = 异常路径有日志输出且含可追溯上下文 → **P1**
-- **G16.4** = 空 catch / 仅 printStackTrace / 关键路径捕获后仍执行且无记录 → **P0**
+| 命中位置 | 复核结论 | 理由 |
+|----------|----------|------|
+| `src/Main.java:22` | **误报** | catch 块含 `System.err.println("[WARN] [Main] ...")`，脚本行级扫描未跨行识别 println |
+| `src/handler/HashHandler.java:52` | **误报** | catch 块含 `System.err.println("[WARN] [HashHandler] ...")` |
+| `src/handler/SortHandler.java:57` | **误报** | catch 块含 `System.err.println("[WARN] [SortHandler] ...")` |
+| `src/handler/SortHandler.java:62` | **误报** | catch 块含 `System.err.println("[WARN] [SortHandler] ...")` |
+| `src/util/HashUtil.java:26` | **误报** | catch 块含 `System.err.println("[ERROR] [HashUtil] ...")` |
+| `test/*.java`（21 处） | **误报** | catch(AssertionError e) 块调用 `fail(label, e)`，该方法递增 failed 计数器并输出 `[FAIL] label: msg` 到 System.err，系标准测试断言失败记录模式 |
 
-复核 4 处：均非空、非 printStackTrace、捕获后直接 `return`（返 400）或 `throw`（抛 IllegalArgumentException），**有补救动作**，不命中 G16.4 → **降级为 P1**。
+> **结论**：26 条 G16.2 全部为脚本误报（行级 ripgrep 无法识别 catch 下一行的 println 调用）。源码 catch 块均已补充日志（本轮 diff 正是 G16.2 修复），测试 catch 块使用 fail() 记录失败。**实际 P0 = 0**。
 
-| 域 | 参考 | 结果 | 等级 | 说明（命中 ID + path:line） |
-|----|------|------|------|-------------------------------------|
-| 可靠性 | `reliability-checklist.md` G1–G17 | ⚠️ | P1 | G16.2 ×4：`Main.java:22`、`HashHandler.java:45`、`SortHandler.java:47`、`HashUtil.java:26` |
-| 安全 | `security-checklist.md` S1–S10 | ⚠️ | P2 | S2 输入校验：`input` 未限长（HashHandler/SortHandler），超大输入有 DoS/OOM 风险 |
-| Bug 模式 | `bug-pattern-checklist.md` B/M/I（120） | ✅ | — | 预扫 25/81 条无命中；LLM 复核相关项（B004/B005/B008/B011/B022/B024 等）均无命中 |
+### 5.3 可靠性 G 清单逐条核销
 
-#### G1–G17 逐类核销
+| 域 | 参考 | 结果 | 等级 | 说明 |
+|----|------|------|------|------|
+| G1 并发控制 | G1.1–G1.4 | N/A | — | 无 DB 读写、无并发共享状态 |
+| G2 幂等拦截 | G2.1–G2.3 | N/A | — | 只读 GET 接口，无写操作/MQ |
+| G3 事务控制 | G3.1–G3.2 | N/A | — | 无事务 |
+| G4 SQL与索引 | G4.1–G4.3 | N/A | — | 无 SQL |
+| G5 消息MQ | G5.1 | N/A | — | 无 MQ |
+| G6 缓存 | G6.1–G6.2 | N/A | — | 无缓存 |
+| G7 调度任务 | G7.1–G7.2 | N/A | — | 无调度 |
+| G8 防御编程 | G8.1–G8.6 | ✅ | — | G8.1 catch 全部记录日志✅；G8.3 OutputStream try-with-resources✅；G8.4 shutdown hook✅；G8.5 无 ThreadLocal N/A；G8.6 `setExecutor(null)` 用 HttpServer 默认执行器（非 Executors 无界队列）✅ |
+| G9 网络调用 | G9.1–G9.3 | N/A | — | HttpServer 为入站服务端，无出站调用 |
+| G10 接口契约 | G10.1–G10.2 | ✅ | — | 错误响应格式一致，null 仅表示无数据 |
+| G11 开发自测 | G11.1–G11.4 | ⚠️ | P2 | G11.1 有单测✅；G11.2 边界覆盖（空/单元素/null/逆序/重复）✅；G11.3 `HashUtil.digest()` 未 null-check `input` 参数（调用方 HashHandler 已校验，风险已缓解，见 §7.1）；G11.4 无金额运算 N/A |
+| G12 资损防控 | G12.1–G12.2 | N/A | — | 无资金场景 |
+| G13 监控核对 | G13.1 | ✅ | — | 错误打 warn/error，成功不打 error |
+| G14–G17 | — | N/A | — | 无灰度/配置/限流/应急场景（Demo 项目） |
 
-| ID 节 | 结论 | 说明 |
-|-------|------|------|
-| G1 并发 | N/A | 无 DB 事务/锁 |
-| G2 幂等 | N/A | 纯只读 GET，无写操作 |
-| G3 事务 | N/A | 无 @Transactional |
-| G4 SQL | N/A | 无 SQL |
-| G5 MQ | N/A | 无消息消费 |
-| G6 缓存 | N/A | 无缓存 |
-| G7 调度 | N/A | 无定时任务 |
-| G8 防御编程 | ⚠️ P1 | G8.3 ✅（`write` 均用 try-with-resources 释放 OutputStream）；G8.4 线程池无 shutdown 钩子（`Main.java:33` setExecutor(null)），学习 Demo 前台进程可接受，生产建议加 `Runtime.addShutdownHook` → P2 建议 |
-| G9 网络调用 | N/A | 本服务为被调用方，不发起外部 RPC/HTTP |
-| G10 接口契约 | ✅ | 错误码（400/404/405）与 README/DESIGN 一致 |
-| G11 开发自测 | ⚠️ P2 | G11.1 无单元测试（DESIGN 验证策略为 curl，可接受但建议补单测）；G11.3 ✅（algorithm/input null 校验已做） |
-| G12 资损 | N/A | 无资金场景 |
-| G13 监控 | N/A | 学习 Demo 无埋点 |
-| G14 国际化 | N/A | |
-| G15 灰度 | N/A | |
-| G16 可监控 | ❌ P1 | G16.2 ×4 命中（详见 §5.3）；G16.4 未命中（catch 均有补救） |
-| G17 可应急 | N/A | |
+### 5.4 安全 S 清单逐条核销
 
-#### Bug 模式相关项复核（预扫覆盖 25/81，LLM 补全关键项）
+| 域 | 参考 | 结果 | 等级 | 说明 |
+|----|------|------|------|------|
+| S1 SQL注入 | S1.1 | N/A | — | 无 SQL |
+| S2 XSS | S2.1 | ✅ | — | Content-Type: text/plain，无 HTML 渲染 |
+| S3 认证授权 | S3.1–S3.2 | N/A | — | Demo API，无认证（设计决策） |
+| S4 输入校验 | S4.1–S4.2 | ✅ | — | 算法白名单(isSupported)✅；input 长度限制✅；元素数量限制✅；Integer.parseInt 异常捕获✅ |
+| S5 密钥泄露 | S5.1 | N/A | — | 无密钥 |
+| S6–S10 | — | N/A | — | 无文件上传/反序列化/SSRF/CSRF/CORS（纯 GET Demo） |
 
-| ID | 状态 | 备注 |
-|----|------|------|
-| B004 ArrayToString | ✅ | 未对数组 `.toString()` |
-| B005 ArraysAsListPrimitiveArray | ✅ | `SortUtil` 用 `Arrays.copyOf`（`:17`），非 asList |
-| B008 AvoidUsingExecutors | ✅ | 未用 `Executors`，`setExecutor(null)` 用默认 |
-| B011 BoxedPrimitiveEquality | ✅ | 无包装类型 `==` 比较 |
-| B022 DateFormatThreadSafety | ✅ | 无 `SimpleDateFormat` |
-| B024 DeadThread | ✅ | 无 `new Thread` 未 start |
-| 其余 B/M/I | N/A | 与本项目无关（无 Jedis/Money/Calendar/BigDecimal 等） |
+### 5.5 Bug 模式 B/M/I 核销（节选相关项）
 
-### 5.3 P1 命中明细（G16.2）
+> 共 120 条（B81+M27+I10）。以下列出与本项目可能相关的条目，其余标 N/A。
 
-> 4 处 catch 块均捕获异常后转为业务响应/抛出，但**异常路径无日志输出、无可追溯上下文（traceId/bizId）**，线上出问题无法排查。等级 P1。
+| ID | 规则名 | 状态 | 备注 |
+|----|--------|------|------|
+| B002 | ArrayEquals | ✅ | 测试用自定义 `assertArrayEquals` 逐元素比较，未用 `array.equals()` |
+| B004 | ArrayToString | ✅ | 无 `array.toString()` 调用 |
+| B005 | ArraysAsListPrimitiveArray | ✅ | 无 `Arrays.asList(int[])` |
+| B006 | AssertEqualsArgumentOrder | ✅ | 自定义 `assertEquals(expected, actual, label)` 参数顺序正确 |
+| B007 | AssertionFailureIgnored | ✅ | 测试 catch(AssertionError) 后调用 fail()，未吞断言 |
+| B008 | AvoidUsingExecutors | ✅ | 无 `Executors.newXxxThreadPool` |
+| B011 | BoxedPrimitiveEquality | ✅ | 无包装类型 `==` 比较 |
+| B024 | DeadThread | ✅ | `new Thread(…)` 传入 `addShutdownHook()`，由 JVM 启动，非遗漏 `start()` |
+| B001–B120 其余 | — | N/A | 无 BigDecimal/Calendar/Date格式化/JDBC/Spring 等场景 |
 
 ---
 
@@ -183,110 +171,119 @@ Summary: 4 findings (P0=4, P1=0, P2=0) | 52/222 rules scanned
 
 | 域 | 参考 | 结果 | 等级 | 说明 |
 |----|------|------|------|------|
-| 自定义扩展 | `customized-checklist.md` U* | N/A | — | N/A(未启用自定义规则，清单为示例项) |
+| 自定义扩展 | `customized-checklist.md` U* | N/A | — | 未启用自定义规则 |
 
 ---
 
 ## 7. 结论
 
-- **合并建议**：修复后合并
-- **P0**：无
-- **P1**：
-  1. `G16.2` `api/src/Main.java:22` — `NumberFormatException` 仅 `System.err.println`，无结构化日志/上下文
-  2. `G16.2` `api/src/handler/HashHandler.java:45` — `IllegalArgumentException` 捕获后直返 400，无日志
-  3. `G16.2` `api/src/handler/SortHandler.java:47` — `NumberFormatException` 捕获后直返 400，无日志
-  4. `G16.2` `api/src/util/HashUtil.java:26` — `NoSuchAlgorithmException` 捕获后重抛，无日志
-- **P2**：
-  1. `G8.4` `api/src/Main.java:33` — HttpServer 无 shutdown 钩子（生产建议）
-  2. `G11.1` — 全模块无单元测试
-  3. S2 输入校验 — `input` 参数未限长，超大输入 DoS/OOM 风险（`HashHandler.java:27`、`SortHandler.java:28,61`）
-- **一句话**：功能与设计契约完全一致、可读性良好、无 P0；4 处 P1 为异常可观测性缺失，修复后可合并。
+- **合并建议**：**通过**
+- **P0**：无（`scan-all-rules.sh` 报 26 条 G16.2 均为误报，经 LLM 逐文件复核确认）
+- **P1/P2**：
+  1. **P2** `A2.1` — 无 `package` 声明（default package），Demo 可接受，生产建议补包名
+  2. **P2** `G11.3` `api/src/util/HashUtil.java:24` — `digest()` 未对 `input` 做 null 防御校验（调用方已校验，风险缓解）
+  3. **P2** DRY — `parseQuery()` / `write()` 在 HashHandler、SortHandler、HelloWorldHandler 间重复，建议提取公共基类或工具方法
+- **一句话**：本轮变更质量良好——补充了 DoS 防御（长度/数量限制）、异常日志与 cause 链、shutdown hook 及完整单元测试；预扫 26 条 G16.2 全系误报，无 P0/P1 阻塞项，3 条 P2 改进建议不阻塞合并。
 
 ---
 
 ## 7.1 问题片段（必填）
 
-### P1 — `G16.2` `api/src/Main.java:22`
+> 对 §3–§7 中每个 `⚠️` 问题提供对应 `.java` 代码片段。
 
-> `NumberFormatException` 仅打到 stderr，无结构化日志/可追溯上下文。
+### P2 — `G16.2 误报` 说明（`src/Main.java:22`）
 
-片段范围：`api/src/Main.java:17-25`
+- **P2** `G16.2(误报)` `api/src/Main.java:22` — catch 块**已含** `System.err.println` 日志，脚本行级扫描未跨行识别，判定为误报。
+  片段范围：`api/src/Main.java:20-26`
 
 ```java
-L17|public static void main(String[] args) throws IOException {
-L18|    int port = 8080;
-L19|    if (args.length > 0) {
 L20|        try {
 L21|            port = Integer.parseInt(args[0]);
 L22|        } catch (NumberFormatException e) {
-L23|            System.err.println("Invalid port: " + args[0] + ", use default 8080");
-L24|        }
-L25|    }
+L23|            System.err.println("[WARN] [Main] Invalid port arg: args[0]=" + args[0]
+L24|                    + ", exception=" + e.getClass().getSimpleName()
+L25|                    + ", fallback=8080");
+L26|        }
 ```
 
-### P1 — `G16.2` `api/src/handler/HashHandler.java:45`
+### P2 — `G16.2 误报` 说明（`src/util/HashUtil.java:26`）
 
-> `IllegalArgumentException` 捕获后直返 400，异常路径无日志。
-
-片段范围：`api/src/handler/HashHandler.java:42-48`
+- **P2** `G16.2(误报)` `api/src/util/HashUtil.java:26` — catch 块**已含** `System.err.println` 日志并保留 cause，系本轮 G16.2 修复，误报。
+  片段范围：`api/src/util/HashUtil.java:22-31`
 
 ```java
-L42|try {
-L43|    String digest = HashUtil.digest(algorithm, input);
-L44|    write(exchange, 200, digest);
-L45|} catch (IllegalArgumentException e) {
-L46|    write(exchange, 400, e.getMessage());
-L47|}
+L22|        try {
+L23|            MessageDigest md = MessageDigest.getInstance(alg);
+L24|            byte[] raw = md.digest(input.getBytes(StandardCharsets.UTF_8));
+L25|            return toHex(raw);
+L26|        } catch (NoSuchAlgorithmException e) {
+L27|            System.err.println("[ERROR] [HashUtil] digest failed: algorithm=" + algorithm
+L28|                    + ", inputLen=" + input.length()
+L29|                    + ", error=" + e.getMessage());
+L30|            throw new IllegalArgumentException("Unsupported algorithm: " + algorithm, e);
+L31|        }
 ```
 
-### P1 — `G16.2` `api/src/handler/SortHandler.java:47`
+### P2 — `G16.2 误报` 说明（`test/HashUtilTest.java:33`，代表全部测试命中）
 
-> `NumberFormatException` 捕获后直返 400，异常路径无日志。
-
-片段范围：`api/src/handler/SortHandler.java:44-50`
+- **P2** `G16.2(误报)` `api/test/HashUtilTest.java:33` — catch(AssertionError) 调用 `fail()` 记录失败，系标准测试模式，误报。同模式命中见 SortUtilTest 全部 15 处。
+  片段范围：`api/test/HashUtilTest.java:29-35`
 
 ```java
-L44|int[] arr;
-L45|try {
-L46|    arr = parseInput(input);
-L47|} catch (NumberFormatException e) {
-L48|    write(exchange, 400, "Invalid input: expect comma-separated integers, e.g. 3,1,2");
-L49|    return;
-L50|}
+L29|    static void testDigestMd5() {
+L30|        try {
+L31|            String result = HashUtil.digest("md5", "abc");
+L32|            assertEquals("900150983cd24fb0d6963f7d28e17f72", result, "MD5(abc)");
+L33|        } catch (AssertionError e) {
+L34|            fail("testDigestMd5", e);
+L35|        }
+L36|    }
 ```
 
-### P1 — `G16.2` `api/src/util/HashUtil.java:26`
+### P2 — `G11.3` `HashUtil.digest` 未 null-check input
 
-> `NoSuchAlgorithmException` 捕获后重抛为 `IllegalArgumentException`，无日志记录原始异常与上下文。
-
-片段范围：`api/src/util/HashUtil.java:20-29`
+- **P2** `G11.3` `api/src/util/HashUtil.java:24` — `input` 参数未做 null 防御校验，直接调用 `input.getBytes()`。调用方 `HashHandler.java:36` 已校验 `input == null`，风险已缓解。
+  片段范围：`api/src/util/HashUtil.java:20-25`
 
 ```java
-L20|public static String digest(String algorithm, String input) {
-L21|    String alg = normalize(algorithm);
-L22|    try {
-L23|        MessageDigest md = MessageDigest.getInstance(alg);
-L24|        byte[] raw = md.digest(input.getBytes(StandardCharsets.UTF_8));
-L25|        return toHex(raw);
-L26|    } catch (NoSuchAlgorithmException e) {
-L27|        throw new IllegalArgumentException("Unsupported algorithm: " + algorithm);
-L28|    }
-L29|}
+L20|    public static String digest(String algorithm, String input) {
+L21|        String alg = normalize(algorithm);
+L22|        try {
+L23|            MessageDigest md = MessageDigest.getInstance(alg);
+L24|            byte[] raw = md.digest(input.getBytes(StandardCharsets.UTF_8));
+L25|            return toHex(raw);
+```
+
+### P2 — DRY 重复代码（`parseQuery` / `write`）
+
+- **P2** DRY `api/src/handler/HashHandler.java:60-89` — `parseQuery()` 与 `write()` 在 `HashHandler`、`SortHandler`、`HelloWorldHandler` 三处重复。建议提取公共基类 `BaseHandler` 或 `HttpUtil` 工具类。
+  片段范围：`api/src/handler/HashHandler.java:82-89`（write 方法，三处相同）
+
+```java
+L82|    private static void write(HttpExchange exchange, int status, String body) throws IOException {
+L83|        byte[] data = body.getBytes(StandardCharsets.UTF_8);
+L84|        exchange.getResponseHeaders().set("Content-Type", "text/plain; charset=UTF-8");
+L85|        exchange.sendResponseHeaders(status, data.length);
+L86|        try (OutputStream os = exchange.getResponseBody()) {
+L87|            os.write(data);
+L88|        }
+L89|    }
 ```
 
 ---
 
 ## 8. 修复任务列表
 
+### P0
+
+- 无待修复项。
+
 ### P1
 
-- [ ] **P1** `api/src/Main.java:22` — catch 块补充结构化日志（含入参 `args[0]` 与异常类型），或至少 `System.err` 改为带上下文的告警
-- [ ] **P1** `api/src/handler/HashHandler.java:45` — catch 块补充 WARN 日志（含 algorithm/input 摘要与异常 message），保留 400 响应
-- [ ] **P1** `api/src/handler/SortHandler.java:47` — catch 块补充 WARN 日志（含 input 摘要与异常 message），保留 400 响应
-- [ ] **P1** `api/src/util/HashUtil.java:26` — catch 块补充 ERROR 日志后再抛 `IllegalArgumentException`，保留原始 cause（`new IllegalArgumentException(msg, e)`）
+- 无待修复项。
 
 ### P2（可选）
 
-- [ ] **P2** `api/src/Main.java:33` — 增加 `Runtime.getRuntime().addShutdownHook` 在 JVM 退出时 `server.stop(0)`
-- [ ] **P2** `G11.1` — 为 `HashUtil`/`SortUtil` 补充单元测试（断言摘要值/排序结果与边界）
-- [ ] **P2** `api/src/handler/HashHandler.java:27`、`api/src/handler/SortHandler.java:28` — 对 `input` 参数增加长度上限校验（如 ≤1024 字符 / 元素数 ≤1000），超限返 400
+- [ ] **P2** `api/src/util/HashUtil.java:24` — 在 `digest()` 入口对 `input` 加 null 校验（如 `Objects.requireNonNull(input, "input")`），提供防御性编程纵深
+- [ ] **P2** `A2.1` — 为 `api/` 模块补充 `package` 声明（如 `package demo.api;`），提升生产可维护性
+- [ ] **P2** `api/src/handler/` — 提取 `parseQuery()` / `write()` 到公共基类 `BaseHandler` 或 `HttpUtil`，消除三处重复
