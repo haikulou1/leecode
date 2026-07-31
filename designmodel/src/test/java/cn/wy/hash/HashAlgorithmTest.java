@@ -32,13 +32,23 @@ public class HashAlgorithmTest {
         Assert.assertEquals("a9993e364706816aba3e25717850c26c9cd0d89d", hash.hash("abc", "SHA-1"));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void hash_unknownAlgorithm_throws() {
-        hash.hash("abc", "NOT-A-REAL-ALGO");
+        try {
+            hash.hash("abc", "NOT-A-REAL-ALGO");
+            Assert.fail("expected IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            Assert.assertEquals("unsupported algorithm: NOT-A-REAL-ALGO", e.getMessage());
+        }
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void md5_nullInput_throws() {
-        hash.md5(null);
+        try {
+            hash.md5(null);
+            Assert.fail("expected NullPointerException");
+        } catch (NullPointerException e) {
+            Assert.assertEquals("input must not be null", e.getMessage());
+        }
     }
 }

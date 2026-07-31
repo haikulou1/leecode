@@ -8,11 +8,13 @@ package cn.wy.helloworld;
 public class HelloWorldImpl implements HelloWorld {
 
     /** {@inheritDoc} */
+    @Override
     public String sayHello() {
         return "Hello, World!";
     }
 
     /** {@inheritDoc} */
+    @Override
     public String sayHello(String name) {
         if (name == null || name.length() == 0) {
             return sayHello();
