@@ -53,7 +53,8 @@ public class BubbleSortService {
         }
 
         BubbleSortResponse response = new BubbleSortResponse();
-        response.setInput(new ArrayList<>(input));
+        // input 已是入参的独立快照（排序前），sorted 为排序后 working，直接引用即可
+        response.setInput(input);
         response.setSorted(working);
         response.setSteps(steps);
         response.setSwapCount(totalSwaps);

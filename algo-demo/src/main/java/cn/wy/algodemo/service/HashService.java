@@ -76,11 +76,7 @@ public class HashService {
     private String toHex(byte[] bytes) {
         StringBuilder sb = new StringBuilder(bytes.length * 2);
         for (byte b : bytes) {
-            int v = b & 0xFF;
-            if (v < 0x10) {
-                sb.append('0');
-            }
-            sb.append(Integer.toHexString(v));
+            sb.append(String.format("%02x", b & 0xFF));
         }
         return sb.toString();
     }

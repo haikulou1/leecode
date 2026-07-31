@@ -1,5 +1,7 @@
 package cn.wy.algodemo.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -16,6 +18,8 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Map<String, Object>> handleIllegalArgument(IllegalArgumentException e) {
         return buildError(HttpStatus.BAD_REQUEST, e.getMessage());
@@ -23,7 +27,9 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleGeneral(Exception e) {
-        return buildError(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+        // 兜底异常仅记录原始信息到服务端日志，对客户端返回通用消息，避免内部异常细节泄露
+        log.error("Unhandled exception in algo-demo", e);
+        return buildError(HttpStatus.INTERNAL_SERVER_ERROR, "internal error");
     }
 
     private ResponseEntity<Map<String, Object>> buildError(HttpStatus status, String message) {
