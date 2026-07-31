@@ -6,8 +6,8 @@
     "verdict": "通过",
     "blocker": 0,
     "major": 0,
-    "minor": 5,
-    "note": "第二轮复审（CR 修复后）：第一轮 4 个 Major 全部修复且跨仓契约向后兼容（CORS 白名单、导出新增 POST 实时契约、前端 API_BASE 配置化、GlobalExceptionHandler 统一异常）。无阻塞性问题；残留 5 个 Minor 均为演示可接受项，生产化前可选处理。"
+    "minor": 1,
+    "note": "第三轮终审（问题修复后）：第二轮 5 个 Minor 中 4 个已修复/按建议处理（GlobalExceptionHandler 异常脱敏、BubbleSortService 冗余复制合并、HashService toHex 简化、MD5 UI 标注非安全用途），修复未引入新缺陷，跨仓契约保持完整对齐。残留 1 个 Minor（大整数精度）为演示场景可接受项，不阻塞合并。"
   },
   "artifacts": [
     {
