@@ -25,12 +25,10 @@ public class BubbleSortService {
      * @return 排序响应（含 input / sorted / steps / swapCount）
      */
     public BubbleSortResponse sort(BubbleSortRequest request) {
-        List<Integer> input = request.getInput() == null
+        List<Integer> working = new ArrayList<>(request.getInput() == null
                 ? Collections.<Integer>emptyList()
-                : new ArrayList<>(request.getInput());
-
-        // 复制一份用于排序，保留原始输入语义
-        List<Integer> working = new ArrayList<>(input);
+                : request.getInput());
+        List<Integer> input = new ArrayList<>(working);
         int n = working.size();
         int totalSwaps = 0;
         List<Step> steps = new ArrayList<>();

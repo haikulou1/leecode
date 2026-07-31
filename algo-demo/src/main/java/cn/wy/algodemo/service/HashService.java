@@ -7,17 +7,24 @@ import org.springframework.stereotype.Service;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 哈希算法演示服务。
  *
- * <p>支持 MD5 / SHA-256 / SHA-512，默认 SHA-256；hash 输出为十六进制小写。</p>
+ * <p>支持 MD5 / SHA-256 / SHA-512，默认 SHA-256；hash 输出为十六进制小写。
+ * 算法名通过白名单校验（大小写不敏感），防止任意算法名透传至 JCE。</p>
  */
 @Service
 public class HashService {
 
     /** algorithm 为空时使用的默认算法。 */
     private static final String DEFAULT_ALGORITHM = "SHA-256";
+
+    /** 允许的算法白名单（大写形式，大小写不敏感匹配）。 */
+    private static final Set<String> ALLOWED = new HashSet<>(Arrays.asList("MD5", "SHA-256", "SHA-512"));
 
     /**
      * 对输入文本计算哈希。
@@ -31,7 +38,12 @@ public class HashService {
         if (algorithm == null || algorithm.isEmpty()) {
             algorithm = DEFAULT_ALGORITHM;
         }
-        String hex = digest(input, algorithm);
+        String normalized = algorithm.toUpperCase();
+        if (!ALLOWED.contains(normalized)) {
+            throw new IllegalArgumentException(
+                    "Unsupported hash algorithm: " + algorithm + ", allowed: MD5, SHA-256, SHA-512");
+        }
+        String hex = digest(input, normalized);
 
         HashResponse response = new HashResponse();
         response.setInput(input);
