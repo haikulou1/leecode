@@ -1,0 +1,41 @@
+# 人员看板应用配置
+# 生产环境敏感配置（数据库口令、AES 密钥）必须通过环境变量/密钥管理服务注入，禁止写入本文件。
+spring:
+  application:
+    name: staff-board
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 生产环境以环境变量覆盖：SPRING_DATASOURCE_URL / SPRING_DATASOURCE_USERNAME / SPRING_DATASOURCE_PASSWORD
+    url: jdbc:mysql://localhost:3306/staff_board?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+mybatis-plus:
+  # 生产环境以环境变量覆盖：MYBATIS_PLUS_CONFIGURATION_LOG_IMPL 按需开启
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    banner: false
+
+staff:
+  security:
+    # 开发默认 AES-128 密钥（Base64）；生产环境必须注入 STAFF_SECURITY_AES_KEY
+    aes-key: ${STAFF_SECURITY_AES_KEY:c3RhZmYtYm9hcmQta2V5MQ==}
+  import:
+    # 单批最大行数（默认 5000）
+    max-rows: ${STAFF_IMPORT_MAX_ROWS:5000}
+    # 本地文件存储根目录（默认实现）；生产可切换对象存储实现
+    local-storage-dir: ${STAFF_STORAGE_DIR:./data/staff-board}
+    # 白名单强校验开关（可灰度/可应急）
+    whitelist-enforced: ${STAFF_WHITELIST_ENFORCED:true}
+    # 导入功能开关（可应急关闭）
+    enable-import: ${STAFF_IMPORT_ENABLED:true}
+
+logging:
+  level:
+    com.antdigital.staff: info
