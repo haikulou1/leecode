@@ -12,7 +12,8 @@ import com.antdigital.staff.importbiz.mapper.StaffImportTaskMapper;
 import com.antdigital.staff.importbiz.processor.StaffImportProcessor;
 import com.antdigital.staff.importbiz.storage.StorageClient;
 import com.alibaba.excel.EasyExcel;
-import com.alibaba.excel.read.listener.PageReadListener;
+import com.alibaba.excel.context.AnalysisContext;
+import com.alibaba.excel.event.AnalysisEventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
@@ -55,17 +56,16 @@ public class StaffImportAsyncWorker {
      *
      * @param tenantId 显式租户上下文（由提交方传入，避免依赖未提交事务读取任务，P0-2）
      */
-    @Async
+    @Async("staffImportExecutor")
     public void processAsync(Long taskId, String tenantId, byte[] fileBytes) {
         StaffContextHolder.setTenantId(tenantId);
         try {
             markStatus(taskId, ImportTaskStatusEnum.PROCESSING.getCode());
             try {
-                List<EmployeeImportRow> rows = new ArrayList<>();
-                EasyExcel.read(new ByteArrayInputStream(fileBytes), EmployeeImportRow.class,
-                                new PageReadListener<EmployeeImportRow>(rows::addAll))
-                        .sheet().doRead();
-                if (rows.size() > importProperties.getMaxRows()) {
+                int maxRows = importProperties.getMaxRows();
+                List<EmployeeImportRow> rows = new ArrayList<>(Math.max(0, Math.min(maxRows, 1024)));
+                if (readRows(fileBytes, maxRows, rows)) {
+                    // 行数超限：立即中断标记失败，避免超大文件全量驻留内存
                     markStatus(taskId, ImportTaskStatusEnum.FAILED.getCode());
                     return;
                 }
@@ -124,6 +124,46 @@ public class StaffImportAsyncWorker {
             }
         } finally {
             StaffContextHolder.clear();
+        }
+    }
+
+    /**
+     * 流式读取 Excel 行到 rows，行数超过 maxRows 时立即中断并返回 true。
+     * 通过有界上限控制，避免超大文件全量驻留内存（G8 修复）。
+     */
+    private boolean readRows(byte[] fileBytes, int maxRows, List<EmployeeImportRow> rows) {
+        try {
+            EasyExcel.read(new ByteArrayInputStream(fileBytes), EmployeeImportRow.class,
+                            new AnalysisEventListener<EmployeeImportRow>() {
+                                @Override
+                                public void invoke(EmployeeImportRow data, AnalysisContext context) {
+                                    if (rows.size() >= maxRows) {
+                                        throw new RowLimitExceededException(maxRows);
+                                    }
+                                    rows.add(data);
+                                }
+
+                                @Override
+                                public void doAfterAllAnalysed(AnalysisContext context) {
+                                    // 无额外收尾工作
+                                }
+                            })
+                    .sheet().doRead();
+            return false;
+        } catch (RowLimitExceededException ex) {
+            LOG.warn("导入行数超过上限 maxRows:{}", ex.maxRows);
+            return true;
+        }
+    }
+
+    /** 行数超限中断信号（内部专用，避免依赖第三方停止读取异常类型）。 */
+    private static final class RowLimitExceededException extends RuntimeException {
+        private static final long serialVersionUID = 1L;
+        private final int maxRows;
+
+        RowLimitExceededException(int maxRows) {
+            super("导入行数超过上限 " + maxRows);
+            this.maxRows = maxRows;
         }
     }
 

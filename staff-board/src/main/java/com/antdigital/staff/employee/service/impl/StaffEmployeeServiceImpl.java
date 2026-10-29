@@ -14,9 +14,12 @@ import com.antdigital.staff.employee.entity.StaffEmployeeDO;
 import com.antdigital.staff.employee.mapper.StaffEmployeeMapper;
 import com.antdigital.staff.employee.service.StaffEmployeeService;
 import com.antdigital.staff.employee.vo.StaffEmployeeVO;
+import com.antdigital.staff.importbiz.config.ImportProperties;
 import com.antdigital.staff.whitelist.service.StaffWhitelistService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
@@ -32,24 +35,29 @@ import java.util.List;
 @Service
 public class StaffEmployeeServiceImpl implements StaffEmployeeService {
 
+    private static final Logger LOG = LoggerFactory.getLogger(StaffEmployeeServiceImpl.class);
+
     private final StaffEmployeeMapper employeeMapper;
     private final StaffWhitelistService whitelistService;
     private final AesCryptUtil aesCryptUtil;
+    private final ImportProperties importProperties;
 
     @Autowired
     public StaffEmployeeServiceImpl(StaffEmployeeMapper employeeMapper,
                                     StaffWhitelistService whitelistService,
-                                    AesCryptUtil aesCryptUtil) {
+                                    AesCryptUtil aesCryptUtil,
+                                    ImportProperties importProperties) {
         this.employeeMapper = employeeMapper;
         this.whitelistService = whitelistService;
         this.aesCryptUtil = aesCryptUtil;
+        this.importProperties = importProperties;
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Long create(StaffEmployeeDTO dto) {
         validateRequired(dto);
-        if (!whitelistService.checkInWhitelist(dto.getEmpNo())) {
+        if (importProperties.isWhitelistEnforced() && !whitelistService.checkInWhitelist(dto.getEmpNo())) {
             throw new BusinessException(StaffErrorCode.WL_NOT_IN_WHITELIST);
         }
         StaffEmployeeDO existing = getEntityByEmpNo(dto.getEmpNo());
@@ -67,6 +75,7 @@ public class StaffEmployeeServiceImpl implements StaffEmployeeService {
             employeeMapper.insert(entity);
         } catch (DuplicateKeyException ex) {
             // 唯一键冲突（tenant_id + emp_no）转业务错误码，替代并发下 STAFF_SYS_001（P1-4）
+            LOG.warn("员工创建唯一键冲突 empNo:{}", dto.getEmpNo(), ex);
             throw new BusinessException(StaffErrorCode.EMP_NO_EXISTS);
         }
         return entity.getId();

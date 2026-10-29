@@ -16,6 +16,7 @@ import com.antdigital.staff.employee.service.StaffEmployeeService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -78,7 +79,23 @@ public class StaffCostServiceImpl implements StaffCostService {
         entity.setAmount(dto.getAmount());
         entity.setCurrency(StringUtils.hasText(dto.getCurrency()) ? dto.getCurrency() : DEFAULT_CURRENCY);
         entity.setRemark(dto.getRemark());
-        costBudgetMapper.insert(entity);
+        try {
+            costBudgetMapper.insert(entity);
+        } catch (DuplicateKeyException ex) {
+            // 并发同维度唯一键冲突（uk_emp_year_month_type）：重查后按后写覆盖转 update，保证幂等而非 500（G1.1）
+            StaffCostBudgetDO concurrent = findByDimension(tenantId, dto.getEmployeeId(), dto.getYear(),
+                    dto.getMonth(), dto.getCostType());
+            if (concurrent == null) {
+                throw new BusinessException(StaffErrorCode.SYSTEM_ERROR, "成本预算并发写入冲突");
+            }
+            StaffCostBudgetDO update = new StaffCostBudgetDO();
+            update.setId(concurrent.getId());
+            update.setAmount(dto.getAmount());
+            update.setCurrency(StringUtils.hasText(dto.getCurrency()) ? dto.getCurrency() : DEFAULT_CURRENCY);
+            update.setRemark(dto.getRemark());
+            costBudgetMapper.updateById(update);
+            return concurrent.getId();
+        }
         return entity.getId();
     }
 

@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS staff_import_task (
     PRIMARY KEY (id),
     KEY idx_tenant_status (tenant_id, status),
     KEY idx_tenant_create (tenant_id, gmt_create),
-    KEY idx_tenant_file_md5 (tenant_id, file_md5)
+    UNIQUE KEY uk_tenant_file_md5 (tenant_id, file_md5)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='导入任务表';
 
 CREATE TABLE IF NOT EXISTS staff_import_detail (

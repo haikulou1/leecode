@@ -127,6 +127,7 @@ public class StaffImportServiceImpl implements StaffImportService {
         return task != null ? task.getId() : null;
     }
 
+    /** 计算文件 MD5（32 位十六进制），仅作为 (tenant_id, file_md5) 任务级幂等摘要使用，非密码学签名场景。 */
     private String md5(byte[] data) {
         try {
             MessageDigest digest = MessageDigest.getInstance("MD5");

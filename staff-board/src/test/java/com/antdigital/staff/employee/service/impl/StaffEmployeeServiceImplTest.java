@@ -6,7 +6,9 @@ import com.antdigital.staff.common.util.AesCryptUtil;
 import com.antdigital.staff.employee.dto.StaffEmployeeDTO;
 import com.antdigital.staff.employee.entity.StaffEmployeeDO;
 import com.antdigital.staff.employee.mapper.StaffEmployeeMapper;
+import com.antdigital.staff.importbiz.config.ImportProperties;
 import com.antdigital.staff.whitelist.service.StaffWhitelistService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -16,6 +18,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -34,8 +37,16 @@ class StaffEmployeeServiceImplTest {
     @Mock
     private AesCryptUtil aesCryptUtil;
 
+    @Mock
+    private ImportProperties importProperties;
+
     @InjectMocks
     private StaffEmployeeServiceImpl employeeService;
+
+    @BeforeEach
+    void setUp() {
+        lenient().when(importProperties.isWhitelistEnforced()).thenReturn(true);
+    }
 
     private StaffEmployeeDTO buildDto() {
         StaffEmployeeDTO dto = new StaffEmployeeDTO();

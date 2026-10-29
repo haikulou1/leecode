@@ -13,6 +13,8 @@ import com.antdigital.staff.whitelist.service.StaffWhitelistService;
 import com.antdigital.staff.whitelist.vo.StaffWhitelistVO;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,8 @@ import java.util.List;
  */
 @Service
 public class StaffWhitelistServiceImpl implements StaffWhitelistService {
+
+    private static final Logger LOG = LoggerFactory.getLogger(StaffWhitelistServiceImpl.class);
 
     private final StaffWhitelistMapper whitelistMapper;
 
@@ -64,6 +68,7 @@ public class StaffWhitelistServiceImpl implements StaffWhitelistService {
             whitelistMapper.insert(entity);
         } catch (DuplicateKeyException ex) {
             // 并发下唯一键冲突（tenant_id + emp_no）转业务错误码（P1-4）
+            LOG.warn("白名单新增唯一键冲突 empNo:{}", dto.getEmpNo(), ex);
             throw new BusinessException(StaffErrorCode.WL_EMP_EXISTS);
         }
         return entity.getId();
