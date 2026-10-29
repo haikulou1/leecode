@@ -18,6 +18,7 @@ import com.antdigital.staff.whitelist.service.StaffWhitelistService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -62,13 +63,20 @@ public class StaffEmployeeServiceImpl implements StaffEmployeeService {
         entity.setStatus(EmployeeStatusEnum.NORMAL.getCode());
         entity.setSource(StaffConstants.SOURCE_MANUAL);
         entity.setIdCardNo(aesCryptUtil.encrypt(dto.getIdCardNo()));
-        employeeMapper.insert(entity);
+        try {
+            employeeMapper.insert(entity);
+        } catch (DuplicateKeyException ex) {
+            // 唯一键冲突（tenant_id + emp_no）转业务错误码，替代并发下 STAFF_SYS_001（P1-4）
+            throw new BusinessException(StaffErrorCode.EMP_NO_EXISTS);
+        }
         return entity.getId();
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void update(Long employeeId, StaffEmployeeDTO dto) {
+        // 修改复用必填校验（empNo/name），避免空字段覆盖既有姓名（P1-3）
+        validateRequired(dto);
         StaffEmployeeDO existing = getEntityById(employeeId);
         if (existing == null || !EmployeeStatusEnum.NORMAL.getCode().equals(existing.getStatus())) {
             throw new BusinessException(StaffErrorCode.EMP_NOT_FOUND);
@@ -159,7 +167,19 @@ public class StaffEmployeeServiceImpl implements StaffEmployeeService {
             return existing.getId();
         }
         entity.setId(null);
-        employeeMapper.insert(entity);
+        try {
+            employeeMapper.insert(entity);
+        } catch (DuplicateKeyException ex) {
+            // 并发下唯一键冲突后重查并走 update 分支，避免导入批处理中断
+            StaffEmployeeDO concurrent = getEntityByEmpNo(entity.getEmpNo());
+            if (concurrent != null) {
+                entity.setId(concurrent.getId());
+                entity.setGmtCreate(concurrent.getGmtCreate());
+                employeeMapper.updateById(entity);
+                return concurrent.getId();
+            }
+            throw ex;
+        }
         return entity.getId();
     }
 

@@ -97,7 +97,7 @@ public class StaffCostServiceImpl implements StaffCostService {
         boolean aggregate = Boolean.TRUE.equals(query.getAggregate());
         BigDecimal summary = null;
         if (aggregate) {
-            summary = sumAmount(wrapper);
+            summary = sumAmount(tenantId, query);
         }
 
         Page<StaffCostBudgetDO> page = new Page<>(query.normalizedPageNum(), query.normalizedPageSize());
@@ -130,7 +130,8 @@ public class StaffCostServiceImpl implements StaffCostService {
         }
     }
 
-    private StaffCostBudgetDO findByDimension(String tenantId, Long employeeId, Integer year, Integer month, String costType) {
+    private StaffCostBudgetDO findByDimension(String tenantId, Long employeeId, Integer year, Integer month,
+                                              String costType) {
         LambdaQueryWrapper<StaffCostBudgetDO> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(StaffCostBudgetDO::getTenantId, tenantId);
         wrapper.eq(StaffCostBudgetDO::getEmployeeId, employeeId);
@@ -140,14 +141,8 @@ public class StaffCostServiceImpl implements StaffCostService {
         return costBudgetMapper.selectOne(wrapper);
     }
 
-    private BigDecimal sumAmount(LambdaQueryWrapper<StaffCostBudgetDO> wrapper) {
-        List<StaffCostBudgetDO> rows = costBudgetMapper.selectList(wrapper);
-        BigDecimal sum = BigDecimal.ZERO;
-        for (StaffCostBudgetDO row : rows) {
-            if (row.getAmount() != null) {
-                sum = sum.add(row.getAmount());
-            }
-        }
-        return sum;
+    private BigDecimal sumAmount(String tenantId, CostQueryDTO query) {
+        BigDecimal sum = costBudgetMapper.selectSumAmount(tenantId, query);
+        return sum != null ? sum : BigDecimal.ZERO;
     }
 }

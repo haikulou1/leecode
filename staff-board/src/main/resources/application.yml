@@ -24,8 +24,8 @@ mybatis-plus:
 
 staff:
   security:
-    # 开发默认 AES-128 密钥（Base64）；生产环境必须注入 STAFF_SECURITY_AES_KEY
-    aes-key: ${STAFF_SECURITY_AES_KEY:c3RhZmYtYm9hcmQta2V5MQ==}
+    # AES-128/192/256 密钥（Base64，16/24/32 字节）。无默认值，缺失即启动失败（fail-fast）。
+    aes-key: ${STAFF_SECURITY_AES_KEY:}
   import:
     # 单批最大行数（默认 5000）
     max-rows: ${STAFF_IMPORT_MAX_ROWS:5000}

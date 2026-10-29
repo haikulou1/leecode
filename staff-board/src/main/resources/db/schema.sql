@@ -62,6 +62,7 @@ CREATE TABLE IF NOT EXISTS staff_import_task (
     tenant_id      VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '租户ID',
     file_name      VARCHAR(255) NOT NULL DEFAULT '' COMMENT '原始文件名',
     file_url       VARCHAR(512) NULL COMMENT '导入文件对象存储地址',
+    file_md5       CHAR(32)     NULL COMMENT '文件 MD5（与 tenant_id 组合做任务级幂等）',
     total          INT          NOT NULL DEFAULT 0 COMMENT '总行数',
     success        INT          NOT NULL DEFAULT 0 COMMENT '成功行数',
     fail           INT          NOT NULL DEFAULT 0 COMMENT '失败行数',
@@ -72,7 +73,8 @@ CREATE TABLE IF NOT EXISTS staff_import_task (
     gmt_modified   DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
     PRIMARY KEY (id),
     KEY idx_tenant_status (tenant_id, status),
-    KEY idx_tenant_create (tenant_id, gmt_create)
+    KEY idx_tenant_create (tenant_id, gmt_create),
+    KEY idx_tenant_file_md5 (tenant_id, file_md5)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='导入任务表';
 
 CREATE TABLE IF NOT EXISTS staff_import_detail (

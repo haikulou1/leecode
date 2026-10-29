@@ -14,6 +14,7 @@ import com.antdigital.staff.whitelist.vo.StaffWhitelistVO;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -59,14 +60,26 @@ public class StaffWhitelistServiceImpl implements StaffWhitelistService {
         entity.setName(dto.getName());
         entity.setReason(dto.getReason());
         entity.setStatus(WhitelistStatusEnum.ENABLED.getCode());
-        whitelistMapper.insert(entity);
+        try {
+            whitelistMapper.insert(entity);
+        } catch (DuplicateKeyException ex) {
+            // 并发下唯一键冲突（tenant_id + emp_no）转业务错误码（P1-4）
+            throw new BusinessException(StaffErrorCode.WL_EMP_EXISTS);
+        }
         return entity.getId();
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void remove(Long whitelistId) {
-        StaffWhitelistDO existing = whitelistMapper.selectById(whitelistId);
+        if (whitelistId == null) {
+            return;
+        }
+        // 资源操作 tenant_id + 资源ID 双重校验，防跨租户删除（P0-1/G14.2）
+        LambdaQueryWrapper<StaffWhitelistDO> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(StaffWhitelistDO::getId, whitelistId);
+        wrapper.eq(StaffWhitelistDO::getTenantId, StaffContextHolder.getTenantId());
+        StaffWhitelistDO existing = whitelistMapper.selectOne(wrapper);
         if (existing == null) {
             return;
         }

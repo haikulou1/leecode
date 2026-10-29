@@ -26,6 +26,9 @@ public class StaffImportTaskDO implements Serializable {
 
     private String fileUrl;
 
+    /** 文件 MD5（与 tenant_id 组合构成任务级幂等键，design §5.3.3.1）。 */
+    private String fileMd5;
+
     private Integer total;
 
     private Integer success;

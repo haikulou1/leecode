@@ -106,7 +106,7 @@ class StaffWhitelistServiceImplTest {
     @Test
     void should_notUpdate_when_removeMissing() {
         // Arrange
-        when(whitelistMapper.selectById(1L)).thenReturn(null);
+        when(whitelistMapper.selectOne(any())).thenReturn(null);
 
         // Act
         whitelistService.remove(1L);

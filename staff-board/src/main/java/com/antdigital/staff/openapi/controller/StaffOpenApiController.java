@@ -1,5 +1,7 @@
 package com.antdigital.staff.openapi.controller;
 
+import com.antdigital.staff.common.enums.StaffErrorCode;
+import com.antdigital.staff.common.exception.BusinessException;
 import com.antdigital.staff.common.model.ApiResponse;
 import com.antdigital.staff.employee.entity.StaffEmployeeDO;
 import com.antdigital.staff.employee.service.StaffEmployeeService;
@@ -50,7 +52,8 @@ public class StaffOpenApiController {
     public ApiResponse<StaffEmployeeVO> getByEmpNo(@PathVariable String empNo) {
         StaffEmployeeDO employee = employeeService.getEntityByEmpNo(empNo);
         if (employee == null) {
-            return ApiResponse.success(null);
+            // 员工不存在返回明确错误码，避免 data=null 语义歧义（P1-7）
+            throw new BusinessException(StaffErrorCode.EMP_NO_NOT_EXISTS);
         }
         return ApiResponse.success(employeeService.getDetail(employee.getId()));
     }

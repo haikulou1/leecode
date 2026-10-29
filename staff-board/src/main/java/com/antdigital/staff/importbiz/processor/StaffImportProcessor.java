@@ -9,6 +9,8 @@ import com.antdigital.staff.employee.service.StaffEmployeeService;
 import com.antdigital.staff.importbiz.config.ImportProperties;
 import com.antdigital.staff.importbiz.excel.EmployeeImportRow;
 import com.antdigital.staff.whitelist.service.StaffWhitelistService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -22,6 +24,8 @@ import java.time.format.DateTimeFormatter;
  */
 @Component
 public class StaffImportProcessor {
+
+    private static final Logger LOG = LoggerFactory.getLogger(StaffImportProcessor.class);
 
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE;
 
@@ -68,6 +72,11 @@ public class StaffImportProcessor {
 
         if (StringUtils.hasText(row.getCostType()) && row.getCostAmount() != null) {
             StaffEmployeeDO saved = employeeService.getEntityByEmpNo(row.getEmpNo());
+            if (saved == null || saved.getId() == null) {
+                String msg = "成本预算写入失败: 员工不存在 empNo=" + row.getEmpNo();
+                LOG.error(msg);
+                return msg;
+            }
             try {
                 CostBudgetDTO budgetDto = new CostBudgetDTO();
                 budgetDto.setEmployeeId(saved.getId());
@@ -78,6 +87,7 @@ public class StaffImportProcessor {
                 costService.recordBudget(budgetDto);
             } catch (Exception ex) {
                 // 预算行失败仅影响本行预算，不影响员工信息落库（遵循设计 R05）
+                LOG.error("成本预算写入失败 empNo:{} employeeId:{}", row.getEmpNo(), saved.getId(), ex);
                 return "成本预算写入失败: " + ex.getMessage();
             }
         }
@@ -92,6 +102,7 @@ public class StaffImportProcessor {
         try {
             return LocalDate.parse(hireDate, DATE_FORMATTER);
         } catch (Exception ex) {
+            LOG.warn("入职日期解析失败，按空处理 hireDate:{}", hireDate);
             return null;
         }
     }
