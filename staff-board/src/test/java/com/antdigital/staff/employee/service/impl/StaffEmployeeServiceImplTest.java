@@ -131,4 +131,22 @@ class StaffEmployeeServiceImplTest {
         // Assert (无副作用，不抛异常)
         verify(employeeMapper, org.mockito.Mockito.never()).updateById(any());
     }
+
+    @Test
+    void should_update_when_empNoOmitted() {
+        // F03 修复：update 入参不含 empNo，仅校验 name
+        // Arrange
+        StaffEmployeeDTO dto = new StaffEmployeeDTO();
+        dto.setName("张三（改）");
+        StaffEmployeeDO existing = new StaffEmployeeDO();
+        existing.setId(1001L);
+        existing.setStatus(1);
+        when(employeeMapper.selectOne(any())).thenReturn(existing);
+
+        // Act
+        employeeService.update(1001L, dto);
+
+        // Assert
+        verify(employeeMapper).updateById(any(StaffEmployeeDO.class));
+    }
 }

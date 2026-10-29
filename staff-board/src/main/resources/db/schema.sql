@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS staff_import_task (
     tenant_id      VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '租户ID',
     file_name      VARCHAR(255) NOT NULL DEFAULT '' COMMENT '原始文件名',
     file_url       VARCHAR(512) NULL COMMENT '导入文件对象存储地址',
-    file_md5       CHAR(32)     NULL COMMENT '文件 MD5（与 tenant_id 组合做任务级幂等）',
+    file_md5       CHAR(64)     NULL COMMENT '文件摘要 SHA-256（与 tenant_id 组合做任务级幂等）',
     total          INT          NOT NULL DEFAULT 0 COMMENT '总行数',
     success        INT          NOT NULL DEFAULT 0 COMMENT '成功行数',
     fail           INT          NOT NULL DEFAULT 0 COMMENT '失败行数',

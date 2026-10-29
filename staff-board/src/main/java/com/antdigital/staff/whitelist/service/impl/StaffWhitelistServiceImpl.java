@@ -99,8 +99,8 @@ public class StaffWhitelistServiceImpl implements StaffWhitelistService {
         String tenantId = StaffContextHolder.getTenantId();
         LambdaQueryWrapper<StaffWhitelistDO> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(StaffWhitelistDO::getTenantId, tenantId);
-        wrapper.like(StringUtils.hasText(query.getEmpNo()), StaffWhitelistDO::getEmpNo, query.getEmpNo());
-        wrapper.like(StringUtils.hasText(query.getName()), StaffWhitelistDO::getName, query.getName());
+        wrapper.like(StringUtils.hasText(query.getEmpNo()), StaffWhitelistDO::getEmpNo, escapeLike(query.getEmpNo()));
+        wrapper.like(StringUtils.hasText(query.getName()), StaffWhitelistDO::getName, escapeLike(query.getName()));
         wrapper.eq(query.getStatus() != null, StaffWhitelistDO::getStatus, query.getStatus());
         wrapper.orderByDesc(StaffWhitelistDO::getGmtCreate);
 
@@ -132,6 +132,15 @@ public class StaffWhitelistServiceImpl implements StaffWhitelistService {
         wrapper.eq(StaffWhitelistDO::getEmpNo, empNo);
         wrapper.eq(StaffWhitelistDO::getStatus, WhitelistStatusEnum.ENABLED.getCode());
         return whitelistMapper.selectCount(wrapper) > 0;
+    }
+
+    private String escapeLike(String value) {
+        if (value == null) {
+            return null;
+        }
+        return value.replace("\\", "\\\\")
+                .replace("%", "\\%")
+                .replace("_", "\\_");
     }
 
     private StaffWhitelistDO getByEmpNo(String tenantId, String empNo) {

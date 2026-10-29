@@ -82,7 +82,9 @@ public class StaffCostServiceImpl implements StaffCostService {
         try {
             costBudgetMapper.insert(entity);
         } catch (DuplicateKeyException ex) {
-            // 并发同维度唯一键冲突（uk_emp_year_month_type）：重查后按后写覆盖转 update，保证幂等而非 500（G1.1）
+            // 并发同维度唯一键冲突（uk_emp_year_month_type）：重查后按后写覆盖转 update，保证幂等而非 500（G1.1 / P1-5）
+            LOG.warn("成本预算并发写入冲突 tenantId:{} employeeId:{} year:{} month:{} costType:{}",
+                    tenantId, dto.getEmployeeId(), dto.getYear(), dto.getMonth(), dto.getCostType(), ex);
             StaffCostBudgetDO concurrent = findByDimension(tenantId, dto.getEmployeeId(), dto.getYear(),
                     dto.getMonth(), dto.getCostType());
             if (concurrent == null) {

@@ -84,8 +84,8 @@ public class StaffEmployeeServiceImpl implements StaffEmployeeService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void update(Long employeeId, StaffEmployeeDTO dto) {
-        // 修改复用必填校验（empNo/name），避免空字段覆盖既有姓名（P1-3）
-        validateRequired(dto);
+        // F03 修复：update 入参不含 empNo，仅校验 name（与 design W02 对齐）
+        validateUpdate(dto);
         StaffEmployeeDO existing = getEntityById(employeeId);
         if (existing == null || !EmployeeStatusEnum.NORMAL.getCode().equals(existing.getStatus())) {
             throw new BusinessException(StaffErrorCode.EMP_NOT_FOUND);
@@ -128,8 +128,8 @@ public class StaffEmployeeServiceImpl implements StaffEmployeeService {
         String tenantId = StaffContextHolder.getTenantId();
         LambdaQueryWrapper<StaffEmployeeDO> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(StaffEmployeeDO::getTenantId, tenantId);
-        wrapper.like(StringUtils.hasText(query.getEmpNo()), StaffEmployeeDO::getEmpNo, query.getEmpNo());
-        wrapper.like(StringUtils.hasText(query.getName()), StaffEmployeeDO::getName, query.getName());
+        wrapper.like(StringUtils.hasText(query.getEmpNo()), StaffEmployeeDO::getEmpNo, escapeLike(query.getEmpNo()));
+        wrapper.like(StringUtils.hasText(query.getName()), StaffEmployeeDO::getName, escapeLike(query.getName()));
         wrapper.eq(query.getDeptId() != null, StaffEmployeeDO::getDeptId, query.getDeptId());
         wrapper.eq(query.getStatus() != null, StaffEmployeeDO::getStatus, query.getStatus());
         wrapper.orderByDesc(StaffEmployeeDO::getGmtCreate);
@@ -179,7 +179,8 @@ public class StaffEmployeeServiceImpl implements StaffEmployeeService {
         try {
             employeeMapper.insert(entity);
         } catch (DuplicateKeyException ex) {
-            // 并发下唯一键冲突后重查并走 update 分支，避免导入批处理中断
+            // 并发下唯一键冲突后重查并走 update 分支，避免导入批处理中断（P1-5）
+            LOG.warn("员工导入唯一键冲突 empNo:{}，尝试转 update", entity.getEmpNo(), ex);
             StaffEmployeeDO concurrent = getEntityByEmpNo(entity.getEmpNo());
             if (concurrent != null) {
                 entity.setId(concurrent.getId());
@@ -196,6 +197,21 @@ public class StaffEmployeeServiceImpl implements StaffEmployeeService {
         if (dto == null || !StringUtils.hasText(dto.getEmpNo()) || !StringUtils.hasText(dto.getName())) {
             throw new BusinessException(StaffErrorCode.EMP_PARAM_INVALID);
         }
+    }
+
+    private void validateUpdate(StaffEmployeeDTO dto) {
+        if (dto == null || !StringUtils.hasText(dto.getName())) {
+            throw new BusinessException(StaffErrorCode.EMP_PARAM_INVALID);
+        }
+    }
+
+    private String escapeLike(String value) {
+        if (value == null) {
+            return null;
+        }
+        return value.replace("\\", "\\\\")
+                .replace("%", "\\%")
+                .replace("_", "\\_");
     }
 
     private void copyToEntity(StaffEmployeeDTO dto, StaffEmployeeDO entity) {
