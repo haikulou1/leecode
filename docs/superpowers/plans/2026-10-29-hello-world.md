@@ -62,6 +62,14 @@ Expected: 仅保留源文件 `HelloWorld.java`（编译产物不入库）。
 - 占位符扫描：无 TBD/TODO/待补充。
 - 缺失条件：主机未安装 JDK，编译/运行步骤需先安装 JDK 8+；已在上方 Global Constraints 声明。
 
+## 异常兜底方案
+
+> 详细矩阵见独立文档：`docs/superpowers/plans/2026-10-29-hello-world-fallback.md`。
+
+- **构建/运行环境异常**：JDK 缺失时优先使用免安装解包方式（`dpkg -x` 到 `/tmp`，不解包到系统目录），避免依赖受沙箱限制的系统包管理器；下载源不可达时按 aliyun 镜像 → Adoptium API → Ubuntu 官方池顺序切换。
+- **程序运行时异常**：`main` 内以 try-catch 包裹输出，正常路径仍精确打印 `Hello, World!`；`System.out` 不可用时降级到 `System.err` 摘要并 `System.exit(1)`，`flush()` 确保缓冲落盘。
+- **验证/CI 失败场景**：编译显式 `-encoding UTF-8 -J-Dfile.encoding=UTF-8` 并设 `LANG=C.UTF-8` 规避包含特殊字符路径导致的 `InvalidPathException`；运行退出码非 0 时核对主类名 `HelloWorld` 与文件名一致；输出用 `od -c` 做字节级比对（目标 13 字节）。
+
 ## 备注
 
 - 仓库根目录 `HelloWorld.java` 当前已存在且内容与需求一致，Task 1 在已确认现状下无需改动源码，仅需完成编译/运行验证；若后续需从零重建，按 Step 1 创建。
